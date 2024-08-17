@@ -9,13 +9,12 @@ namespace E_Commerce_API.Models
              : base(options)
         {
         }
-        DbSet<Attribute> attributes { get; set; }
-        DbSet<Category> categories { get; set; }
-        DbSet<Brand> brands { get; set; }
-        DbSet<Coupon> coupons { get; set; }
-        DbSet<Image> images { get; set; }
-        DbSet<Product> products { get; set; }
-        DbSet<ProductVariant> productsVariants { get; set; }
+        DbSet<Attribute> Attributes { get; set; }
+        DbSet<Category> Categories { get; set; }
+        DbSet<Brand> Brands { get; set; }
+        DbSet<Coupon> Coupons { get; set; }
+        DbSet<Product> Products { get; set; }
+        DbSet<ProductVariant> ProductsVariants { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
