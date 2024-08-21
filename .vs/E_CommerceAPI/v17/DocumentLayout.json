@@ -1,34 +1,26 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\Dot Net Projects\\E_CommerceAPI\\",
+  "WorkspaceRootPath": "D:\\Abdelhay projects\\E_CommerceAPI\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Dot Net Projects\\E_CommerceAPI\\E_CommerceAPI\\Migrations\\20240813175933_Initial_database.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:E_CommerceAPI\\Migrations\\20240813175933_Initial_database.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{E1640AB2-261B-4D73-8243-64E1B587905C}|E-Commerce.Domain\\E_Commerce.Domain.csproj|d:\\abdelhay projects\\e_commerceapi\\e-commerce.domain\\entities\\category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E1640AB2-261B-4D73-8243-64E1B587905C}|E-Commerce.Domain\\E_Commerce.Domain.csproj|solutionrelative:e-commerce.domain\\entities\\category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{566A2C5D-3418-4AF7-AAD5-B78AB4722954}|E_CommerceAPI\\E_CommerceAPI.csproj|d:\\dot net projects\\e_commerceapi\\e_commerceapi\\models\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{566A2C5D-3418-4AF7-AAD5-B78AB4722954}|E_CommerceAPI\\E_CommerceAPI.csproj|solutionrelative:e_commerceapi\\models\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{E1640AB2-261B-4D73-8243-64E1B587905C}|E-Commerce.Domain\\E_Commerce.Domain.csproj|d:\\abdelhay projects\\e_commerceapi\\e-commerce.domain\\entities\\brand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E1640AB2-261B-4D73-8243-64E1B587905C}|E-Commerce.Domain\\E_Commerce.Domain.csproj|solutionrelative:e-commerce.domain\\entities\\brand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{566A2C5D-3418-4AF7-AAD5-B78AB4722954}|E_CommerceAPI\\E_CommerceAPI.csproj|d:\\dot net projects\\e_commerceapi\\e_commerceapi\\models\\productvariant.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{566A2C5D-3418-4AF7-AAD5-B78AB4722954}|E_CommerceAPI\\E_CommerceAPI.csproj|solutionrelative:e_commerceapi\\models\\productvariant.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{E1640AB2-261B-4D73-8243-64E1B587905C}|E-Commerce.Domain\\E_Commerce.Domain.csproj|d:\\abdelhay projects\\e_commerceapi\\e-commerce.domain\\entities\\baseentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E1640AB2-261B-4D73-8243-64E1B587905C}|E-Commerce.Domain\\E_Commerce.Domain.csproj|solutionrelative:e-commerce.domain\\entities\\baseentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{566A2C5D-3418-4AF7-AAD5-B78AB4722954}|E_CommerceAPI\\E_CommerceAPI.csproj|d:\\dot net projects\\e_commerceapi\\e_commerceapi\\models\\productvariantattribute.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{566A2C5D-3418-4AF7-AAD5-B78AB4722954}|E_CommerceAPI\\E_CommerceAPI.csproj|solutionrelative:e_commerceapi\\models\\productvariantattribute.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{E1640AB2-261B-4D73-8243-64E1B587905C}|E-Commerce.Domain\\E_Commerce.Domain.csproj|d:\\abdelhay projects\\e_commerceapi\\e-commerce.domain\\entities\\attribute.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E1640AB2-261B-4D73-8243-64E1B587905C}|E-Commerce.Domain\\E_Commerce.Domain.csproj|solutionrelative:e-commerce.domain\\entities\\attribute.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{566A2C5D-3418-4AF7-AAD5-B78AB4722954}|E_CommerceAPI\\E_CommerceAPI.csproj|d:\\dot net projects\\e_commerceapi\\e_commerceapi\\models\\attribute.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{566A2C5D-3418-4AF7-AAD5-B78AB4722954}|E_CommerceAPI\\E_CommerceAPI.csproj|solutionrelative:e_commerceapi\\models\\attribute.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Dot Net Projects\\E_CommerceAPI\\E_CommerceAPI\\Migrations\\20240813175531_Initial_database.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:E_CommerceAPI\\Migrations\\20240813175531_Initial_database.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{566A2C5D-3418-4AF7-AAD5-B78AB4722954}|E_CommerceAPI\\E_CommerceAPI.csproj|d:\\dot net projects\\e_commerceapi\\e_commerceapi\\models\\category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{566A2C5D-3418-4AF7-AAD5-B78AB4722954}|E_CommerceAPI\\E_CommerceAPI.csproj|solutionrelative:e_commerceapi\\models\\category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{E1640AB2-261B-4D73-8243-64E1B587905C}|E-Commerce.Domain\\E_Commerce.Domain.csproj|d:\\abdelhay projects\\e_commerceapi\\e-commerce.domain\\entities\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E1640AB2-261B-4D73-8243-64E1B587905C}|E-Commerce.Domain\\E_Commerce.Domain.csproj|solutionrelative:e-commerce.domain\\entities\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,67 +30,19 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 16,
           "Children": [
             {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "20240813175933_Initial_database.cs",
-              "DocumentMoniker": "D:\\Dot Net Projects\\E_CommerceAPI\\E_CommerceAPI\\Migrations\\20240813175933_Initial_database.cs",
-              "RelativeDocumentMoniker": "E_CommerceAPI\\Migrations\\20240813175933_Initial_database.cs",
-              "ToolTip": "D:\\Dot Net Projects\\E_CommerceAPI\\E_CommerceAPI\\Migrations\\20240813175933_Initial_database.cs",
-              "RelativeToolTip": "E_CommerceAPI\\Migrations\\20240813175933_Initial_database.cs",
-              "ViewState": "AQIAAPMAAAAAAAAAAAAowAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-13T17:59:33.307Z",
-              "EditorCaption": ""
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{0ad07096-bba9-4900-a651-0598d26f6d24}"
             },
             {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "ProductVariantAttribute.cs",
-              "DocumentMoniker": "D:\\Dot Net Projects\\E_CommerceAPI\\E_CommerceAPI\\Models\\ProductVariantAttribute.cs",
-              "RelativeDocumentMoniker": "E_CommerceAPI\\Models\\ProductVariantAttribute.cs",
-              "ToolTip": "D:\\Dot Net Projects\\E_CommerceAPI\\E_CommerceAPI\\Models\\ProductVariantAttribute.cs",
-              "RelativeToolTip": "E_CommerceAPI\\Models\\ProductVariantAttribute.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAAnAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-13T17:58:33.202Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "20240813175531_Initial_database.cs",
-              "DocumentMoniker": "D:\\Dot Net Projects\\E_CommerceAPI\\E_CommerceAPI\\Migrations\\20240813175531_Initial_database.cs",
-              "RelativeDocumentMoniker": "E_CommerceAPI\\Migrations\\20240813175531_Initial_database.cs",
-              "ToolTip": "D:\\Dot Net Projects\\E_CommerceAPI\\E_CommerceAPI\\Migrations\\20240813175531_Initial_database.cs",
-              "RelativeToolTip": "E_CommerceAPI\\Migrations\\20240813175531_Initial_database.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAKMAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-13T17:55:31.963Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "ProductVariant.cs",
-              "DocumentMoniker": "D:\\Dot Net Projects\\E_CommerceAPI\\E_CommerceAPI\\Models\\ProductVariant.cs",
-              "RelativeDocumentMoniker": "E_CommerceAPI\\Models\\ProductVariant.cs",
-              "ToolTip": "D:\\Dot Net Projects\\E_CommerceAPI\\E_CommerceAPI\\Models\\ProductVariant.cs",
-              "RelativeToolTip": "E_CommerceAPI\\Models\\ProductVariant.cs",
-              "ViewState": "AQIAAAUAAAAAAAAAAAAAAAkAAAArAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-13T17:31:03.581Z",
-              "EditorCaption": ""
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{13b12e3e-c1b4-4539-9371-4fe9a0d523fc}"
             },
             {
               "$type": "Bookmark",
               "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
             },
             {
               "$type": "Bookmark",
@@ -138,10 +82,6 @@
             },
             {
               "$type": "Bookmark",
-              "Name": "ST:0:0:{0ad07096-bba9-4900-a651-0598d26f6d24}"
-            },
-            {
-              "$type": "Bookmark",
               "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
             },
             {
@@ -150,45 +90,75 @@
             },
             {
               "$type": "Bookmark",
-              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
+              "Name": "ST:131:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:132:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 0,
               "Title": "Category.cs",
-              "DocumentMoniker": "D:\\Dot Net Projects\\E_CommerceAPI\\E_CommerceAPI\\Models\\Category.cs",
-              "RelativeDocumentMoniker": "E_CommerceAPI\\Models\\Category.cs",
-              "ToolTip": "D:\\Dot Net Projects\\E_CommerceAPI\\E_CommerceAPI\\Models\\Category.cs",
-              "RelativeToolTip": "E_CommerceAPI\\Models\\Category.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAAAAAA",
+              "DocumentMoniker": "D:\\Abdelhay projects\\E_CommerceAPI\\E-Commerce.Domain\\Entities\\Category.cs",
+              "RelativeDocumentMoniker": "E-Commerce.Domain\\Entities\\Category.cs",
+              "ToolTip": "D:\\Abdelhay projects\\E_CommerceAPI\\E-Commerce.Domain\\Entities\\Category.cs",
+              "RelativeToolTip": "E-Commerce.Domain\\Entities\\Category.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-13T17:36:36.406Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Attribute.cs",
-              "DocumentMoniker": "D:\\Dot Net Projects\\E_CommerceAPI\\E_CommerceAPI\\Models\\Attribute.cs",
-              "RelativeDocumentMoniker": "E_CommerceAPI\\Models\\Attribute.cs",
-              "ToolTip": "D:\\Dot Net Projects\\E_CommerceAPI\\E_CommerceAPI\\Models\\Attribute.cs",
-              "RelativeToolTip": "E_CommerceAPI\\Models\\Attribute.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-13T16:58:52.253Z",
+              "WhenOpened": "2024-08-21T09:04:32.759Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "ApplicationDbContext.cs",
-              "DocumentMoniker": "D:\\Dot Net Projects\\E_CommerceAPI\\E_CommerceAPI\\Models\\ApplicationDbContext.cs",
-              "RelativeDocumentMoniker": "E_CommerceAPI\\Models\\ApplicationDbContext.cs",
-              "ToolTip": "D:\\Dot Net Projects\\E_CommerceAPI\\E_CommerceAPI\\Models\\ApplicationDbContext.cs",
-              "RelativeToolTip": "E_CommerceAPI\\Models\\ApplicationDbContext.cs",
-              "ViewState": "AQIAABEAAAAAAAAAAABAwCAAAAAqAAAA",
+              "Title": "Brand.cs",
+              "DocumentMoniker": "D:\\Abdelhay projects\\E_CommerceAPI\\E-Commerce.Domain\\Entities\\Brand.cs",
+              "RelativeDocumentMoniker": "E-Commerce.Domain\\Entities\\Brand.cs",
+              "ToolTip": "D:\\Abdelhay projects\\E_CommerceAPI\\E-Commerce.Domain\\Entities\\Brand.cs",
+              "RelativeToolTip": "E-Commerce.Domain\\Entities\\Brand.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-13T16:53:45.291Z",
+              "WhenOpened": "2024-08-21T09:04:25.84Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "BaseEntity.cs",
+              "DocumentMoniker": "D:\\Abdelhay projects\\E_CommerceAPI\\E-Commerce.Domain\\Entities\\BaseEntity.cs",
+              "RelativeDocumentMoniker": "E-Commerce.Domain\\Entities\\BaseEntity.cs",
+              "ToolTip": "D:\\Abdelhay projects\\E_CommerceAPI\\E-Commerce.Domain\\Entities\\BaseEntity.cs",
+              "RelativeToolTip": "E-Commerce.Domain\\Entities\\BaseEntity.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAcAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-21T09:04:21.639Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Attribute.cs",
+              "DocumentMoniker": "D:\\Abdelhay projects\\E_CommerceAPI\\E-Commerce.Domain\\Entities\\Attribute.cs",
+              "RelativeDocumentMoniker": "E-Commerce.Domain\\Entities\\Attribute.cs",
+              "ToolTip": "D:\\Abdelhay projects\\E_CommerceAPI\\E-Commerce.Domain\\Entities\\Attribute.cs",
+              "RelativeToolTip": "E-Commerce.Domain\\Entities\\Attribute.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-21T08:56:52.456Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ApplicationDbContext.cs",
+              "DocumentMoniker": "D:\\Abdelhay projects\\E_CommerceAPI\\E-Commerce.Domain\\Entities\\ApplicationDbContext.cs",
+              "RelativeDocumentMoniker": "E-Commerce.Domain\\Entities\\ApplicationDbContext.cs",
+              "ToolTip": "D:\\Abdelhay projects\\E_CommerceAPI\\E-Commerce.Domain\\Entities\\ApplicationDbContext.cs",
+              "RelativeToolTip": "E-Commerce.Domain\\Entities\\ApplicationDbContext.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-21T08:54:35.095Z",
               "EditorCaption": ""
             }
           ]
@@ -197,6 +167,10 @@
           "DockedWidth": 76,
           "SelectedChildIndex": -1,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{fbcae063-e2c0-4ab1-a516-996ea3dafb72}"
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
