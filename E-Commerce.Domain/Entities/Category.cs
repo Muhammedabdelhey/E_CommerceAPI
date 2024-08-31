@@ -7,7 +7,7 @@
         public Guid? ParentId { get; set; }
         [ForeignKey(nameof(ParentId))]
         public Category? Parent { get; set; }
-        public ICollection<Category> Children { get; set; } = new List<Category>();
+        public ICollection<Category> Childrens { get; set; } = new List<Category>();
 
         public ICollection<Product> Products { get; set; } = new List<Product>();
         public ICollection<Attribute> Attributes { get; set; } = new List<Attribute>();

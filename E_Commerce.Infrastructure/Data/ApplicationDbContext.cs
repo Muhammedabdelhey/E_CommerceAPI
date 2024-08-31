@@ -1,20 +1,17 @@
-﻿using Microsoft.Extensions.Hosting;
+﻿using E_Commerce.Domain.Entities;
+using Microsoft.EntityFrameworkCore;
 using Attribute = E_Commerce.Domain.Entities.Attribute;
 
 namespace E_Commerce_API.Models
 {
-    public class ApplicationDbContext : DbContext
+    public class ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : DbContext(options)
     {
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
-             : base(options)
-        {
-        }
-        DbSet<Attribute> Attributes { get; set; }
-        DbSet<Category> Categories { get; set; }
-        DbSet<Brand> Brands { get; set; }
-        DbSet<Coupon> Coupons { get; set; }
-        DbSet<Product> Products { get; set; }
-        DbSet<ProductVariant> ProductsVariants { get; set; }
+        internal DbSet<Attribute> Attributes { get; set; }
+        internal DbSet<Category> Categories { get; set; }
+        internal DbSet<Brand> Brands { get; set; }
+        internal DbSet<Coupon> Coupons { get; set; }
+        internal DbSet<Product> Products { get; set; }
+        internal DbSet<ProductVariant> ProductsVariants { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -30,6 +27,7 @@ namespace E_Commerce_API.Models
 
             modelBuilder.Entity<ProductVariantAttributes>()
                 .HasKey(["ProductVariantId", "AttributeId"]);
+
             modelBuilder.Entity<CategoryAttributes>()
                 .HasKey(["CategoryId", "AttributeId"]);
             base.OnModelCreating(modelBuilder);

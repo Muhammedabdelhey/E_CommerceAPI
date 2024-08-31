@@ -1,6 +1,5 @@
 ﻿namespace E_Commerce.Domain.Entities
 {
-    [PrimaryKey(nameof(ProductVariantId),nameof(AttributeId))]
     public class ProductVariantAttributes
     {
         public Guid ProductVariantId { get; set; }

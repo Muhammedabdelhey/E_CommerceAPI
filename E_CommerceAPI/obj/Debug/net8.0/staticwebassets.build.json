@@ -1,8 +1,8 @@
 {
   "Version": 1,
-  "Hash": "Oj6qMn6J68bdUkxMMGMUmmj3jgf6bxbBqUV/+GJpd0M=",
-  "Source": "Presentation_Layer.API",
-  "BasePath": "_content/Presentation_Layer.API",
+  "Hash": "RJKHaTR3+fbH6FYnNuwzM5IkxWiGREtyFfbmcduFaYw=",
+  "Source": "E_Commerce.Presentation",
+  "BasePath": "_content/E_Commerce.Presentation",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],

@@ -5,11 +5,11 @@ VisualStudioVersion = 17.10.35027.167
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "E_Commerce.Presentation", "E_CommerceAPI\E_Commerce.Presentation.csproj", "{566A2C5D-3418-4AF7-AAD5-B78AB4722954}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "E_Commerce.Domain", "E-Commerce.Domain\E_Commerce.Domain.csproj", "{E1640AB2-261B-4D73-8243-64E1B587905C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "E_Commerce.Domain", "E-Commerce.Domain\E_Commerce.Domain.csproj", "{E1640AB2-261B-4D73-8243-64E1B587905C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "E_Commerce.Application", "E-Commerce.Application\E_Commerce.Application.csproj", "{29EFEA29-5C3F-4390-97EE-0EED3159D879}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "E_Commerce.Application", "E-Commerce.Application\E_Commerce.Application.csproj", "{29EFEA29-5C3F-4390-97EE-0EED3159D879}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "E_Commerce.Infrastructure", "E_Commerce.Infrastructure\E_Commerce.Infrastructure.csproj", "{C703496E-EBFB-4E58-9AE9-9D836BE3CE6D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "E_Commerce.Infrastructure", "E_Commerce.Infrastructure\E_Commerce.Infrastructure.csproj", "{C703496E-EBFB-4E58-9AE9-9D836BE3CE6D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
