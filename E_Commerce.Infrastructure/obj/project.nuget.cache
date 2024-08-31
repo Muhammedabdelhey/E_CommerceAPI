@@ -1,12 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "LyhT0Obx6S6pvZjaFqG/nPZskz3rivCSJc/l1KY8eFiyFZMJLEa4iy18wQF+1pMS6A28sQMyr29w3n7QX+a2MQ==",
+  "dgSpecHash": "aQJ1JQVlv5JhLpvYqBSrDd/MRABjAvgjdBrKBxqt5N7ZkaG/U6OXMZo+iLl042m0tI44NtEaa041Kcu1kVCwkw==",
   "success": true,
   "projectFilePath": "D:\\Abdelhay projects\\E_CommerceAPI\\E_Commerce.Infrastructure\\E_Commerce.Infrastructure.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Ticket-PC1\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\Ticket-PC1\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",
     "C:\\Users\\Ticket-PC1\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
+    "C:\\Users\\Ticket-PC1\\.nuget\\packages\\mediatr\\12.4.0\\mediatr.12.4.0.nupkg.sha512",
+    "C:\\Users\\Ticket-PC1\\.nuget\\packages\\mediatr.contracts\\2.0.1\\mediatr.contracts.2.0.1.nupkg.sha512",
     "C:\\Users\\Ticket-PC1\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\6.0.0\\microsoft.bcl.asyncinterfaces.6.0.0.nupkg.sha512",
     "C:\\Users\\Ticket-PC1\\.nuget\\packages\\microsoft.codeanalysis.analyzers\\3.3.3\\microsoft.codeanalysis.analyzers.3.3.3.nupkg.sha512",
     "C:\\Users\\Ticket-PC1\\.nuget\\packages\\microsoft.codeanalysis.common\\4.5.0\\microsoft.codeanalysis.common.4.5.0.nupkg.sha512",

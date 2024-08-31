@@ -1,4 +1,6 @@
-﻿namespace E_Commerce.Domain.Entities
+﻿using E_Commerce.Domain.Comman;
+
+namespace E_Commerce.Domain.Entities
 {
     public class ProductVariant : BaseEntity
     {
@@ -11,8 +13,8 @@
         public Guid ProductId { get; set; }
         [ForeignKey(nameof(ProductId))]
         public required Product Product { get; set; }
-        public ICollection<Attribute> Attributes { get; set; }= new List<Attribute>();
-        public ICollection<ProductVariantAttributes> ProductVariantAttributess { get; set; }=new List<ProductVariantAttributes>();
+        public ICollection<Attribute> Attributes { get; set; } = [];
+        public ICollection<ProductVariantAttributes> ProductVariantAttributess { get; set; } = [];
 
 
     }

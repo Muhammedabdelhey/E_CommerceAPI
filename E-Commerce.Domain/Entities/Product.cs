@@ -1,7 +1,12 @@
-﻿namespace E_Commerce.Domain.Entities
+﻿using E_Commerce.Domain.Comman;
+
+namespace E_Commerce.Domain.Entities
 {
-    public class Product : BaseEntity
+    public class Product : BaseAuditableEntity
     {
+        [Required]
+        [StringLength(100)]
+        public string Name { get; set; } = string.Empty;
         public string Description { get; set; } = string.Empty;
         public Guid CategoryId { get; set; }
         [ForeignKey("CategoryId")]

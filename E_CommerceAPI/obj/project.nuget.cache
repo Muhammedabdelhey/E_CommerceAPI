@@ -1,11 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "Lwy/sowH7KNMBcvaoG9AcASA0TPtCHQSCpIthF87NCvZ+GH5tICpVQOUUngLpYSpdKHNIAUZOQfE5TRpuhLQEA==",
+  "dgSpecHash": "Bf5g3bFqQK7ySCuBwebzYyUIJSTekjHRRL7SdqPYY4cFRx++hl3H/CAy4WLnDsyf2//NwA3l9GHdZAfgPOK4Ww==",
   "success": true,
   "projectFilePath": "D:\\Abdelhay projects\\E_CommerceAPI\\E_CommerceAPI\\E_Commerce.Presentation.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Ticket-PC1\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\Ticket-PC1\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",
+    "C:\\Users\\Ticket-PC1\\.nuget\\packages\\mediatr\\12.4.0\\mediatr.12.4.0.nupkg.sha512",
+    "C:\\Users\\Ticket-PC1\\.nuget\\packages\\mediatr.contracts\\2.0.1\\mediatr.contracts.2.0.1.nupkg.sha512",
     "C:\\Users\\Ticket-PC1\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\Ticket-PC1\\.nuget\\packages\\microsoft.data.sqlclient\\5.1.5\\microsoft.data.sqlclient.5.1.5.nupkg.sha512",

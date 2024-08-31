@@ -1,4 +1,4 @@
-﻿using E_Commerce_API.Models;
+﻿using E_Commerce.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;

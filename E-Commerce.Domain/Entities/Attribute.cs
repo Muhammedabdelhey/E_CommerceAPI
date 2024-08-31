@@ -1,14 +1,17 @@
-﻿namespace E_Commerce.Domain.Entities
+﻿using E_Commerce.Domain.Comman;
+
+namespace E_Commerce.Domain.Entities
 {
     public class Attribute : BaseEntity
     {
+        [Required]
+        [StringLength(50)]
+        public string Name { get; set; } = string.Empty;
+        public ICollection<Category> Categories { get; set; } = [];
+        public ICollection<CategoryAttributes> CategoryAttributess { get; set; } = [];
 
-        public ICollection<Category> Categories { get; set; } = new List<Category>();
-        public ICollection<CategoryAttributes> CategoryAttributess { get; set; } = new List<CategoryAttributes>();
-
-        public ICollection<ProductVariant> ProductVariants { get; set; } = new List<ProductVariant>();
-        public ICollection<ProductVariantAttributes> ProductVariantsAttributes { get; set; } =
-            new List<ProductVariantAttributes>();
+        public ICollection<ProductVariant> ProductVariants { get; set; } = [];
+        public ICollection<ProductVariantAttributes> ProductVariantsAttributes { get; set; } = [];
 
     }
 }
