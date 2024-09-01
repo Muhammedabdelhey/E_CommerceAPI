@@ -1,9 +1,4 @@
-﻿using E_Commerce.Infrastructure.Data;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-
-namespace E_Commerce.Infrastructure.Extenstions
+﻿namespace E_Commerce.Infrastructure.Extenstions
 {
     public static class ServiceCollectionExtention
     {
@@ -13,6 +8,7 @@ namespace E_Commerce.Infrastructure.Extenstions
             var companyConnectionString = configuration.GetConnectionString("company");
 
             services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(companyConnectionString));
+            services.AddTransient(typeof(IBaseRepository<>), typeof(BaseRepository<>));
         }
     }
 }

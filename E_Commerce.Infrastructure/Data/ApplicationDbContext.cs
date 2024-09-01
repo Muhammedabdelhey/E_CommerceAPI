@@ -1,8 +1,4 @@
-﻿using E_Commerce.Domain.Entities;
-using Microsoft.EntityFrameworkCore;
-using Attribute = E_Commerce.Domain.Entities.Attribute;
-
-namespace E_Commerce.Infrastructure.Data;
+﻿namespace E_Commerce.Infrastructure.Data;
 
 public class ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : DbContext(options)
 {
@@ -15,21 +11,23 @@ public class ApplicationDbContext(DbContextOptions<ApplicationDbContext> options
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.Entity<Category>()
-            .HasMany(e => e.Attributes)
-            .WithMany(e => e.Categories)
-            .UsingEntity<CategoryAttributes>();
+        //modelBuilder.Entity<Category>()
+        //    .HasMany(e => e.Attributes)
+        //    .WithMany(e => e.Categories)
+        //    .UsingEntity<CategoryAttributes>();
 
-        modelBuilder.Entity<ProductVariant>()
-            .HasMany(pv => pv.Attributes)
-            .WithMany(pv => pv.ProductVariants)
-            .UsingEntity<ProductVariantAttributes>();
+        //modelBuilder.Entity<CategoryAttributes>()
+        //    .HasKey(["CategoryId", "AttributeId"]);
 
-        modelBuilder.Entity<ProductVariantAttributes>()
-            .HasKey(["ProductVariantId", "AttributeId"]);
+        //modelBuilder.Entity<ProductVariant>()
+        //    .HasMany(pv => pv.Attributes)
+        //    .WithMany(pv => pv.ProductVariants)
+        //    .UsingEntity<ProductVariantAttributes>();
 
-        modelBuilder.Entity<CategoryAttributes>()
-            .HasKey(["CategoryId", "AttributeId"]);
+        //modelBuilder.Entity<ProductVariantAttributes>()
+        //    .HasKey(["ProductVariantId", "AttributeId"]);
+
+        modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
         base.OnModelCreating(modelBuilder);
 
     }

@@ -6,5 +6,7 @@
 
         public Guid AttributeId { get; set; }
         public  string Value {  get; set; }=string.Empty;
+        public required ProductVariant ProductVariant { get; set; }
+        public required Attribute Attribute { get; set; }
     }
 }

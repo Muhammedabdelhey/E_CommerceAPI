@@ -3,6 +3,8 @@
     public class CategoryAttributes
     {
         public Guid CategoryId { get; set; }
-        public Guid AttributeId {  get; set; }
+        public Guid AttributeId { get; set; }
+        public required Category Category { get; set; }
+        public required Attribute Attribute { get; set; }
     }
 }

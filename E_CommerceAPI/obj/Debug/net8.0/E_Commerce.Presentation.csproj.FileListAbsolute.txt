@@ -75,3 +75,5 @@ D:\Abdelhay projects\E_CommerceAPI\E_CommerceAPI\obj\Debug\net8.0\refint\E_Comme
 D:\Abdelhay projects\E_CommerceAPI\E_CommerceAPI\obj\Debug\net8.0\E_Commerce.Presentation.pdb
 D:\Abdelhay projects\E_CommerceAPI\E_CommerceAPI\obj\Debug\net8.0\E_Commerce.Presentation.genruntimeconfig.cache
 D:\Abdelhay projects\E_CommerceAPI\E_CommerceAPI\obj\Debug\net8.0\ref\E_Commerce.Presentation.dll
+D:\Abdelhay projects\E_CommerceAPI\E_CommerceAPI\bin\Debug\net8.0\MediatR.dll
+D:\Abdelhay projects\E_CommerceAPI\E_CommerceAPI\bin\Debug\net8.0\MediatR.Contracts.dll
