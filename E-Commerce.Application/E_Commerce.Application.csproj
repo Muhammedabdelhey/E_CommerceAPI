@@ -8,12 +8,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\E-Commerce.Domain\E_Commerce.Domain.csproj" />
+    <Compile Remove="Category\**" />
+    <EmbeddedResource Remove="Category\**" />
+    <None Remove="Category\**" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Category\Commands\" />
-    <Folder Include="Category\Queries\" />
+    <ProjectReference Include="..\E-Commerce.Domain\E_Commerce.Domain.csproj" />
   </ItemGroup>
 
 </Project>

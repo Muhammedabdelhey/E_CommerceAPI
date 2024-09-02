@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "D:\\Abdelhay projects\\E_CommerceAPI\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{C703496E-EBFB-4E58-9AE9-9D836BE3CE6D}|E_Commerce.Infrastructure\\E_Commerce.Infrastructure.csproj|d:\\abdelhay projects\\e_commerceapi\\e_commerce.infrastructure\\interceptors\\auditableentityinterceptor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C703496E-EBFB-4E58-9AE9-9D836BE3CE6D}|E_Commerce.Infrastructure\\E_Commerce.Infrastructure.csproj|solutionrelative:e_commerce.infrastructure\\interceptors\\auditableentityinterceptor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{C703496E-EBFB-4E58-9AE9-9D836BE3CE6D}|E_Commerce.Infrastructure\\E_Commerce.Infrastructure.csproj|d:\\abdelhay projects\\e_commerceapi\\e_commerce.infrastructure\\configurations\\attributesconfigurations.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C703496E-EBFB-4E58-9AE9-9D836BE3CE6D}|E_Commerce.Infrastructure\\E_Commerce.Infrastructure.csproj|solutionrelative:e_commerce.infrastructure\\configurations\\attributesconfigurations.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -74,7 +78,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 18,
+          "SelectedChildIndex": 16,
           "Children": [
             {
               "$type": "Bookmark",
@@ -142,7 +146,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
+              "Title": "AuditableEntityInterceptor.cs",
+              "DocumentMoniker": "D:\\Abdelhay projects\\E_CommerceAPI\\E_Commerce.Infrastructure\\Interceptors\\AuditableEntityInterceptor.cs",
+              "RelativeDocumentMoniker": "E_Commerce.Infrastructure\\Interceptors\\AuditableEntityInterceptor.cs",
+              "ToolTip": "D:\\Abdelhay projects\\E_CommerceAPI\\E_Commerce.Infrastructure\\Interceptors\\AuditableEntityInterceptor.cs",
+              "RelativeToolTip": "E_Commerce.Infrastructure\\Interceptors\\AuditableEntityInterceptor.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAARAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-02T10:51:00.023Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "ProductVariantAttributesConfigurations.cs",
               "DocumentMoniker": "D:\\Abdelhay projects\\E_CommerceAPI\\E_Commerce.Infrastructure\\Configurations\\ProductVariantAttributesConfigurations.cs",
               "RelativeDocumentMoniker": "E_Commerce.Infrastructure\\Configurations\\ProductVariantAttributesConfigurations.cs",
@@ -154,7 +171,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "CategoryAttributesConfiguration.cs",
               "DocumentMoniker": "D:\\Abdelhay projects\\E_CommerceAPI\\E_Commerce.Infrastructure\\Configurations\\CategoryAttributesConfiguration.cs",
               "RelativeDocumentMoniker": "E_Commerce.Infrastructure\\Configurations\\CategoryAttributesConfiguration.cs",
@@ -166,20 +183,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "AttributesConfigurations.cs",
               "DocumentMoniker": "D:\\Abdelhay projects\\E_CommerceAPI\\E_Commerce.Infrastructure\\Configurations\\AttributesConfigurations.cs",
               "RelativeDocumentMoniker": "E_Commerce.Infrastructure\\Configurations\\AttributesConfigurations.cs",
               "ToolTip": "D:\\Abdelhay projects\\E_CommerceAPI\\E_Commerce.Infrastructure\\Configurations\\AttributesConfigurations.cs",
               "RelativeToolTip": "E_Commerce.Infrastructure\\Configurations\\AttributesConfigurations.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAA5AAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-09-02T05:11:56.781Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "Category.cs",
               "DocumentMoniker": "D:\\Abdelhay projects\\E_CommerceAPI\\E-Commerce.Domain\\Entities\\Category.cs",
               "RelativeDocumentMoniker": "E-Commerce.Domain\\Entities\\Category.cs",
@@ -191,7 +208,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "Attribute.cs",
               "DocumentMoniker": "D:\\Abdelhay projects\\E_CommerceAPI\\E-Commerce.Domain\\Entities\\Attribute.cs",
               "RelativeDocumentMoniker": "E-Commerce.Domain\\Entities\\Attribute.cs",
@@ -203,7 +220,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "CategoryAttributes.cs",
               "DocumentMoniker": "D:\\Abdelhay projects\\E_CommerceAPI\\E-Commerce.Domain\\Entities\\CategoryAttributes.cs",
               "RelativeDocumentMoniker": "E-Commerce.Domain\\Entities\\CategoryAttributes.cs",
@@ -215,7 +232,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "ApplicationDbContext.cs",
               "DocumentMoniker": "D:\\Abdelhay projects\\E_CommerceAPI\\E_Commerce.Infrastructure\\Data\\ApplicationDbContext.cs",
               "RelativeDocumentMoniker": "E_Commerce.Infrastructure\\Data\\ApplicationDbContext.cs",
@@ -227,7 +244,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "GlobalUsing.cs",
               "DocumentMoniker": "D:\\Abdelhay projects\\E_CommerceAPI\\E_Commerce.Infrastructure\\GlobalUsing.cs",
               "RelativeDocumentMoniker": "E_Commerce.Infrastructure\\GlobalUsing.cs",
@@ -239,7 +256,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "ServiceCollectionExtention.cs",
               "DocumentMoniker": "D:\\Abdelhay projects\\E_CommerceAPI\\E_Commerce.Infrastructure\\Extenstions\\ServiceCollectionExtention.cs",
               "RelativeDocumentMoniker": "E_Commerce.Infrastructure\\Extenstions\\ServiceCollectionExtention.cs",
@@ -251,7 +268,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 10,
               "Title": "20240902050104_initial-database.cs",
               "DocumentMoniker": "D:\\Abdelhay projects\\E_CommerceAPI\\E_Commerce.Infrastructure\\Migrations\\20240902050104_initial-database.cs",
               "RelativeDocumentMoniker": "E_Commerce.Infrastructure\\Migrations\\20240902050104_initial-database.cs",
@@ -263,7 +280,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 11,
               "Title": "20240902045935_initial-database.cs",
               "DocumentMoniker": "D:\\Abdelhay projects\\E_CommerceAPI\\E_Commerce.Infrastructure\\Migrations\\20240902045935_initial-database.cs",
               "RelativeDocumentMoniker": "E_Commerce.Infrastructure\\Migrations\\20240902045935_initial-database.cs",
@@ -275,7 +292,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 12,
               "Title": "BaseRepository.cs",
               "DocumentMoniker": "D:\\Abdelhay projects\\E_CommerceAPI\\E_Commerce.Infrastructure\\Repositories\\BaseRepository.cs",
               "RelativeDocumentMoniker": "E_Commerce.Infrastructure\\Repositories\\BaseRepository.cs",
@@ -287,7 +304,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 13,
               "Title": "IBaseRepository.cs",
               "DocumentMoniker": "D:\\Abdelhay projects\\E_CommerceAPI\\E-Commerce.Domain\\Interfcases\\IBaseRepository.cs",
               "RelativeDocumentMoniker": "E-Commerce.Domain\\Interfcases\\IBaseRepository.cs",
@@ -299,7 +316,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 14,
               "Title": "Product.cs",
               "DocumentMoniker": "D:\\Abdelhay projects\\E_CommerceAPI\\E-Commerce.Domain\\Entities\\Product.cs",
               "RelativeDocumentMoniker": "E-Commerce.Domain\\Entities\\Product.cs",
@@ -311,7 +328,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 16,
               "Title": "appsettings.json",
               "DocumentMoniker": "D:\\Abdelhay projects\\E_CommerceAPI\\E_CommerceAPI\\appsettings.json",
               "RelativeDocumentMoniker": "E_CommerceAPI\\appsettings.json",
@@ -323,7 +340,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 15,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\Abdelhay projects\\E_CommerceAPI\\E_CommerceAPI\\Program.cs",
               "RelativeDocumentMoniker": "E_CommerceAPI\\Program.cs",
