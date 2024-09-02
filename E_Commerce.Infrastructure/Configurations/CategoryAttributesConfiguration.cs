@@ -4,18 +4,8 @@
     {
         public void Configure(EntityTypeBuilder<CategoryAttributes> builder)
         {
-            // configure Composted Primary Key
+            // Configure composite primary key
             builder.HasKey(ca => new { ca.CategoryId, ca.AttributeId });
-
-            // configure Many To Many Relationship between Category and Attributes
-            builder.HasOne(ca => ca.Category)
-                .WithMany(c => c.CategoryAttributes)
-                .HasForeignKey(ca => ca.CategoryId);
-
-            builder.HasOne(ca => ca.Attribute)
-                .WithMany(a => a.CategoryAttributes)
-                .HasForeignKey(ca => ca.AttributeId);
-                
         }
     }
 }

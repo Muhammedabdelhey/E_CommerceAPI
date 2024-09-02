@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace E_Commerce.Infrastructure.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240901064338_InitialDatbase")]
-    partial class InitialDatbase
+    [Migration("20240902052041_Initial-database")]
+    partial class Initialdatabase
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -25,13 +25,10 @@ namespace E_Commerce.Infrastructure.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("E_Commerce.Domain.Entities.Attribute", b =>
+            modelBuilder.Entity("Attribute", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid?>("CategoryId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Name")
@@ -39,14 +36,7 @@ namespace E_Commerce.Infrastructure.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<Guid?>("ProductVariantId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.HasKey("Id");
-
-                    b.HasIndex("CategoryId");
-
-                    b.HasIndex("ProductVariantId");
 
                     b.ToTable("Attributes");
                 });
@@ -217,17 +207,6 @@ namespace E_Commerce.Infrastructure.Migrations
                     b.ToTable("ProductVariantAttributes");
                 });
 
-            modelBuilder.Entity("E_Commerce.Domain.Entities.Attribute", b =>
-                {
-                    b.HasOne("E_Commerce.Domain.Entities.Category", null)
-                        .WithMany("Attributes")
-                        .HasForeignKey("CategoryId");
-
-                    b.HasOne("E_Commerce.Domain.Entities.ProductVariant", null)
-                        .WithMany("Attributes")
-                        .HasForeignKey("ProductVariantId");
-                });
-
             modelBuilder.Entity("E_Commerce.Domain.Entities.Category", b =>
                 {
                     b.HasOne("E_Commerce.Domain.Entities.Category", "Parent")
@@ -239,7 +218,7 @@ namespace E_Commerce.Infrastructure.Migrations
 
             modelBuilder.Entity("E_Commerce.Domain.Entities.CategoryAttributes", b =>
                 {
-                    b.HasOne("E_Commerce.Domain.Entities.Attribute", "Attribute")
+                    b.HasOne("Attribute", "Attribute")
                         .WithMany("CategoryAttributes")
                         .HasForeignKey("AttributeId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -288,7 +267,7 @@ namespace E_Commerce.Infrastructure.Migrations
 
             modelBuilder.Entity("E_Commerce.Domain.Entities.ProductVariantAttributes", b =>
                 {
-                    b.HasOne("E_Commerce.Domain.Entities.Attribute", "Attribute")
+                    b.HasOne("Attribute", "Attribute")
                         .WithMany("ProductVariantsAttributes")
                         .HasForeignKey("AttributeId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -305,7 +284,7 @@ namespace E_Commerce.Infrastructure.Migrations
                     b.Navigation("ProductVariant");
                 });
 
-            modelBuilder.Entity("E_Commerce.Domain.Entities.Attribute", b =>
+            modelBuilder.Entity("Attribute", b =>
                 {
                     b.Navigation("CategoryAttributes");
 
@@ -314,8 +293,6 @@ namespace E_Commerce.Infrastructure.Migrations
 
             modelBuilder.Entity("E_Commerce.Domain.Entities.Category", b =>
                 {
-                    b.Navigation("Attributes");
-
                     b.Navigation("CategoryAttributes");
 
                     b.Navigation("Childrens");
@@ -325,8 +302,6 @@ namespace E_Commerce.Infrastructure.Migrations
 
             modelBuilder.Entity("E_Commerce.Domain.Entities.ProductVariant", b =>
                 {
-                    b.Navigation("Attributes");
-
                     b.Navigation("ProductVariantAttributess");
                 });
 #pragma warning restore 612, 618

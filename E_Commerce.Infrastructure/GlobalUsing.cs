@@ -2,7 +2,6 @@
 global using Microsoft.EntityFrameworkCore;
 global using Microsoft.EntityFrameworkCore.Metadata.Builders;
 global using System.Reflection;
-global using Attribute = E_Commerce.Domain.Entities.Attribute;
 global using E_Commerce.Infrastructure.Data;
 global using Microsoft.Extensions.Configuration;
 global using Microsoft.Extensions.DependencyInjection;

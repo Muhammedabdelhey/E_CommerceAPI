@@ -15,6 +15,8 @@ namespace E_Commerce.Domain.Entities
         public ICollection<Category> Childrens { get; set; } = [];
 
         public ICollection<Product> Products { get; set; } = [];
+
+        // Correct navigation property
         public ICollection<Attribute> Attributes { get; set; } = [];
         public ICollection<CategoryAttributes> CategoryAttributes { get; set; } = [];
     }
