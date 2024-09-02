@@ -1,8 +1,4 @@
-﻿using E_Commerce.Application.Common.Interfacses;
-using E_Commerce.Domain.Comman;
-using Microsoft.EntityFrameworkCore.Diagnostics;
-
-namespace E_Commerce.Infrastructure.Interceptors
+﻿namespace E_Commerce.Infrastructure.Interceptors
 {
     public class AuditableEntityInterceptor : SaveChangesInterceptor
     {

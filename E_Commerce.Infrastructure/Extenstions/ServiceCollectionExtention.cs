@@ -1,14 +1,19 @@
-﻿namespace E_Commerce.Infrastructure.Extenstions
+﻿namespace E_Commerce.Infrastructure.Extensions
 {
-    public static class ServiceCollectionExtention
+    public static class ServiceCollectionExtension
     {
         public static void AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
         {
-            var ConnectionString = configuration.GetConnectionString("default");
-            var companyConnectionString = configuration.GetConnectionString("company");
+            var connectionString = configuration.GetConnectionString("default");
 
-            services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(companyConnectionString));
-            services.AddTransient(typeof(IBaseRepository<>), typeof(BaseRepository<>));
+            services.AddScoped<ISaveChangesInterceptor, AuditableEntityInterceptor>();
+            services.AddScoped(typeof(IBaseRepository<>), typeof(BaseRepository<>));
+
+            services.AddDbContext<ApplicationDbContext>((sp, options) =>
+            {
+                options.UseSqlServer(connectionString)
+                       .AddInterceptors(sp.GetServices<ISaveChangesInterceptor>());
+            });
         }
     }
 }
