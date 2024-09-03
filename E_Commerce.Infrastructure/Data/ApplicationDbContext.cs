@@ -11,22 +11,6 @@ public class ApplicationDbContext(DbContextOptions<ApplicationDbContext> options
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        //modelBuilder.Entity<Category>()
-        //    .HasMany(e => e.Attributes)
-        //    .WithMany(e => e.Categories)
-        //    .UsingEntity<CategoryAttributes>();
-
-        //modelBuilder.Entity<CategoryAttributes>()
-        //    .HasKey(["CategoryId", "AttributeId"]);
-
-        //modelBuilder.Entity<ProductVariant>()
-        //    .HasMany(pv => pv.Attributes)
-        //    .WithMany(pv => pv.ProductVariants)
-        //    .UsingEntity<ProductVariantAttributes>();
-
-        //modelBuilder.Entity<ProductVariantAttributes>()
-        //    .HasKey(["ProductVariantId", "AttributeId"]);
-
         modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
         base.OnModelCreating(modelBuilder);
 
