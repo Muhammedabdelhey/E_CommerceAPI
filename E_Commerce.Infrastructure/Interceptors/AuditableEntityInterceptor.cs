@@ -5,9 +5,7 @@
         private readonly IUser _user;
         private readonly TimeProvider _dateTime;
 
-        public AuditableEntityInterceptor(
-            IUser user,
-            TimeProvider dateTime)
+        public AuditableEntityInterceptor(IUser user, TimeProvider dateTime)
         {
             _user = user;
             _dateTime = dateTime;
