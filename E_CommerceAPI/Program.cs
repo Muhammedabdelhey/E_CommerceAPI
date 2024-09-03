@@ -1,4 +1,4 @@
-using E_Commerce.Infrastructure.Extenstions;
+using E_Commerce.Infrastructure.Extensions;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
