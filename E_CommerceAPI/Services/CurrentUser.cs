@@ -11,7 +11,7 @@ namespace E_Commerce.Presentation.Services
         {
             _httpContextAccessor = httpContextAccessor;
         }
-
+        // should registerd as service 
         public string? Id => _httpContextAccessor.HttpContext?.User?.FindFirstValue(ClaimTypes.NameIdentifier);
     }
 }

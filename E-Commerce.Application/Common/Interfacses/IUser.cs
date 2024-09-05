@@ -2,6 +2,6 @@
 {
     public interface IUser
     {
-        string Id { get; }
+        string? Id { get; }
     }
 }

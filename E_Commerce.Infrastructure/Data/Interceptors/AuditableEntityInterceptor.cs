@@ -1,4 +1,4 @@
-﻿namespace E_Commerce.Infrastructure.Interceptors
+﻿namespace E_Commerce.Infrastructure.Data.Interceptors
 {
     public class AuditableEntityInterceptor : SaveChangesInterceptor
     {

@@ -1,4 +1,4 @@
-﻿namespace E_Commerce.Infrastructure.Configurations
+﻿namespace E_Commerce.Infrastructure.Data.Configurations
 {
     public class CategoryAttributesConfiguration : IEntityTypeConfiguration<CategoryAttributes>
     {

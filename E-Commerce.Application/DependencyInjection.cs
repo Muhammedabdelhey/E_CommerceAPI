@@ -1,7 +1,4 @@
-﻿using Microsoft.Extensions.DependencyInjection;
-using System.Reflection;
-
-namespace E_Commerce.Application
+﻿namespace E_Commerce.Application
 {
     public static class DependencyInjection
     {

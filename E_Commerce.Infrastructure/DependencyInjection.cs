@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using E_Commerce.Infrastructure.Data.Interceptors;
+using E_Commerce.Infrastructure.Data.Repositories;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace E_Commerce.Infrastructure
 {
