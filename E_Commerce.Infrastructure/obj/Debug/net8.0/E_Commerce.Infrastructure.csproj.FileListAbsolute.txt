@@ -1,0 +1,40 @@
+D:\Abdelhay projects\E_CommerceAPI\E_Commerce.Infrastructure\bin\Debug\net8.0\E_Commerce.Infrastructure.deps.json
+D:\Abdelhay projects\E_CommerceAPI\E_Commerce.Infrastructure\bin\Debug\net8.0\E_Commerce.Infrastructure.runtimeconfig.json
+D:\Abdelhay projects\E_CommerceAPI\E_Commerce.Infrastructure\bin\Debug\net8.0\E_Commerce.Infrastructure.dll
+D:\Abdelhay projects\E_CommerceAPI\E_Commerce.Infrastructure\bin\Debug\net8.0\E_Commerce.Infrastructure.pdb
+D:\Abdelhay projects\E_CommerceAPI\E_Commerce.Infrastructure\bin\Debug\net8.0\E_Commerce.Application.dll
+D:\Abdelhay projects\E_CommerceAPI\E_Commerce.Infrastructure\bin\Debug\net8.0\E_Commerce.Domain.dll
+D:\Abdelhay projects\E_CommerceAPI\E_Commerce.Infrastructure\bin\Debug\net8.0\E_Commerce.Application.pdb
+D:\Abdelhay projects\E_CommerceAPI\E_Commerce.Infrastructure\bin\Debug\net8.0\E_Commerce.Domain.pdb
+D:\Abdelhay projects\E_CommerceAPI\E_Commerce.Infrastructure\obj\Debug\net8.0\E_Commerce.Infrastructure.csproj.AssemblyReference.cache
+D:\Abdelhay projects\E_CommerceAPI\E_Commerce.Infrastructure\obj\Debug\net8.0\E_Commerce.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+D:\Abdelhay projects\E_CommerceAPI\E_Commerce.Infrastructure\obj\Debug\net8.0\E_Commerce.Infrastructure.AssemblyInfoInputs.cache
+D:\Abdelhay projects\E_CommerceAPI\E_Commerce.Infrastructure\obj\Debug\net8.0\E_Commerce.Infrastructure.AssemblyInfo.cs
+D:\Abdelhay projects\E_CommerceAPI\E_Commerce.Infrastructure\obj\Debug\net8.0\E_Commerce.Infrastructure.csproj.CoreCompileInputs.cache
+D:\Abdelhay projects\E_CommerceAPI\E_Commerce.Infrastructure\obj\Debug\net8.0\E_Commerce.Infrastructure.sourcelink.json
+D:\Abdelhay projects\E_CommerceAPI\E_Commerce.Infrastructure\obj\Debug\net8.0\E_Commer.124E6787.Up2Date
+D:\Abdelhay projects\E_CommerceAPI\E_Commerce.Infrastructure\obj\Debug\net8.0\E_Commerce.Infrastructure.dll
+D:\Abdelhay projects\E_CommerceAPI\E_Commerce.Infrastructure\obj\Debug\net8.0\refint\E_Commerce.Infrastructure.dll
+D:\Abdelhay projects\E_CommerceAPI\E_Commerce.Infrastructure\obj\Debug\net8.0\E_Commerce.Infrastructure.pdb
+D:\Abdelhay projects\E_CommerceAPI\E_Commerce.Infrastructure\obj\Debug\net8.0\E_Commerce.Infrastructure.genruntimeconfig.cache
+D:\Abdelhay projects\E_CommerceAPI\E_Commerce.Infrastructure\obj\Debug\net8.0\ref\E_Commerce.Infrastructure.dll
+D:\Dot Net Projects\E_CommerceAPI\E_Commerce.Infrastructure\bin\Debug\net8.0\E_Commerce.Infrastructure.deps.json
+D:\Dot Net Projects\E_CommerceAPI\E_Commerce.Infrastructure\bin\Debug\net8.0\E_Commerce.Infrastructure.runtimeconfig.json
+D:\Dot Net Projects\E_CommerceAPI\E_Commerce.Infrastructure\bin\Debug\net8.0\E_Commerce.Infrastructure.dll
+D:\Dot Net Projects\E_CommerceAPI\E_Commerce.Infrastructure\bin\Debug\net8.0\E_Commerce.Infrastructure.pdb
+D:\Dot Net Projects\E_CommerceAPI\E_Commerce.Infrastructure\bin\Debug\net8.0\E_Commerce.Application.dll
+D:\Dot Net Projects\E_CommerceAPI\E_Commerce.Infrastructure\bin\Debug\net8.0\E_Commerce.Domain.dll
+D:\Dot Net Projects\E_CommerceAPI\E_Commerce.Infrastructure\bin\Debug\net8.0\E_Commerce.Application.pdb
+D:\Dot Net Projects\E_CommerceAPI\E_Commerce.Infrastructure\bin\Debug\net8.0\E_Commerce.Domain.pdb
+D:\Dot Net Projects\E_CommerceAPI\E_Commerce.Infrastructure\obj\Debug\net8.0\E_Commerce.Infrastructure.csproj.AssemblyReference.cache
+D:\Dot Net Projects\E_CommerceAPI\E_Commerce.Infrastructure\obj\Debug\net8.0\E_Commerce.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+D:\Dot Net Projects\E_CommerceAPI\E_Commerce.Infrastructure\obj\Debug\net8.0\E_Commerce.Infrastructure.AssemblyInfoInputs.cache
+D:\Dot Net Projects\E_CommerceAPI\E_Commerce.Infrastructure\obj\Debug\net8.0\E_Commerce.Infrastructure.AssemblyInfo.cs
+D:\Dot Net Projects\E_CommerceAPI\E_Commerce.Infrastructure\obj\Debug\net8.0\E_Commerce.Infrastructure.csproj.CoreCompileInputs.cache
+D:\Dot Net Projects\E_CommerceAPI\E_Commerce.Infrastructure\obj\Debug\net8.0\E_Commerce.Infrastructure.sourcelink.json
+D:\Dot Net Projects\E_CommerceAPI\E_Commerce.Infrastructure\obj\Debug\net8.0\E_Commer.124E6787.Up2Date
+D:\Dot Net Projects\E_CommerceAPI\E_Commerce.Infrastructure\obj\Debug\net8.0\E_Commerce.Infrastructure.dll
+D:\Dot Net Projects\E_CommerceAPI\E_Commerce.Infrastructure\obj\Debug\net8.0\refint\E_Commerce.Infrastructure.dll
+D:\Dot Net Projects\E_CommerceAPI\E_Commerce.Infrastructure\obj\Debug\net8.0\E_Commerce.Infrastructure.pdb
+D:\Dot Net Projects\E_CommerceAPI\E_Commerce.Infrastructure\obj\Debug\net8.0\E_Commerce.Infrastructure.genruntimeconfig.cache
+D:\Dot Net Projects\E_CommerceAPI\E_Commerce.Infrastructure\obj\Debug\net8.0\ref\E_Commerce.Infrastructure.dll

@@ -1,8 +1,6 @@
 using E_Commerce.Application;
-using E_Commerce.Application.Common.Interfacses;
 using E_Commerce.Infrastructure;
 using E_Commerce.Presentation;
-using E_Commerce.Presentation.Services;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.

@@ -1,8 +1,4 @@
-﻿using E_Commerce.Infrastructure.Data.Interceptors;
-using E_Commerce.Infrastructure.Data.Repositories;
-using Microsoft.Extensions.DependencyInjection;
-
-namespace E_Commerce.Infrastructure
+﻿namespace E_Commerce.Infrastructure
 {
     public static class ServiceCollectionExtension
     {
@@ -13,7 +9,7 @@ namespace E_Commerce.Infrastructure
             services.AddScoped<ISaveChangesInterceptor, DispatchDomainEventsInterceptor>();
             services.AddScoped(typeof(IBaseRepository<>), typeof(BaseRepository<>));
             services.AddSingleton(TimeProvider.System);
- 
+
             services.AddDbContext<ApplicationDbContext>((sp, options) =>
         {
             options.UseSqlServer(connectionString)
