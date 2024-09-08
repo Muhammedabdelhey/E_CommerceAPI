@@ -4,6 +4,7 @@
     {
         public static IServiceCollection AddApplication(this IServiceCollection services)
         {
+            services.AddFluentValidationAutoValidation();
             services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
             services.AddMediatR(cfg =>
             {

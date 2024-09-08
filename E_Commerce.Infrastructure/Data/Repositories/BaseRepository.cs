@@ -1,4 +1,6 @@
-﻿namespace E_Commerce.Infrastructure.Data.Repositories;
+﻿using Microsoft.EntityFrameworkCore;
+
+namespace E_Commerce.Infrastructure.Data.Repositories;
 
 public class BaseRepository<T>(ApplicationDbContext context) : IBaseRepository<T> where T : class
 {
@@ -17,6 +19,11 @@ public class BaseRepository<T>(ApplicationDbContext context) : IBaseRepository<T
             query = query.Include(include);
         }
         return await query.ToListAsync(cancellationToken);
+    }
+
+    public async Task<T?> GetByIdAsync(Guid id, CancellationToken cancellationToken = default)
+    {
+        return await _context.Set<T>().FindAsync(id, cancellationToken);
     }
 
     public virtual async Task<IEnumerable<T?>> GetByAsync(Expression<Func<T, bool>> expression, CancellationToken cancellationToken = default)

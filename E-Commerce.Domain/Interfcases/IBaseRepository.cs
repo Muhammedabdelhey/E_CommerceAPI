@@ -19,12 +19,19 @@ public interface IBaseRepository<T> where T : class
     /// </summary>
     /// <param name="includes">Array of navigation properties to include.</param>
     /// <returns>An IEnumerable of entities.</returns>
-    Task<IEnumerable<T>> GetAllAsync(string[] includes , CancellationToken cancellationToken = default);
+    Task<IEnumerable<T>> GetAllAsync(string[] includes, CancellationToken cancellationToken = default);
 
     /// <summary>
-    /// Retrieves all entities of type <typeparamref name="T"/> based on a specified predicate.
+    /// Retrieves entity of type <typeparamref name="T"/> based on a specified Guid.
     /// </summary>
-    /// <param name="expression">The predicate to match the entity this should filter using  <typeparamref name="T"/> Id.</param>
+    /// <returns>The first entity that matches the specified predicate.</returns>
+    /// 
+    Task<T?> GetByIdAsync(Guid id, CancellationToken cancellationToken = default);
+
+    /// <summary>
+    /// Retrieves entity of type <typeparamref name="T"/> based on a specified Guid.
+    /// </summary>
+    /// <param name="includes">Array of navigation properties to include.</param>
     /// <returns>The first entity that matches the specified predicate.</returns>
     /// 
     Task<IEnumerable<T?>> GetByAsync(Expression<Func<T, bool>> expression, CancellationToken cancellationToken = default);
@@ -35,7 +42,7 @@ public interface IBaseRepository<T> where T : class
     /// <param name="expression">The predicate to match the entity this should filter using  <typeparamref name="T"/> Id.</param>
     /// <param name="includes">Array of navigation properties to include.</param>
     /// <returns>The first entity that matches the specified predicate.</returns>
-    Task<IEnumerable<T?>> GetByAsync(Expression<Func<T, bool>> expression, string[] includes , CancellationToken cancellationToken = default);
+    Task<IEnumerable<T?>> GetByAsync(Expression<Func<T, bool>> expression, string[] includes, CancellationToken cancellationToken = default);
     /// <summary>
     /// Adds a new entity of type <typeparamref name="T"/> to the DataBase.
     /// </summary>
@@ -48,7 +55,7 @@ public interface IBaseRepository<T> where T : class
     /// </summary>
     /// <param name="entity">The entity to update.</param>
     /// <returns>The updated entity.</returns>
-    Task<T> UpdateAsync(T entity , CancellationToken cancellationToken = default);
+    Task<T> UpdateAsync(T entity, CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Deletes an existing entity of type <typeparamref name="T"/> from the DataBase.

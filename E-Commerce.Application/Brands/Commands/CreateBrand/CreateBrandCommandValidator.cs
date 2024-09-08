@@ -5,8 +5,7 @@
         public CreateBrandCommandValidator()
         {
             RuleFor(v => v.Name)
-                .NotEmpty()
-                .MaximumLength(50);
+                .SetValidator(new StringValidator());
         }
     }
 }

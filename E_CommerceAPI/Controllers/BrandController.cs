@@ -1,4 +1,5 @@
 ﻿using E_Commerce.Application.Brands.Commands.CreateBrand;
+using E_Commerce.Application.Brands.Commands.UpdateBrand;
 using E_Commerce.Domain.Entities;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -20,6 +21,19 @@ namespace E_Commerce.Presentation.Controllers
         public async Task<IActionResult> Create([FromBody] CreateBrandCommand command
             , CancellationToken cancellationToken)
         {
+            Brand brand = await _mediator.Send(command, cancellationToken);
+            return Ok(brand);
+        }
+
+        [HttpPut]
+        public async Task<IActionResult> Update([FromQuery] string guid,
+            [FromBody] UpdateBrandCommand command
+            , CancellationToken cancellationToken)
+        {
+            //if (guid != command.Id)
+            //{
+            //    return BadRequest();
+            //}
             Brand brand = await _mediator.Send(command, cancellationToken);
             return Ok(brand);
         }

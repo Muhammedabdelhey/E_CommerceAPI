@@ -158,3 +158,6 @@ D:\Dot Net Projects\E_CommerceAPI\E_CommerceAPI\obj\Debug\net8.0\E_Commerce.Pres
 D:\Dot Net Projects\E_CommerceAPI\E_CommerceAPI\obj\Debug\net8.0\ref\E_Commerce.Presentation.dll
 D:\Dot Net Projects\E_CommerceAPI\E_CommerceAPI\bin\Debug\net8.0\FluentValidation.dll
 D:\Dot Net Projects\E_CommerceAPI\E_CommerceAPI\bin\Debug\net8.0\FluentValidation.DependencyInjectionExtensions.dll
+D:\Abdelhay projects\E_CommerceAPI\E_CommerceAPI\bin\Debug\net8.0\FluentValidation.dll
+D:\Abdelhay projects\E_CommerceAPI\E_CommerceAPI\bin\Debug\net8.0\FluentValidation.DependencyInjectionExtensions.dll
+D:\Abdelhay projects\E_CommerceAPI\E_CommerceAPI\bin\Debug\net8.0\FluentValidation.AspNetCore.dll
