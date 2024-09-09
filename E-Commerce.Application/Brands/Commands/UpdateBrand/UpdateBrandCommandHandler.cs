@@ -1,4 +1,5 @@
 ﻿
+using E_Commerce.Application.Common.Exceptions;
 using E_Commerce.Domain.Interfcases;
 
 namespace E_Commerce.Application.Brands.Commands.UpdateBrand
@@ -17,7 +18,7 @@ namespace E_Commerce.Application.Brands.Commands.UpdateBrand
             var brand = await _brandRepository.GetByIdAsync(Guid.Parse(request.Id));
             if (brand == null)
             {
-                //throw new NotFoundException($"Brand with ID {request.Id} not found.");
+                throw new NotFoundException($"Brand with ID {request.Id} not found.");
             }
             brand.Name = request.Name;
             await _brandRepository.UpdateAsync(brand);

@@ -1,16 +1,16 @@
 ﻿namespace E_Commerce.Application.Common.Validator
 {
-    public class StringValidator : AbstractValidator<string>
+    public static class StringValidator
     {
         /// <summary>
         /// This vaild any string Not empty with maxLength you pass as parm 
         /// </summary>
         /// <param name="maxLength"> Max Length of String </param>
-        public StringValidator()
+        public static IRuleBuilderOptions<T, string> ValidateString<T>(this IRuleBuilder<T, string> ruleBuilder, int maxLength)
         {
-            RuleFor(x => x)
-              .NotEmpty()
-              .MaximumLength(50);
+            return ruleBuilder
+                .NotEmpty()
+                .MaximumLength(maxLength);
         }
     }
 }

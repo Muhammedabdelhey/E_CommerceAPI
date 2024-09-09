@@ -5,7 +5,7 @@
         public CreateBrandCommandValidator()
         {
             RuleFor(v => v.Name)
-                .SetValidator(new StringValidator());
+                .ValidateString(50);
         }
     }
 }
