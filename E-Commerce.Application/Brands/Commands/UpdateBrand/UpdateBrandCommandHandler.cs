@@ -1,8 +1,4 @@
-﻿
-using E_Commerce.Application.Common.Exceptions;
-using E_Commerce.Domain.Interfcases;
-
-namespace E_Commerce.Application.Brands.Commands.UpdateBrand
+﻿namespace E_Commerce.Application.Brands.Commands.UpdateBrand
 {
     public class UpdateBrandCommandHandler : IRequestHandler<UpdateBrandCommand, Brand>
     {
@@ -22,7 +18,7 @@ namespace E_Commerce.Application.Brands.Commands.UpdateBrand
             }
             brand.Name = request.Name;
             await _brandRepository.UpdateAsync(brand);
-            return brand ;
+            return brand;
         }
     }
 }

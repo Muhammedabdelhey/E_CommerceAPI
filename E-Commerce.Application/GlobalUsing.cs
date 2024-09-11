@@ -6,3 +6,4 @@ global using FluentValidation;
 global using E_Commerce.Application.Common.Validator;
 global using FluentValidation.AspNetCore;
 global using E_Commerce.Domain.Interfcases;
+global using E_Commerce.Application.Common.Exceptions;
