@@ -19,8 +19,8 @@ namespace E_Commerce.Presentation.Controllers
         {
             _mediator = mediator;
         }
-        [HttpGet("get")]
-        public async Task<IActionResult> Get([FromQuery] string guid, CancellationToken cancellationToken)
+        [HttpGet("get{guid}")]
+        public async Task<IActionResult> Get( string guid, CancellationToken cancellationToken)
         {
             var brand = await _mediator.Send(new GetBrandByIdQuery(guid), cancellationToken);
             return Ok(brand);

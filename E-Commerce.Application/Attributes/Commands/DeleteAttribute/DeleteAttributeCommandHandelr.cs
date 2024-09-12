@@ -15,7 +15,7 @@
             if (attribute == null) {
                 throw new NotFoundException($"Attribute with guid{request.guid} not found");
             }
-            await _attributeRepsoitory.DeleteAsync(attribute);
+            await _attributeRepsoitory.DeleteAsync(attribute,cancellationToken);
             return attribute;
         }
     }
