@@ -1,45 +1,57 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\Abdelhay projects\\E_CommerceAPI\\",
+  "WorkspaceRootPath": "D:\\Dot Net Projects\\E_CommerceAPI\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{566A2C5D-3418-4AF7-AAD5-B78AB4722954}|E_CommerceAPI\\E_Commerce.Presentation.csproj|d:\\abdelhay projects\\e_commerceapi\\e_commerceapi\\controllers\\brandcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{566A2C5D-3418-4AF7-AAD5-B78AB4722954}|E_CommerceAPI\\E_Commerce.Presentation.csproj|solutionrelative:e_commerceapi\\controllers\\brandcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{29EFEA29-5C3F-4390-97EE-0EED3159D879}|E-Commerce.Application\\E_Commerce.Application.csproj|d:\\abdelhay projects\\e_commerceapi\\e-commerce.application\\brands\\queries\\getbrands\\getbrandsqueryhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{29EFEA29-5C3F-4390-97EE-0EED3159D879}|E-Commerce.Application\\E_Commerce.Application.csproj|solutionrelative:e-commerce.application\\brands\\queries\\getbrands\\getbrandsqueryhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{29EFEA29-5C3F-4390-97EE-0EED3159D879}|E-Commerce.Application\\E_Commerce.Application.csproj|d:\\abdelhay projects\\e_commerceapi\\e-commerce.application\\brands\\queries\\getbrands\\getbrandsquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{29EFEA29-5C3F-4390-97EE-0EED3159D879}|E-Commerce.Application\\E_Commerce.Application.csproj|solutionrelative:e-commerce.application\\brands\\queries\\getbrands\\getbrandsquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{566A2C5D-3418-4AF7-AAD5-B78AB4722954}|E_CommerceAPI\\E_Commerce.Presentation.csproj|d:\\abdelhay projects\\e_commerceapi\\e_commerceapi\\controllers\\attributecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{566A2C5D-3418-4AF7-AAD5-B78AB4722954}|E_CommerceAPI\\E_Commerce.Presentation.csproj|d:\\dot net projects\\e_commerceapi\\e_commerceapi\\controllers\\attributecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{566A2C5D-3418-4AF7-AAD5-B78AB4722954}|E_CommerceAPI\\E_Commerce.Presentation.csproj|solutionrelative:e_commerceapi\\controllers\\attributecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{29EFEA29-5C3F-4390-97EE-0EED3159D879}|E-Commerce.Application\\E_Commerce.Application.csproj|d:\\abdelhay projects\\e_commerceapi\\e-commerce.application\\attributes\\commands\\updateattribute\\updateattributecommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{29EFEA29-5C3F-4390-97EE-0EED3159D879}|E-Commerce.Application\\E_Commerce.Application.csproj|d:\\dot net projects\\e_commerceapi\\e-commerce.application\\attributes\\commands\\deleteattribute\\deleteattributecommandhandelr.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{29EFEA29-5C3F-4390-97EE-0EED3159D879}|E-Commerce.Application\\E_Commerce.Application.csproj|solutionrelative:e-commerce.application\\attributes\\commands\\deleteattribute\\deleteattributecommandhandelr.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{29EFEA29-5C3F-4390-97EE-0EED3159D879}|E-Commerce.Application\\E_Commerce.Application.csproj|d:\\dot net projects\\e_commerceapi\\e-commerce.application\\brands\\queries\\getbrands\\getbrandsqueryhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{29EFEA29-5C3F-4390-97EE-0EED3159D879}|E-Commerce.Application\\E_Commerce.Application.csproj|solutionrelative:e-commerce.application\\brands\\queries\\getbrands\\getbrandsqueryhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C703496E-EBFB-4E58-9AE9-9D836BE3CE6D}|E_Commerce.Infrastructure\\E_Commerce.Infrastructure.csproj|d:\\dot net projects\\e_commerceapi\\e_commerce.infrastructure\\data\\interceptors\\dispatchdomaineventsinterceptor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C703496E-EBFB-4E58-9AE9-9D836BE3CE6D}|E_Commerce.Infrastructure\\E_Commerce.Infrastructure.csproj|solutionrelative:e_commerce.infrastructure\\data\\interceptors\\dispatchdomaineventsinterceptor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C703496E-EBFB-4E58-9AE9-9D836BE3CE6D}|E_Commerce.Infrastructure\\E_Commerce.Infrastructure.csproj|d:\\dot net projects\\e_commerceapi\\e_commerce.infrastructure\\dependencyinjection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C703496E-EBFB-4E58-9AE9-9D836BE3CE6D}|E_Commerce.Infrastructure\\E_Commerce.Infrastructure.csproj|solutionrelative:e_commerce.infrastructure\\dependencyinjection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{566A2C5D-3418-4AF7-AAD5-B78AB4722954}|E_CommerceAPI\\E_Commerce.Presentation.csproj|d:\\dot net projects\\e_commerceapi\\e_commerceapi\\controllers\\brandcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{566A2C5D-3418-4AF7-AAD5-B78AB4722954}|E_CommerceAPI\\E_Commerce.Presentation.csproj|solutionrelative:e_commerceapi\\controllers\\brandcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{29EFEA29-5C3F-4390-97EE-0EED3159D879}|E-Commerce.Application\\E_Commerce.Application.csproj|d:\\dot net projects\\e_commerceapi\\e-commerce.application\\brands\\queries\\getbrands\\getbrandsquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{29EFEA29-5C3F-4390-97EE-0EED3159D879}|E-Commerce.Application\\E_Commerce.Application.csproj|solutionrelative:e-commerce.application\\brands\\queries\\getbrands\\getbrandsquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{29EFEA29-5C3F-4390-97EE-0EED3159D879}|E-Commerce.Application\\E_Commerce.Application.csproj|d:\\dot net projects\\e_commerceapi\\e-commerce.application\\attributes\\commands\\updateattribute\\updateattributecommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{29EFEA29-5C3F-4390-97EE-0EED3159D879}|E-Commerce.Application\\E_Commerce.Application.csproj|solutionrelative:e-commerce.application\\attributes\\commands\\updateattribute\\updateattributecommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{29EFEA29-5C3F-4390-97EE-0EED3159D879}|E-Commerce.Application\\E_Commerce.Application.csproj|d:\\abdelhay projects\\e_commerceapi\\e-commerce.application\\attributes\\commands\\updateattribute\\updateattributecommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{29EFEA29-5C3F-4390-97EE-0EED3159D879}|E-Commerce.Application\\E_Commerce.Application.csproj|d:\\dot net projects\\e_commerceapi\\e-commerce.application\\attributes\\commands\\updateattribute\\updateattributecommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{29EFEA29-5C3F-4390-97EE-0EED3159D879}|E-Commerce.Application\\E_Commerce.Application.csproj|solutionrelative:e-commerce.application\\attributes\\commands\\updateattribute\\updateattributecommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{29EFEA29-5C3F-4390-97EE-0EED3159D879}|E-Commerce.Application\\E_Commerce.Application.csproj|d:\\abdelhay projects\\e_commerceapi\\e-commerce.application\\attributes\\commands\\updateattribute\\updateattributecommandvalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{29EFEA29-5C3F-4390-97EE-0EED3159D879}|E-Commerce.Application\\E_Commerce.Application.csproj|d:\\dot net projects\\e_commerceapi\\e-commerce.application\\attributes\\commands\\updateattribute\\updateattributecommandvalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{29EFEA29-5C3F-4390-97EE-0EED3159D879}|E-Commerce.Application\\E_Commerce.Application.csproj|solutionrelative:e-commerce.application\\attributes\\commands\\updateattribute\\updateattributecommandvalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{29EFEA29-5C3F-4390-97EE-0EED3159D879}|E-Commerce.Application\\E_Commerce.Application.csproj|D:\\Abdelhay projects\\E_CommerceAPI\\e-commerce.application\\dependencyinjection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{29EFEA29-5C3F-4390-97EE-0EED3159D879}|E-Commerce.Application\\E_Commerce.Application.csproj|d:\\dot net projects\\e_commerceapi\\e-commerce.application\\dependencyinjection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{29EFEA29-5C3F-4390-97EE-0EED3159D879}|E-Commerce.Application\\E_Commerce.Application.csproj|solutionrelative:e-commerce.application\\dependencyinjection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E1640AB2-261B-4D73-8243-64E1B587905C}|E-Commerce.Domain\\E_Commerce.Domain.csproj|d:\\abdelhay projects\\e_commerceapi\\e-commerce.domain\\entities\\attribute.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{E1640AB2-261B-4D73-8243-64E1B587905C}|E-Commerce.Domain\\E_Commerce.Domain.csproj|d:\\dot net projects\\e_commerceapi\\e-commerce.domain\\entities\\attribute.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E1640AB2-261B-4D73-8243-64E1B587905C}|E-Commerce.Domain\\E_Commerce.Domain.csproj|solutionrelative:e-commerce.domain\\entities\\attribute.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{29EFEA29-5C3F-4390-97EE-0EED3159D879}|E-Commerce.Application\\E_Commerce.Application.csproj|d:\\abdelhay projects\\e_commerceapi\\e-commerce.application\\globalusing.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{29EFEA29-5C3F-4390-97EE-0EED3159D879}|E-Commerce.Application\\E_Commerce.Application.csproj|d:\\dot net projects\\e_commerceapi\\e-commerce.application\\globalusing.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{29EFEA29-5C3F-4390-97EE-0EED3159D879}|E-Commerce.Application\\E_Commerce.Application.csproj|solutionrelative:e-commerce.application\\globalusing.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -50,19 +62,15 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 18,
+          "SelectedChildIndex": 20,
           "Children": [
             {
               "$type": "Bookmark",
-              "Name": "ST:0:0:{0ad07096-bba9-4900-a651-0598d26f6d24}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:129:0:{13b12e3e-c1b4-4539-9371-4fe9a0d523fc}"
-            },
-            {
-              "$type": "Bookmark",
               "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
             },
             {
               "$type": "Bookmark",
@@ -102,6 +110,10 @@
             },
             {
               "$type": "Bookmark",
+              "Name": "ST:0:0:{0ad07096-bba9-4900-a651-0598d26f6d24}"
+            },
+            {
+              "$type": "Bookmark",
               "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
             },
             {
@@ -110,32 +122,53 @@
             },
             {
               "$type": "Bookmark",
-              "Name": "ST:131:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:132:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "GetBrandsQuery.cs",
-              "DocumentMoniker": "D:\\Abdelhay projects\\E_CommerceAPI\\E-Commerce.Application\\Brands\\Queries\\GetBrands\\GetBrandsQuery.cs",
-              "RelativeDocumentMoniker": "E-Commerce.Application\\Brands\\Queries\\GetBrands\\GetBrandsQuery.cs",
-              "ToolTip": "D:\\Abdelhay projects\\E_CommerceAPI\\E-Commerce.Application\\Brands\\Queries\\GetBrands\\GetBrandsQuery.cs",
-              "RelativeToolTip": "E-Commerce.Application\\Brands\\Queries\\GetBrands\\GetBrandsQuery.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAA+AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-11T12:28:50.492Z",
-              "EditorCaption": ""
+              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "DeleteAttributeCommandHandelr.cs",
+              "DocumentMoniker": "D:\\Dot Net Projects\\E_CommerceAPI\\E-Commerce.Application\\Attributes\\Commands\\DeleteAttribute\\DeleteAttributeCommandHandelr.cs",
+              "RelativeDocumentMoniker": "E-Commerce.Application\\Attributes\\Commands\\DeleteAttribute\\DeleteAttributeCommandHandelr.cs",
+              "ToolTip": "D:\\Dot Net Projects\\E_CommerceAPI\\E-Commerce.Application\\Attributes\\Commands\\DeleteAttribute\\DeleteAttributeCommandHandelr.cs",
+              "RelativeToolTip": "E-Commerce.Application\\Attributes\\Commands\\DeleteAttribute\\DeleteAttributeCommandHandelr.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAOAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-12T15:37:46.849Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "DependencyInjection.cs",
+              "DocumentMoniker": "D:\\Dot Net Projects\\E_CommerceAPI\\E_Commerce.Infrastructure\\DependencyInjection.cs",
+              "RelativeDocumentMoniker": "E_Commerce.Infrastructure\\DependencyInjection.cs",
+              "ToolTip": "D:\\Dot Net Projects\\E_CommerceAPI\\E_Commerce.Infrastructure\\DependencyInjection.cs",
+              "RelativeToolTip": "E_Commerce.Infrastructure\\DependencyInjection.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-12T15:23:16.694Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "GetBrandsQuery.cs",
+              "DocumentMoniker": "D:\\Dot Net Projects\\E_CommerceAPI\\E-Commerce.Application\\Brands\\Queries\\GetBrands\\GetBrandsQuery.cs",
+              "RelativeDocumentMoniker": "E-Commerce.Application\\Brands\\Queries\\GetBrands\\GetBrandsQuery.cs",
+              "ToolTip": "D:\\Dot Net Projects\\E_CommerceAPI\\E-Commerce.Application\\Brands\\Queries\\GetBrands\\GetBrandsQuery.cs",
+              "RelativeToolTip": "E-Commerce.Application\\Brands\\Queries\\GetBrands\\GetBrandsQuery.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAA+AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-11T12:28:50.492Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "GetBrandsQueryHandler.cs",
-              "DocumentMoniker": "D:\\Abdelhay projects\\E_CommerceAPI\\E-Commerce.Application\\Brands\\Queries\\GetBrands\\GetBrandsQueryHandler.cs",
+              "DocumentMoniker": "D:\\Dot Net Projects\\E_CommerceAPI\\E-Commerce.Application\\Brands\\Queries\\GetBrands\\GetBrandsQueryHandler.cs",
               "RelativeDocumentMoniker": "E-Commerce.Application\\Brands\\Queries\\GetBrands\\GetBrandsQueryHandler.cs",
-              "ToolTip": "D:\\Abdelhay projects\\E_CommerceAPI\\E-Commerce.Application\\Brands\\Queries\\GetBrands\\GetBrandsQueryHandler.cs",
+              "ToolTip": "D:\\Dot Net Projects\\E_CommerceAPI\\E-Commerce.Application\\Brands\\Queries\\GetBrands\\GetBrandsQueryHandler.cs",
               "RelativeToolTip": "E-Commerce.Application\\Brands\\Queries\\GetBrands\\GetBrandsQueryHandler.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAaAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -144,11 +177,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 5,
               "Title": "BrandController.cs",
-              "DocumentMoniker": "D:\\Abdelhay projects\\E_CommerceAPI\\E_CommerceAPI\\Controllers\\BrandController.cs",
+              "DocumentMoniker": "D:\\Dot Net Projects\\E_CommerceAPI\\E_CommerceAPI\\Controllers\\BrandController.cs",
               "RelativeDocumentMoniker": "E_CommerceAPI\\Controllers\\BrandController.cs",
-              "ToolTip": "D:\\Abdelhay projects\\E_CommerceAPI\\E_CommerceAPI\\Controllers\\BrandController.cs",
+              "ToolTip": "D:\\Dot Net Projects\\E_CommerceAPI\\E_CommerceAPI\\Controllers\\BrandController.cs",
               "RelativeToolTip": "E_CommerceAPI\\Controllers\\BrandController.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -157,94 +190,101 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "UpdateAttributeCommandHandler.cs",
-              "DocumentMoniker": "D:\\Abdelhay projects\\E_CommerceAPI\\E-Commerce.Application\\Attributes\\Commands\\UpdateAttribute\\UpdateAttributeCommandHandler.cs",
-              "RelativeDocumentMoniker": "E-Commerce.Application\\Attributes\\Commands\\UpdateAttribute\\UpdateAttributeCommandHandler.cs",
-              "ToolTip": "D:\\Abdelhay projects\\E_CommerceAPI\\E-Commerce.Application\\Attributes\\Commands\\UpdateAttribute\\UpdateAttributeCommandHandler.cs",
-              "RelativeToolTip": "E-Commerce.Application\\Attributes\\Commands\\UpdateAttribute\\UpdateAttributeCommandHandler.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAAqAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-11T10:28:13.2Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "UpdateAttributeCommandValidator.cs",
-              "DocumentMoniker": "D:\\Abdelhay projects\\E_CommerceAPI\\E-Commerce.Application\\Attributes\\Commands\\UpdateAttribute\\UpdateAttributeCommandValidator.cs",
-              "RelativeDocumentMoniker": "E-Commerce.Application\\Attributes\\Commands\\UpdateAttribute\\UpdateAttributeCommandValidator.cs",
-              "ToolTip": "D:\\Abdelhay projects\\E_CommerceAPI\\E-Commerce.Application\\Attributes\\Commands\\UpdateAttribute\\UpdateAttributeCommandValidator.cs",
-              "RelativeToolTip": "E-Commerce.Application\\Attributes\\Commands\\UpdateAttribute\\UpdateAttributeCommandValidator.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAkAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-11T10:26:24.558Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "UpdateAttributeCommand.cs",
-              "DocumentMoniker": "D:\\Abdelhay projects\\E_CommerceAPI\\E-Commerce.Application\\Attributes\\Commands\\UpdateAttribute\\UpdateAttributeCommand.cs",
-              "RelativeDocumentMoniker": "E-Commerce.Application\\Attributes\\Commands\\UpdateAttribute\\UpdateAttributeCommand.cs",
-              "ToolTip": "D:\\Abdelhay projects\\E_CommerceAPI\\E-Commerce.Application\\Attributes\\Commands\\UpdateAttribute\\UpdateAttributeCommand.cs",
-              "RelativeToolTip": "E-Commerce.Application\\Attributes\\Commands\\UpdateAttribute\\UpdateAttributeCommand.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAA9AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-11T10:22:28.365Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 0,
               "Title": "AttributeController.cs",
-              "DocumentMoniker": "D:\\Abdelhay projects\\E_CommerceAPI\\E_CommerceAPI\\Controllers\\AttributeController.cs",
+              "DocumentMoniker": "D:\\Dot Net Projects\\E_CommerceAPI\\E_CommerceAPI\\Controllers\\AttributeController.cs",
               "RelativeDocumentMoniker": "E_CommerceAPI\\Controllers\\AttributeController.cs",
-              "ToolTip": "D:\\Abdelhay projects\\E_CommerceAPI\\E_CommerceAPI\\Controllers\\AttributeController.cs",
+              "ToolTip": "D:\\Dot Net Projects\\E_CommerceAPI\\E_CommerceAPI\\Controllers\\AttributeController.cs",
               "RelativeToolTip": "E_CommerceAPI\\Controllers\\AttributeController.cs",
-              "ViewState": "AQIAAAcAAAAAAAAAAAAuwBcAAAAbAAAA",
+              "ViewState": "AQIAABIAAAAAAAAAAAA7wCYAAAApAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-09-11T10:10:46.115Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "Attribute.cs",
-              "DocumentMoniker": "D:\\Abdelhay projects\\E_CommerceAPI\\E-Commerce.Domain\\Entities\\Attribute.cs",
-              "RelativeDocumentMoniker": "E-Commerce.Domain\\Entities\\Attribute.cs",
-              "ToolTip": "D:\\Abdelhay projects\\E_CommerceAPI\\E-Commerce.Domain\\Entities\\Attribute.cs",
-              "RelativeToolTip": "E-Commerce.Domain\\Entities\\Attribute.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAAAAAAA",
+              "DocumentIndex": 3,
+              "Title": "DispatchDomainEventsInterceptor.cs",
+              "DocumentMoniker": "D:\\Dot Net Projects\\E_CommerceAPI\\E_Commerce.Infrastructure\\Data\\Interceptors\\DispatchDomainEventsInterceptor.cs",
+              "RelativeDocumentMoniker": "E_Commerce.Infrastructure\\Data\\Interceptors\\DispatchDomainEventsInterceptor.cs",
+              "ToolTip": "D:\\Dot Net Projects\\E_CommerceAPI\\E_Commerce.Infrastructure\\Data\\Interceptors\\DispatchDomainEventsInterceptor.cs",
+              "RelativeToolTip": "E_Commerce.Infrastructure\\Data\\Interceptors\\DispatchDomainEventsInterceptor.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACEAAAAnAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-11T09:57:42.838Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "GlobalUsing.cs",
-              "DocumentMoniker": "D:\\Abdelhay projects\\E_CommerceAPI\\E-Commerce.Application\\GlobalUsing.cs",
-              "RelativeDocumentMoniker": "E-Commerce.Application\\GlobalUsing.cs",
-              "ToolTip": "D:\\Abdelhay projects\\E_CommerceAPI\\E-Commerce.Application\\GlobalUsing.cs",
-              "RelativeToolTip": "E-Commerce.Application\\GlobalUsing.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAHAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-11T09:11:21.462Z",
+              "WhenOpened": "2024-09-12T15:25:40.212Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 7,
+              "Title": "UpdateAttributeCommandHandler.cs",
+              "DocumentMoniker": "D:\\Dot Net Projects\\E_CommerceAPI\\E-Commerce.Application\\Attributes\\Commands\\UpdateAttribute\\UpdateAttributeCommandHandler.cs",
+              "RelativeDocumentMoniker": "E-Commerce.Application\\Attributes\\Commands\\UpdateAttribute\\UpdateAttributeCommandHandler.cs",
+              "ToolTip": "D:\\Dot Net Projects\\E_CommerceAPI\\E-Commerce.Application\\Attributes\\Commands\\UpdateAttribute\\UpdateAttributeCommandHandler.cs",
+              "RelativeToolTip": "E-Commerce.Application\\Attributes\\Commands\\UpdateAttribute\\UpdateAttributeCommandHandler.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAAqAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-11T10:28:13.2Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "UpdateAttributeCommandValidator.cs",
+              "DocumentMoniker": "D:\\Dot Net Projects\\E_CommerceAPI\\E-Commerce.Application\\Attributes\\Commands\\UpdateAttribute\\UpdateAttributeCommandValidator.cs",
+              "RelativeDocumentMoniker": "E-Commerce.Application\\Attributes\\Commands\\UpdateAttribute\\UpdateAttributeCommandValidator.cs",
+              "ToolTip": "D:\\Dot Net Projects\\E_CommerceAPI\\E-Commerce.Application\\Attributes\\Commands\\UpdateAttribute\\UpdateAttributeCommandValidator.cs",
+              "RelativeToolTip": "E-Commerce.Application\\Attributes\\Commands\\UpdateAttribute\\UpdateAttributeCommandValidator.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAkAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-11T10:26:24.558Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "UpdateAttributeCommand.cs",
+              "DocumentMoniker": "D:\\Dot Net Projects\\E_CommerceAPI\\E-Commerce.Application\\Attributes\\Commands\\UpdateAttribute\\UpdateAttributeCommand.cs",
+              "RelativeDocumentMoniker": "E-Commerce.Application\\Attributes\\Commands\\UpdateAttribute\\UpdateAttributeCommand.cs",
+              "ToolTip": "D:\\Dot Net Projects\\E_CommerceAPI\\E-Commerce.Application\\Attributes\\Commands\\UpdateAttribute\\UpdateAttributeCommand.cs",
+              "RelativeToolTip": "E-Commerce.Application\\Attributes\\Commands\\UpdateAttribute\\UpdateAttributeCommand.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAA9AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-11T10:22:28.365Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Attribute.cs",
+              "DocumentMoniker": "D:\\Dot Net Projects\\E_CommerceAPI\\E-Commerce.Domain\\Entities\\Attribute.cs",
+              "RelativeDocumentMoniker": "E-Commerce.Domain\\Entities\\Attribute.cs",
+              "ToolTip": "D:\\Dot Net Projects\\E_CommerceAPI\\E-Commerce.Domain\\Entities\\Attribute.cs",
+              "RelativeToolTip": "E-Commerce.Domain\\Entities\\Attribute.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-11T09:57:42.838Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "GlobalUsing.cs",
+              "DocumentMoniker": "D:\\Dot Net Projects\\E_CommerceAPI\\E-Commerce.Application\\GlobalUsing.cs",
+              "RelativeDocumentMoniker": "E-Commerce.Application\\GlobalUsing.cs",
+              "ToolTip": "D:\\Dot Net Projects\\E_CommerceAPI\\E-Commerce.Application\\GlobalUsing.cs",
+              "RelativeToolTip": "E-Commerce.Application\\GlobalUsing.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAHAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-11T09:11:21.462Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
               "Title": "DependencyInjection.cs",
-              "DocumentMoniker": "D:\\Abdelhay projects\\E_CommerceAPI\\E-Commerce.Application\\DependencyInjection.cs",
+              "DocumentMoniker": "D:\\Dot Net Projects\\E_CommerceAPI\\E-Commerce.Application\\DependencyInjection.cs",
               "RelativeDocumentMoniker": "E-Commerce.Application\\DependencyInjection.cs",
-              "ToolTip": "D:\\Abdelhay projects\\E_CommerceAPI\\E-Commerce.Application\\DependencyInjection.cs",
+              "ToolTip": "D:\\Dot Net Projects\\E_CommerceAPI\\E-Commerce.Application\\DependencyInjection.cs",
               "RelativeToolTip": "E-Commerce.Application\\DependencyInjection.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAfAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-04T08:07:20.815Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-04T08:07:20.815Z"
             }
           ]
         },
@@ -252,10 +292,6 @@
           "DockedWidth": 76,
           "SelectedChildIndex": -1,
           "Children": [
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{fbcae063-e2c0-4ab1-a516-996ea3dafb72}"
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"

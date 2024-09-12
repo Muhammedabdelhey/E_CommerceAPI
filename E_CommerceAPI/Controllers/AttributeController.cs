@@ -1,7 +1,7 @@
 ﻿using E_Commerce.Application.Attributes.Commands.CreateAttribute;
+using E_Commerce.Application.Attributes.Commands.DeleteAttribute;
 using E_Commerce.Application.Attributes.Commands.UpdateAttribute;
 using MediatR;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace E_Commerce.Presentation.Controllers
@@ -31,6 +31,12 @@ namespace E_Commerce.Presentation.Controllers
             }
             var attribute = await _mediator.Send(command, cancellationToken);
             return Ok(attribute);
+        }
+        [HttpDelete("{guid}")]
+        public async Task<IActionResult> Delete(string guid)
+        {
+            await _mediator.Send(new DeleteAttributeCommand(guid));
+            return Ok("Attribute Deleted");
         }
     }
 }
