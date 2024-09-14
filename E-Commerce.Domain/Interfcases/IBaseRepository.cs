@@ -1,6 +1,6 @@
 ﻿using System.Linq.Expressions;
 
-namespace E_Commerce.Domain.Interfcases;
+namespace E_Commerce.Domain.Interfaces;
 
 /// <summary>
 /// Interface for a generic repository providing basic CRUD operations on entities of type <typeparamref name="T"/>.

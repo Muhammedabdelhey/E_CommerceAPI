@@ -1,6 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-
-namespace E_Commerce.Infrastructure.Data.Repositories;
+﻿namespace E_Commerce.Infrastructure.Data.Repositories;
 
 public class BaseRepository<T>(ApplicationDbContext context) : IBaseRepository<T> where T : class
 {

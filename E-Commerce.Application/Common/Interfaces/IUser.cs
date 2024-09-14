@@ -1,4 +1,4 @@
-﻿namespace E_Commerce.Application.Common.Interfacses
+﻿namespace E_Commerce.Application.Common.Interfaces
 {
     public interface IUser
     {

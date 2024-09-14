@@ -1,4 +1,4 @@
-﻿using E_Commerce.Application.Common.Interfacses;
+﻿using E_Commerce.Application.Common.Interfaces;
 using E_Commerce.Presentation.Services;
 
 namespace E_Commerce.Presentation

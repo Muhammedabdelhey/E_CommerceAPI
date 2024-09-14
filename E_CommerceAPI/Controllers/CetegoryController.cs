@@ -17,9 +17,9 @@ namespace E_Commerce.Presentation.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Add(CreateCategoryCommand command, CancellationToken cancellationToken)
+        public async Task<IActionResult> Add([FromForm] CreateCategoryCommand command, CancellationToken cancellationToken)
         {
-            var category =await _mediatR.Send(command);
+            var category = await _mediatR.Send(command);
             return Ok(category);
         }
     }

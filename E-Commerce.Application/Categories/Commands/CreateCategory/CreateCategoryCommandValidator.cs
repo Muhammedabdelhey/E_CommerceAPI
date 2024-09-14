@@ -1,8 +1,8 @@
 ﻿namespace E_Commerce.Application.Categories.Commands.CreateCategory
 {
-    public class CreateCategoryCommnadValidator : AbstractValidator<CreateCategoryCommand>
+    public class CreateCategoryCommandValidator : AbstractValidator<CreateCategoryCommand>
     {
-        public CreateCategoryCommnadValidator()
+        public CreateCategoryCommandValidator()
         {
             RuleFor(v => v.Name)
                 .ValidateString(50);
@@ -12,7 +12,7 @@
         }
         private bool IsValidGuid(string id)
         {
-            if(id == null)
+            if (id == null)
             {
                 return true;
             }

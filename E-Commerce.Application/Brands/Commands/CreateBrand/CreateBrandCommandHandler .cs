@@ -1,5 +1,5 @@
 ﻿
-using E_Commerce.Domain.Interfcases;
+using E_Commerce.Domain.Interfaces;
 
 namespace E_Commerce.Application.Brands.Commands.CreateBrand
 {

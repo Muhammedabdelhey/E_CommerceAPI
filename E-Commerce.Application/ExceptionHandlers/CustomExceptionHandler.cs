@@ -1,9 +1,6 @@
 ﻿using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using ValidationException = E_Commerce.Application.Common.Exceptions.ValidationException;
-
 namespace E_Commerce.Application.ExceptionHandlers
 {
     public class CustomExceptionHandler : IExceptionHandler
