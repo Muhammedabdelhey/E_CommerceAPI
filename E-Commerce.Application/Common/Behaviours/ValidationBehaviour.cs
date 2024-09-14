@@ -1,4 +1,5 @@
-﻿namespace E_Commerce.Application.Common.Behaviours
+﻿using ValidationException = E_Commerce.Application.Common.Exceptions.ValidationException;
+namespace E_Commerce.Application.Common.Behaviours
 {
     public class ValidationBehaviour<TRequest, TRsponse> : IPipelineBehavior<TRequest, TRsponse>
         where TRequest : notnull

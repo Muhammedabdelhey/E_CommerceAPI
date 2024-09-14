@@ -1,6 +1,4 @@
-﻿using E_Commerce.Application.Common.Behaviours;
-
-namespace E_Commerce.Application
+﻿namespace E_Commerce.Application
 {
     public static class DependencyInjection
     {
@@ -9,6 +7,8 @@ namespace E_Commerce.Application
             //services.AddFluentValidationAutoValidation();
             services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehaviour<,>));
+            services.AddExceptionHandler<CustomExceptionHandler>();// should register it in program.cs
+
             services.AddMediatR(cfg =>
             {
                 cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly());
