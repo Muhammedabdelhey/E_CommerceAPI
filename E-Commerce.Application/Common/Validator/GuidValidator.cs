@@ -9,7 +9,7 @@
         {
             RuleFor(x => x)
                 .NotEmpty()
-                .Must(IsValidGuid).WithMessage("Invalid GUID format");
+                .Must(IsValidGuid).WithMessage("Invalid GUID Format");
         }
         private bool IsValidGuid(string id)
         {
