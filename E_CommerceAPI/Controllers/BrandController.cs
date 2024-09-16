@@ -1,8 +1,8 @@
-﻿using E_Commerce.Application.Brands.Commands.CreateBrand;
-using E_Commerce.Application.Brands.Commands.DeleteBrand;
-using E_Commerce.Application.Brands.Commands.UpdateBrand;
-using E_Commerce.Application.Brands.Queries;
-using E_Commerce.Application.Brands.Queries.GetBrands;
+﻿using E_Commerce.Application.Features.Brands.Commands.CreateBrand;
+using E_Commerce.Application.Features.Brands.Commands.DeleteBrand;
+using E_Commerce.Application.Features.Brands.Commands.UpdateBrand;
+using E_Commerce.Application.Features.Brands.Queries;
+using E_Commerce.Application.Features.Brands.Queries.GetBrands;
 using E_Commerce.Domain.Entities;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;

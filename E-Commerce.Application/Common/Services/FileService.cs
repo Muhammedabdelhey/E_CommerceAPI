@@ -1,4 +1,4 @@
-﻿using E_Commerce.Application.Interfaces; // Fixed typo
+﻿using E_Commerce.Application.Interfaces;
 using Microsoft.AspNetCore.Http;
 
 namespace E_Commerce.Application.Common.Services
@@ -16,7 +16,7 @@ namespace E_Commerce.Application.Common.Services
         {
             if (file == null)
             {
-                throw new ValidationException("No file uploaded. Please upload a file.");
+                throw new NotFoundException("No file uploaded. Please upload a file.");
             }
             try
             {

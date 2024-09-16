@@ -1,8 +1,8 @@
-﻿using E_Commerce.Application.Attributes.Commands.CreateAttribute;
-using E_Commerce.Application.Attributes.Commands.DeleteAttribute;
-using E_Commerce.Application.Attributes.Commands.UpdateAttribute;
-using E_Commerce.Application.Attributes.Queries.GetAttributeById;
-using E_Commerce.Application.Attributes.Queries.GetAttributs;
+﻿using E_Commerce.Application.Features.Attributes.Commands.CreateAttribute;
+using E_Commerce.Application.Features.Attributes.Commands.DeleteAttribute;
+using E_Commerce.Application.Features.Attributes.Commands.UpdateAttribute;
+using E_Commerce.Application.Features.Attributes.Queries.GetAttributeById;
+using E_Commerce.Application.Features.Attributes.Queries.GetAttributs;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 

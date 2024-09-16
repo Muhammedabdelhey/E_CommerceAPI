@@ -1,4 +1,4 @@
-﻿using E_Commerce.Application.Categories.Commands.CreateCategory;
+﻿using E_Commerce.Application.Features.Categories.Commands.CreateCategory;
 using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;

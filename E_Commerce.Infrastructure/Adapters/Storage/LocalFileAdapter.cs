@@ -1,5 +1,4 @@
-﻿using E_Commerce.Application.Interfaces;
-using Microsoft.AspNetCore.Hosting;
+﻿using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 
 namespace E_Commerce.Infrastructure.Adapters.Storage
@@ -19,12 +18,12 @@ namespace E_Commerce.Infrastructure.Adapters.Storage
             {
                 Directory.CreateDirectory("wwwroot");
             }
-            var fileName = Guid.NewGuid().ToString() + Path.GetExtension(file.FileName);
             var filePath = Path.Combine(serverPath, path);
             if (!Directory.Exists(filePath))
             {
                 Directory.CreateDirectory(filePath);
             }
+            var fileName = Guid.NewGuid().ToString() + Path.GetExtension(file.FileName);
             var fullPath = Path.Combine(filePath, fileName);
 
             using (var stream = new FileStream(fullPath, FileMode.Create))

@@ -30,6 +30,7 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
+// this will take your custom exception handler and use to handle all exceptions 
 app.UseExceptionHandler(options => { });
 
 

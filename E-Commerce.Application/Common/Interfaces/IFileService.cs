@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using E_Commerce.Application.Interfaces;
+using Microsoft.AspNetCore.Http;
 
 namespace E_Commerce.Domain.Interfaces
 {

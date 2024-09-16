@@ -1,13 +1,10 @@
-﻿using E_Commerce.Infrastructure.Adapters.Storage;
-using E_Commerce.Application.Interfaces;
-
-namespace E_Commerce.Infrastructure
+﻿namespace E_Commerce.Infrastructure
 {
     public static class ServiceCollectionExtension
     {
         public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
         {
-            var connectionString = configuration.GetConnectionString("default");
+            var connectionString = configuration.GetConnectionString("company");
             services.AddScoped<ISaveChangesInterceptor, AuditableEntityInterceptor>();
             services.AddScoped<ISaveChangesInterceptor, DispatchDomainEventsInterceptor>();
             services.AddScoped(typeof(IBaseRepository<>), typeof(BaseRepository<>));

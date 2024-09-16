@@ -12,4 +12,6 @@ global using E_Commerce.Application.Common.Interfaces;
 global using E_Commerce.Domain.Comman;
 global using Microsoft.EntityFrameworkCore.Diagnostics;
 global using E_Commerce.Infrastructure.Data.Interceptors;
+global using E_Commerce.Infrastructure.Adapters.Storage;
+global using E_Commerce.Application.Interfaces;
 
