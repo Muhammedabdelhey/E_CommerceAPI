@@ -1,5 +1,5 @@
-﻿using Microsoft.AspNetCore.Diagnostics;
-using Microsoft.AspNetCore.Http;
+﻿using E_Commerce.Application.Common.Exceptions;
+using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 namespace E_Commerce.Application.ExceptionHandlers
 {

@@ -6,14 +6,16 @@ namespace E_Commerce.Infrastructure.Adapters.Storage
     public class LocalFileAdapter : IFileAdapter
     {
         private readonly IWebHostEnvironment webHostEnvironment;
+        private readonly string serverPath;
 
         public LocalFileAdapter(IWebHostEnvironment webHostEnvironment)
         {
             this.webHostEnvironment = webHostEnvironment;
+            serverPath = webHostEnvironment.WebRootPath;
         }
+
         public async Task<string> UploadFileAsync(string path, IFormFile file)
         {
-            var serverPath = webHostEnvironment.WebRootPath;
             if (!Directory.Exists(serverPath))
             {
                 Directory.CreateDirectory("wwwroot");
@@ -31,6 +33,18 @@ namespace E_Commerce.Infrastructure.Adapters.Storage
                 await file.CopyToAsync(stream);
             }
             return fileName;
+        }
+
+        public async Task<bool> DeleteFileAsync(string path, string fileName)
+        {
+            var filePath = Path.Combine(path, fileName);
+            var fullPath = Path.Combine(serverPath, filePath);
+            if (!File.Exists(fullPath))
+            {
+                return false;
+            }
+            await Task.Run(() => File.Delete(fullPath));
+            return true;
         }
     }
 }

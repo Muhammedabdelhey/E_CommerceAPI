@@ -47,7 +47,7 @@ namespace E_Commerce.Presentation.Controllers
         {
             if (guid != command.Id)
             {
-                return BadRequest();
+                return BadRequest("Guid you pass in route not equal to one passed on request");
             }
             Brand brand = await _mediator.Send(command, cancellationToken);
             return Ok(brand);
@@ -58,7 +58,7 @@ namespace E_Commerce.Presentation.Controllers
         {
             if (guid == null)
             {
-                return BadRequest();
+                return BadRequest("Guid you pass in route null");
             }
             await _mediator.Send(new DeleteBrandCommand(guid), cancellationToken);
             return Ok();

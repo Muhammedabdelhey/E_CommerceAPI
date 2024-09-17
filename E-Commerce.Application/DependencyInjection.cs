@@ -10,7 +10,6 @@ namespace E_Commerce.Application
             //services.AddFluentValidationAutoValidation();
             services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehaviour<,>));
-            services.AddExceptionHandler<CustomExceptionHandler>();// should register it in program.cs
             services.AddScoped(typeof(IFileService), typeof(FileService));
             services.AddMediatR(cfg =>
             {

@@ -14,10 +14,6 @@ namespace E_Commerce.Application.Common.Services
 
         public async Task<string> UploadFileAsync(string filePath, IFormFile file)
         {
-            if (file == null)
-            {
-                throw new NotFoundException("No file uploaded. Please upload a file.");
-            }
             try
             {
                 var fileName = await _fileAdapter.UploadFileAsync(filePath, file);
@@ -26,6 +22,23 @@ namespace E_Commerce.Application.Common.Services
             catch (Exception ex)
             {
                 throw new Exception("An error occurred while trying to upload the file.", ex);
+            }
+        }
+
+        public async Task<bool> DeleteFileAsync(string filePath, string fileName)
+        {
+            try
+            {
+                var deleted = await _fileAdapter.DeleteFileAsync(filePath, fileName);
+                if (!deleted)
+                {
+                    throw new NotFoundException("the file you want delete not found.");
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("An error occurred while trying to delete the file.", ex);
             }
         }
     }

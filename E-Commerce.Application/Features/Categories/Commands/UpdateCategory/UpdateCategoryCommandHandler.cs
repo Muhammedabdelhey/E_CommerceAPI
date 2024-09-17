@@ -13,17 +13,30 @@
         public async Task<Category> Handle(UpdateCategoryCommand request, CancellationToken cancellationToken)
         {
             var category = await _categoryRepository.GetByIdAsync(Guid.Parse(request.guid), cancellationToken);
-            if (category==null)
+            if (category == null)
             {
                 throw new NotFoundException($"Category with Guid {request.guid} not found");
             }
-            var image=category.Image;
+            var image = category.Image;
+            if (image != null)
+            {
+                await _fileService.DeleteFileAsync(Constants.Category, image);
+                image = null;
+            }
             if (request.Image != null)
             {
-                // delete old file then upload it 
-                image = await _fileService.UploadFileAsync("category", request.Image);
+                image = await _fileService.UploadFileAsync(Constants.Category, request.Image);
             }
-            throw new NotImplementedException();
+            Guid? parentId = null;
+            if (!string.IsNullOrEmpty(request.ParentId))
+            {
+                parentId = Guid.Parse(request.ParentId);
+            }
+            category.Name = request.Name;
+            category.Image = image;
+            category.ParentId = parentId;
+            category = await _categoryRepository.UpdateAsync(category);
+            return category;
         }
     }
 }

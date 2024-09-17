@@ -15,7 +15,7 @@
             string? image = null;
             if (request.Image != null)
             {
-                image = await _fileService.UploadFileAsync("Category", request.Image);
+                image = await _fileService.UploadFileAsync(Constants.Category, request.Image);
             }
             Guid? parentId = null;
             if (!string.IsNullOrEmpty(request.ParentId))

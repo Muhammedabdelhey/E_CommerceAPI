@@ -43,7 +43,7 @@ namespace E_Commerce.Presentation.Controllers
         {
             if (guid != command.Guid)
             {
-                return BadRequest("Guid not Equal guid on attribute");
+                return BadRequest("Guid you pass in route not equal to one passed on request");
             }
             var attribute = await _mediator.Send(command, cancellationToken);
             return Ok(attribute);
@@ -51,6 +51,10 @@ namespace E_Commerce.Presentation.Controllers
         [HttpDelete("{guid}")]
         public async Task<IActionResult> Delete(string guid, CancellationToken cancellationToken)
         {
+            if(guid == null)
+            {
+                return BadRequest("\"Guid you pass in route null");
+            }
             await _mediator.Send(new DeleteAttributeCommand(guid), cancellationToken);
             return Ok("Attribute Deleted");
         }
