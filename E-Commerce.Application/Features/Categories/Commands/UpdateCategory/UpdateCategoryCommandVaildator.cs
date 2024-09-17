@@ -13,6 +13,8 @@
             RuleFor(v => v.ParentId)
                 .Must(IsValidGuid)
                 .WithMessage("Invalid GUID Format");
+            RuleFor(v => v.Image)
+                .SetValidator(new ImageValidator());
         }
         private bool IsValidGuid(string guid)
         {

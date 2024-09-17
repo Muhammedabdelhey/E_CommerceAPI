@@ -6,6 +6,8 @@
         {
             RuleFor(v => v.Name)
                 .ValidateString(50);
+            RuleFor(v => v.Image)
+                .SetValidator(new ImageValidator());
         }
     }
 }

@@ -4,12 +4,15 @@
     {
         public UpdateBrandCommandValidator()
         {
-
             RuleFor(v => v.Id)
                 .SetValidator(new GuidValidator());
 
             RuleFor(v => v.Name)
                 .ValidateString(50);
+
+            RuleFor(v => v.Image)
+                .SetValidator(new ImageValidator());
+
         }
     }
 }

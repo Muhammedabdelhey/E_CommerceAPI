@@ -3,5 +3,6 @@
     public static class Constants
     {
         public const string Category = "Category";
+        public const string Brands = "Brands";
     }
 }

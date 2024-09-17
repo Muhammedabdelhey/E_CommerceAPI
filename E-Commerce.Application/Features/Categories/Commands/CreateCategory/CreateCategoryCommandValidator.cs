@@ -1,4 +1,6 @@
-﻿namespace E_Commerce.Application.Features.Categories.Commands.CreateCategory
+﻿using Microsoft.AspNetCore.Http;
+
+namespace E_Commerce.Application.Features.Categories.Commands.CreateCategory
 {
     public class CreateCategoryCommandValidator : AbstractValidator<CreateCategoryCommand>
     {
@@ -9,14 +11,16 @@
             RuleFor(v => v.ParentId)
                 .Must(IsValidGuid)
                 .WithMessage("Invalid GUID Format");
+            RuleFor(v => v.Image)
+                .SetValidator(new ImageValidator());
         }
         private bool IsValidGuid(string guid)
         {
-            if (guid == null)
+            if (guid != null)
             {
-                return true;
+                return Guid.TryParse(guid, out _);
             }
-            return Guid.TryParse(guid, out _);
+            return true;
         }
     }
 }

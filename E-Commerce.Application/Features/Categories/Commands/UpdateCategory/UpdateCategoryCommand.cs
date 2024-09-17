@@ -1,6 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
-
-namespace E_Commerce.Application.Features.Categories.Commands.UpdateCategory
+﻿namespace E_Commerce.Application.Features.Categories.Commands.UpdateCategory
 {
     public record UpdateCategoryCommand : IRequest<Category>
     {

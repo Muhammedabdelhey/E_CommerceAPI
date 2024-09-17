@@ -20,7 +20,7 @@ namespace E_Commerce.Presentation.Controllers
             _mediator = mediator;
         }
         [HttpGet("get{guid}")]
-        public async Task<IActionResult> Get( string guid, CancellationToken cancellationToken)
+        public async Task<IActionResult> Get(string guid, CancellationToken cancellationToken)
         {
             var brand = await _mediator.Send(new GetBrandByIdQuery(guid), cancellationToken);
             return Ok(brand);
@@ -33,7 +33,7 @@ namespace E_Commerce.Presentation.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create([FromBody] CreateBrandCommand command
+        public async Task<IActionResult> Create([FromForm] CreateBrandCommand command
             , CancellationToken cancellationToken)
         {
             Brand brand = await _mediator.Send(command, cancellationToken);
@@ -42,7 +42,7 @@ namespace E_Commerce.Presentation.Controllers
 
         [HttpPut("{guid}")]
         public async Task<IActionResult> Update(string guid,
-            [FromBody] UpdateBrandCommand command
+            [FromForm] UpdateBrandCommand command
             , CancellationToken cancellationToken)
         {
             if (guid != command.Id)
