@@ -30,7 +30,7 @@
                 Image = image,
             };
 
-            await _categoryRepository.AddAsync(category);
+            await _categoryRepository.AddAsync(category, cancellationToken);
             return category;
         }
 

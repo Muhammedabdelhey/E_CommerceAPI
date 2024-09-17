@@ -56,10 +56,6 @@ namespace E_Commerce.Presentation.Controllers
         [HttpDelete("{guid}")]
         public async Task<IActionResult> Delete(string guid, CancellationToken cancellationToken)
         {
-            if (guid == null)
-            {
-                return BadRequest("Guid you pass in route null");
-            }
             await _mediator.Send(new DeleteBrandCommand(guid), cancellationToken);
             return Ok();
         }

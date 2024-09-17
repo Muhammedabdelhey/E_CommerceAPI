@@ -17,7 +17,7 @@
                 throw new NotFoundException($"Attribute with ID {request.Guid} not found.");
             }
             attribute.Name = request.Name;
-            await _attributeRepository.UpdateAsync(attribute);
+            await _attributeRepository.UpdateAsync(attribute, cancellationToken);
             return attribute;
         }
     }

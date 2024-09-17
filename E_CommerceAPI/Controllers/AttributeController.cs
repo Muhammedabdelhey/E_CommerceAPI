@@ -20,12 +20,12 @@ namespace E_Commerce.Presentation.Controllers
         [HttpGet("getall")]
         public async Task<IActionResult> GetAll(CancellationToken cancellationToken)
         {
-            var attributes = await _mediator.Send(new GetAttributesQuery(),cancellationToken);
+            var attributes = await _mediator.Send(new GetAttributesQuery(), cancellationToken);
             return Ok(attributes);
         }
 
         [HttpGet("get{guid}")]
-        public async Task<IActionResult> Get(string guid,CancellationToken cancellationToken)
+        public async Task<IActionResult> Get(string guid, CancellationToken cancellationToken)
         {
             var attributes = await _mediator.Send(new GetAttributeByIdQuery(guid), cancellationToken);
             return Ok(attributes);
@@ -51,10 +51,6 @@ namespace E_Commerce.Presentation.Controllers
         [HttpDelete("{guid}")]
         public async Task<IActionResult> Delete(string guid, CancellationToken cancellationToken)
         {
-            if(guid == null)
-            {
-                return BadRequest("\"Guid you pass in route null");
-            }
             await _mediator.Send(new DeleteAttributeCommand(guid), cancellationToken);
             return Ok("Attribute Deleted");
         }

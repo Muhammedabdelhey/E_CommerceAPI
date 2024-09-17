@@ -1,7 +1,7 @@
 ﻿using E_Commerce.Application.Features.Categories.Commands.CreateCategory;
+using E_Commerce.Application.Features.Categories.Commands.DeleteCategory;
 using E_Commerce.Application.Features.Categories.Commands.UpdateCategory;
 using MediatR;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace E_Commerce.Presentation.Controllers
@@ -20,7 +20,7 @@ namespace E_Commerce.Presentation.Controllers
         [HttpPost]
         public async Task<IActionResult> Add([FromForm] CreateCategoryCommand command, CancellationToken cancellationToken)
         {
-            var category = await _mediatR.Send(command);
+            var category = await _mediatR.Send(command, cancellationToken);
             return Ok(category);
         }
 
@@ -33,8 +33,15 @@ namespace E_Commerce.Presentation.Controllers
             {
                 return BadRequest("Guid you pass in route not equal to one passed on request");
             }
-            var category = await _mediatR.Send(command);
+            var category = await _mediatR.Send(command, cancellationToken);
             return Ok(category);
+        }
+
+        [HttpDelete("{guid}")]
+        public async Task<IActionResult> Delete(string guid, CancellationToken cancellationToken)
+        {
+            var category = await _mediatR.Send(new DeleteCategoryCommand(guid), cancellationToken);
+            return Ok($"Category with guid {category.Id} deleted ");
         }
     }
 }

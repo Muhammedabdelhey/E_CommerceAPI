@@ -23,7 +23,7 @@
             {
                 await _fileService.DeleteFileAsync(Constants.Brands, image);
             }
-            await _brandRepository.DeleteAsync(brand);
+            await _brandRepository.DeleteAsync(brand,cancellationToken);
             return brand;
         }
     }

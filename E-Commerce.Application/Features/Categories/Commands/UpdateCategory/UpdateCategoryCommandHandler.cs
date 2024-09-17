@@ -35,7 +35,7 @@
             category.Name = request.Name;
             category.Image = image;
             category.ParentId = parentId;
-            category = await _categoryRepository.UpdateAsync(category);
+            category = await _categoryRepository.UpdateAsync(category, cancellationToken);
             return category;
         }
     }

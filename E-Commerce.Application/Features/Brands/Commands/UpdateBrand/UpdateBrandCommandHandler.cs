@@ -14,7 +14,7 @@ namespace E_Commerce.Application.Features.Brands.Commands.UpdateBrand
 
         public async Task<Brand> Handle(UpdateBrandCommand request, CancellationToken cancellationToken)
         {
-            var brand = await _brandRepository.GetByIdAsync(Guid.Parse(request.Id));
+            var brand = await _brandRepository.GetByIdAsync(Guid.Parse(request.Id), cancellationToken);
             if (brand == null)
             {
                 throw new NotFoundException($"Brand with ID {request.Id} not found.");
@@ -31,7 +31,7 @@ namespace E_Commerce.Application.Features.Brands.Commands.UpdateBrand
             }
             brand.Name = request.Name;
             brand.Image = image;
-            await _brandRepository.UpdateAsync(brand);
+            await _brandRepository.UpdateAsync(brand, cancellationToken);
             return brand;
         }
     }
