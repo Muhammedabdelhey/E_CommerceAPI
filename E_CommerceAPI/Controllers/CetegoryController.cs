@@ -1,6 +1,8 @@
 ﻿using E_Commerce.Application.Features.Categories.Commands.CreateCategory;
 using E_Commerce.Application.Features.Categories.Commands.DeleteCategory;
 using E_Commerce.Application.Features.Categories.Commands.UpdateCategory;
+using E_Commerce.Application.Features.Categories.Queries.GetCategories;
+using E_Commerce.Application.Features.Categories.Queries.GetCategoryById;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -16,7 +18,18 @@ namespace E_Commerce.Presentation.Controllers
         {
             _mediatR = mediatR;
         }
-
+        [HttpGet("{guid}")]
+        public async Task<IActionResult> Get(string guid, CancellationToken cancellationToken)
+        {
+            var category = await _mediatR.Send(new GetCategoryByIdCommand(guid), cancellationToken);
+            return Ok(category);
+        }
+        [HttpGet]
+        public async Task<IActionResult> GetAll(CancellationToken cancellationToken)
+        {
+            var categories = await _mediatR.Send(new GetCategoriesCommand());
+            return Ok(categories);
+        }
         [HttpPost]
         public async Task<IActionResult> Add([FromForm] CreateCategoryCommand command, CancellationToken cancellationToken)
         {

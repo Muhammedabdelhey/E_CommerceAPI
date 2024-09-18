@@ -16,7 +16,7 @@
             {
                 image = await _fileService.UploadFileAsync(Constants.Brands, request.Image);
             }
-            Brand brand = new Brand
+            Brand brand = new()
             {
                 Id = Guid.NewGuid(),
                 Name = request.Name,

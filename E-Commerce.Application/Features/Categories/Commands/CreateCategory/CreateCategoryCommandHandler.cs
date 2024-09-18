@@ -1,16 +1,19 @@
 ﻿namespace E_Commerce.Application.Features.Categories.Commands.CreateCategory
 {
-    public class CreateCategoryCommandHandler : IRequestHandler<CreateCategoryCommand, Category>
+    public class CreateCategoryCommandHandler : IRequestHandler<CreateCategoryCommand, CategoryDto>
     {
         private readonly IBaseRepository<Category> _categoryRepository;
         private readonly IFileService _fileService;
-        public CreateCategoryCommandHandler(IBaseRepository<Category> categoryRepository, IFileService fileService)
+        private readonly IMapper _mapper;
+
+        public CreateCategoryCommandHandler(IBaseRepository<Category> categoryRepository, IFileService fileService, IMapper mapper)
         {
             _categoryRepository = categoryRepository;
             _fileService = fileService;
+            _mapper = mapper;
         }
 
-        public async Task<Category> Handle(CreateCategoryCommand request, CancellationToken cancellationToken)
+        public async Task<CategoryDto> Handle(CreateCategoryCommand request, CancellationToken cancellationToken)
         {
             string? image = null;
             if (request.Image != null)
@@ -22,7 +25,7 @@
             {
                 parentId = Guid.Parse(request.ParentId);
             }
-            Category category = new Category
+            Category category = new()
             {
                 Id = Guid.NewGuid(),
                 Name = request.Name,
@@ -31,7 +34,7 @@
             };
 
             await _categoryRepository.AddAsync(category, cancellationToken);
-            return category;
+            return _mapper.Map<CategoryDto>(category);
         }
 
     }

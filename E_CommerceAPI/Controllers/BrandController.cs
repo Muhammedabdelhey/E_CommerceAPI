@@ -25,7 +25,7 @@ namespace E_Commerce.Presentation.Controllers
             var brand = await _mediator.Send(new GetBrandByIdQuery(guid), cancellationToken);
             return Ok(brand);
         }
-        [HttpGet("getall")]
+        [HttpGet]
         public async Task<IActionResult> GetAll(CancellationToken cancellationToken)
         {
             var brands = await _mediator.Send(new GetBrandsQuery(), cancellationToken);

@@ -17,17 +17,16 @@ namespace E_Commerce.Presentation.Controllers
         {
             _mediator = mediator;
         }
-        [HttpGet("getall")]
-        public async Task<IActionResult> GetAll(CancellationToken cancellationToken)
-        {
-            var attributes = await _mediator.Send(new GetAttributesQuery(), cancellationToken);
-            return Ok(attributes);
-        }
-
         [HttpGet("get{guid}")]
         public async Task<IActionResult> Get(string guid, CancellationToken cancellationToken)
         {
             var attributes = await _mediator.Send(new GetAttributeByIdQuery(guid), cancellationToken);
+            return Ok(attributes);
+        }
+        [HttpGet]
+        public async Task<IActionResult> GetAll(CancellationToken cancellationToken)
+        {
+            var attributes = await _mediator.Send(new GetAttributesQuery(), cancellationToken);
             return Ok(attributes);
         }
 
