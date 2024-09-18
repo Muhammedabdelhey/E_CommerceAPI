@@ -1,16 +1,18 @@
 ﻿namespace E_Commerce.Application.Features.Categories.Commands.UpdateCategory
 {
-    public class UpdateCategoryCommandHandler : IRequestHandler<UpdateCategoryCommand, Category>
+    public class UpdateCategoryCommandHandler : IRequestHandler<UpdateCategoryCommand, CategoryDto>
     {
         private readonly IBaseRepository<Category> _categoryRepository;
         private readonly IFileService _fileService;
-        public UpdateCategoryCommandHandler(IBaseRepository<Category> categoryRepository, IFileService fileService)
+        private readonly IMapper _mapper;
+        public UpdateCategoryCommandHandler(IBaseRepository<Category> categoryRepository, IFileService fileService, IMapper mapper)
         {
             _categoryRepository = categoryRepository;
             _fileService = fileService;
+            _mapper = mapper;
         }
 
-        public async Task<Category> Handle(UpdateCategoryCommand request, CancellationToken cancellationToken)
+        public async Task<CategoryDto> Handle(UpdateCategoryCommand request, CancellationToken cancellationToken)
         {
             var category = await _categoryRepository.GetByIdAsync(Guid.Parse(request.guid), cancellationToken);
             if (category == null)
@@ -36,7 +38,7 @@
             category.Image = image;
             category.ParentId = parentId;
             category = await _categoryRepository.UpdateAsync(category, cancellationToken);
-            return category;
+            return _mapper.Map<CategoryDto>(category);
         }
     }
 }

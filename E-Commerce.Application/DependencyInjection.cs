@@ -1,6 +1,4 @@
 ﻿using E_Commerce.Application.Common.Services;
-using FluentValidation.AspNetCore;
-using Microsoft.AspNetCore.Hosting;
 
 namespace E_Commerce.Application
 {
