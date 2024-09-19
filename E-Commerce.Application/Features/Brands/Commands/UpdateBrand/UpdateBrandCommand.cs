@@ -1,6 +1,6 @@
 ﻿namespace E_Commerce.Application.Features.Brands.Commands.UpdateBrand
 {
-    public record UpdateBrandCommand : IRequest<Brand>
+    public record UpdateBrandCommand : IRequest<BrandDto>
     {
         public string Id { get; init; } = string.Empty;
         public string? Name { get; init; } = string.Empty;

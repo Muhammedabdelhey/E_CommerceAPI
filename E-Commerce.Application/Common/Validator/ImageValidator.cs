@@ -2,14 +2,14 @@
 {
     public class ImageValidator : AbstractValidator<IFormFile>
     {
-        string AllowedExtensions = ".png,.jpg,.jpeg";
+        private readonly string AllowedExtensions = ".png,.jpg,.jpeg";
         public ImageValidator()
         {
             RuleFor(v => v)
-                .Must(isImage)
+                .Must(IsImage)
                 .WithMessage($"Only the following extensions are allowed:{AllowedExtensions}");
         }
-        private bool isImage(IFormFile image)
+        private bool IsImage(IFormFile image)
         {
 
             if (image != null)

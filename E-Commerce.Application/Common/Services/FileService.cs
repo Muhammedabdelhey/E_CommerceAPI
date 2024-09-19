@@ -41,5 +41,10 @@ namespace E_Commerce.Application.Common.Services
                 throw new Exception("An error occurred while trying to delete the file.", ex);
             }
         }
+
+        public string? GetFileUrl(string filePath, string fileName)
+        {
+            return _fileAdapter.GetFileUrl(filePath, fileName);
+        }
     }
 }

@@ -21,5 +21,12 @@ namespace E_Commerce.Domain.Interfaces
         /// <param name="fileName"> file name you wanna deleted</param>
         /// <returns>true if file deleted</returns>
         Task<bool> DeleteFileAsync(string filePath, string fileName);
+        /// <summary>
+        /// Return file url based on IFileAdapter for get process itself.
+        /// </summary>
+        /// <param name="filePath">The desired path for the file (excluding the file name).</param>
+        /// <param name="fileName"> file name you wanna get</param>
+        /// <returns></returns>
+        string? GetFileUrl(string filePath,string fileName); 
     }
 }

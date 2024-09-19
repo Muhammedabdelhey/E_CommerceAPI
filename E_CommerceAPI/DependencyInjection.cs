@@ -10,7 +10,6 @@ namespace E_Commerce.Presentation
         {
             services.AddScoped<IUser, CurrentUser>();
             services.AddExceptionHandler<CustomExceptionHandler>();// should register it in program.cs
-            services.AddHttpContextAccessor();
             return services;
         }
     }

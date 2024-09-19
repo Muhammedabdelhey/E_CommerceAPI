@@ -1,20 +1,19 @@
 ﻿namespace E_Commerce.Application.Features.Brands.Queries.GetBrand
 {
-    public class GetBrandByIdQueryHandler : IRequestHandler<GetBrandByIdQuery, Brand>
+    public class GetBrandByIdQueryHandler : IRequestHandler<GetBrandByIdQuery, BrandDto>
     {
         private readonly IBaseRepository<Brand> _brandRepository;
-        public GetBrandByIdQueryHandler(IBaseRepository<Brand> brandRepository)
+        private readonly IMapper _mapper;
+        public GetBrandByIdQueryHandler(IBaseRepository<Brand> brandRepository, IMapper mapper)
         {
             _brandRepository = brandRepository;
+            _mapper = mapper;
         }
-        public async Task<Brand> Handle(GetBrandByIdQuery request, CancellationToken cancellationToken)
+        public async Task<BrandDto> Handle(GetBrandByIdQuery request, CancellationToken cancellationToken)
         {
-            var brand = await _brandRepository.GetByIdAsync(Guid.Parse(request.Id), cancellationToken);
-            if (brand == null)
-            {
-                throw new NotFoundException($"Brand with ID {request.Id} not found.");
-            }
-            return brand;
+            var brand = await _brandRepository.GetByIdAsync(Guid.Parse(request.Id), cancellationToken)
+                ?? throw new NotFoundException($"Brand with ID {request.Id} not found.");
+            return _mapper.Map<BrandDto>(brand);
         }
     }
 }

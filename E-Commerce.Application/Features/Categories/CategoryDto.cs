@@ -7,7 +7,7 @@
         public string? Image { get; init; }
         public Guid? ParentId { get; init; }
         public string? ParentName { get; init; }
-        public IReadOnlyCollection<CategoryDto> Childrens { get; init; } = Array.Empty<CategoryDto>();
+        public IReadOnlyCollection<CategoryDto> Childrens { get; init; } = [];
         private class Mapping : Profile
         {
             public Mapping()

@@ -1,15 +1,19 @@
-﻿namespace E_Commerce.Application.Features.Brands.Commands.CreateBrand
+﻿using E_Commerce.Application.Features.Categories;
+
+namespace E_Commerce.Application.Features.Brands.Commands.CreateBrand
 {
-    public class CreateBrandCommandHandler : IRequestHandler<CreateBrandCommand, Brand>
+    public class CreateBrandCommandHandler : IRequestHandler<CreateBrandCommand, BrandDto>
     {
         private readonly IBaseRepository<Brand> _brandRepository;
         private readonly IFileService _fileService;
-        public CreateBrandCommandHandler(IBaseRepository<Brand> brandRepository, IFileService fileService)
+        private readonly IMapper _mapper;
+        public CreateBrandCommandHandler(IBaseRepository<Brand> brandRepository, IFileService fileService, IMapper mapper)
         {
             _brandRepository = brandRepository;
             _fileService = fileService;
+            _mapper = mapper;
         }
-        public async Task<Brand> Handle(CreateBrandCommand request, CancellationToken cancellationToken)
+        public async Task<BrandDto> Handle(CreateBrandCommand request, CancellationToken cancellationToken)
         {
             string? image = null;
             if (request.Image != null)
@@ -23,7 +27,7 @@
                 Image = image
             };
             await _brandRepository.AddAsync(brand, cancellationToken);
-            return brand;
+            return _mapper.Map<BrandDto>(brand);
         }
     }
 }

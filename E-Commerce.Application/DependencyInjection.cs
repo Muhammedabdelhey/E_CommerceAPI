@@ -12,6 +12,8 @@ namespace E_Commerce.Application
             services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehaviour<,>));
             services.AddScoped(typeof(IFileService), typeof(FileService));
+            services.AddHttpContextAccessor();
+
             services.AddMediatR(cfg =>
             {
                 cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly());

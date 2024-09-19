@@ -13,11 +13,8 @@ namespace E_Commerce.Application.Features.Categories.Queries.GetCategoryById
 
         public async Task<CategoryDto> Handle(GetCategoryByIdCommand request, CancellationToken cancellationToken)
         {
-            var category = await _categoryRepository.GetByIdAsync(Guid.Parse(request.guid));
-            if (category == null)
-            {
-                throw new NotFoundException($"Category with guid {request.guid} not found");
-            }
+            var category = await _categoryRepository.GetByIdAsync(Guid.Parse(request.guid))
+                ?? throw new NotFoundException($"Category with guid {request.guid} not found");
             return _mapper.Map<CategoryDto>(category);
         }
     }

@@ -19,7 +19,7 @@ namespace E_Commerce.Presentation.Controllers
         {
             _mediator = mediator;
         }
-        [HttpGet("get{guid}")]
+        [HttpGet("{guid}")]
         public async Task<IActionResult> Get(string guid, CancellationToken cancellationToken)
         {
             var brand = await _mediator.Send(new GetBrandByIdQuery(guid), cancellationToken);
@@ -36,7 +36,7 @@ namespace E_Commerce.Presentation.Controllers
         public async Task<IActionResult> Create([FromForm] CreateBrandCommand command
             , CancellationToken cancellationToken)
         {
-            Brand brand = await _mediator.Send(command, cancellationToken);
+            var brand = await _mediator.Send(command, cancellationToken);
             return Ok(brand);
         }
 
@@ -49,15 +49,15 @@ namespace E_Commerce.Presentation.Controllers
             {
                 return BadRequest("Guid you pass in route not equal to one passed on request");
             }
-            Brand brand = await _mediator.Send(command, cancellationToken);
+            var brand = await _mediator.Send(command, cancellationToken);
             return Ok(brand);
         }
 
         [HttpDelete("{guid}")]
         public async Task<IActionResult> Delete(string guid, CancellationToken cancellationToken)
         {
-            await _mediator.Send(new DeleteBrandCommand(guid), cancellationToken);
-            return Ok();
+            var brand =await _mediator.Send(new DeleteBrandCommand(guid), cancellationToken);
+            return Ok($"Brand with guid {brand.Id} deleted ");
         }
     }
 }

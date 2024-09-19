@@ -2,23 +2,23 @@
 
 namespace E_Commerce.Application.Features.Brands.Commands.UpdateBrand
 {
-    public class UpdateBrandCommandHandler : IRequestHandler<UpdateBrandCommand, Brand>
+    public class UpdateBrandCommandHandler : IRequestHandler<UpdateBrandCommand, BrandDto>
     {
         private readonly IBaseRepository<Brand> _brandRepository;
         private readonly IFileService _fileService;
-        public UpdateBrandCommandHandler(IBaseRepository<Brand> brandRepository, IFileService fileService)
+        private readonly IMapper _mapper;
+        public UpdateBrandCommandHandler(IBaseRepository<Brand> brandRepository, IFileService fileService, IMapper mapper)
         {
             _brandRepository = brandRepository;
             _fileService = fileService;
+            _mapper = mapper;
         }
 
-        public async Task<Brand> Handle(UpdateBrandCommand request, CancellationToken cancellationToken)
+        public async Task<BrandDto> Handle(UpdateBrandCommand request, CancellationToken cancellationToken)
         {
-            var brand = await _brandRepository.GetByIdAsync(Guid.Parse(request.Id), cancellationToken);
-            if (brand == null)
-            {
-                throw new NotFoundException($"Brand with ID {request.Id} not found.");
-            }
+            var brand = await _brandRepository.GetByIdAsync(Guid.Parse(request.Id), cancellationToken)
+                ?? throw new NotFoundException($"Brand with ID {request.Id} not found.");
+
             var image = brand.Image;
             if (image != null)
             {
@@ -32,7 +32,7 @@ namespace E_Commerce.Application.Features.Brands.Commands.UpdateBrand
             brand.Name = request.Name;
             brand.Image = image;
             await _brandRepository.UpdateAsync(brand, cancellationToken);
-            return brand;
+            return _mapper.Map<BrandDto>(brand);
         }
     }
 }

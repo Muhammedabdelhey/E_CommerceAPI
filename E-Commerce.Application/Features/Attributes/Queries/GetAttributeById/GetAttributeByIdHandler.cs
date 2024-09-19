@@ -11,11 +11,8 @@
 
         public async Task<Attribute> Handle(GetAttributeByIdQuery request, CancellationToken cancellationToken)
         {
-            var attribute = await _attributeRepository.GetByIdAsync(Guid.Parse(request.guid), cancellationToken);
-            if (attribute == null)
-            {
-                throw new NotFoundException($"Attribute with guid{request.guid} not found");
-            }
+            var attribute = await _attributeRepository.GetByIdAsync(Guid.Parse(request.guid), cancellationToken)
+                ?? throw new NotFoundException($"Attribute with guid{request.guid} not found");
             return attribute;
         }
     }

@@ -1,17 +1,19 @@
 ﻿using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using System.IO;
 
 namespace E_Commerce.Infrastructure.Adapters.Storage
 {
     public class LocalFileAdapter : IFileAdapter
     {
-        private readonly IWebHostEnvironment webHostEnvironment;
+        private readonly IHttpContextAccessor _httpContextAccessor;
+
         private readonly string serverPath;
 
-        public LocalFileAdapter(IWebHostEnvironment webHostEnvironment)
+        public LocalFileAdapter(IWebHostEnvironment webHostEnvironment, IHttpContextAccessor httpContextAccessor)
         {
-            this.webHostEnvironment = webHostEnvironment;
             serverPath = webHostEnvironment.WebRootPath;
+            _httpContextAccessor = httpContextAccessor;
         }
 
         public async Task<string> UploadFileAsync(string path, IFormFile file)
@@ -45,6 +47,18 @@ namespace E_Commerce.Infrastructure.Adapters.Storage
             }
             await Task.Run(() => File.Delete(fullPath));
             return true;
+        }
+
+        public string? GetFileUrl(string filePath, string fileName)
+        {
+            var request = _httpContextAccessor.HttpContext?.Request;
+            var file = Path.Combine(filePath, fileName);
+            var fullPath = Path.Combine(serverPath, file);
+            if (!File.Exists(fullPath))
+            {
+                return null;
+            }
+            return $"{request?.Scheme}://{request?.Host}/{fullPath}";
         }
     }
 }

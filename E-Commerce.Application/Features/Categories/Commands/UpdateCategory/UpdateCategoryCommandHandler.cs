@@ -14,11 +14,8 @@
 
         public async Task<CategoryDto> Handle(UpdateCategoryCommand request, CancellationToken cancellationToken)
         {
-            var category = await _categoryRepository.GetByIdAsync(Guid.Parse(request.guid), cancellationToken);
-            if (category == null)
-            {
-                throw new NotFoundException($"Category with Guid {request.guid} not found");
-            }
+            var category = await _categoryRepository.GetByIdAsync(Guid.Parse(request.guid), cancellationToken)
+                ?? throw new NotFoundException($"Category with Guid {request.guid} not found");
             var image = category.Image;
             if (image != null)
             {
