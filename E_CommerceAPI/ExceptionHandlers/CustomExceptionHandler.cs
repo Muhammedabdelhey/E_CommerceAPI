@@ -14,7 +14,6 @@ namespace E_Commerce.Application.ExceptionHandlers
             {
                 { typeof(ValidationException), HandleValidationException },
                 { typeof(NotFoundException), HandleNotFoundException },
-                { typeof(Exception), HandleUnHandledException },
             };
         }
 
@@ -27,8 +26,8 @@ namespace E_Commerce.Application.ExceptionHandlers
                 await _exceptionHandlers[exceptionType].Invoke(httpContext, exception);
                 return true;
             }
-
-            return false;
+            await HandleUnHandledException(httpContext, exception);
+            return true;
         }
 
         private async Task HandleValidationException(HttpContext httpContext, Exception ex)
@@ -63,8 +62,8 @@ namespace E_Commerce.Application.ExceptionHandlers
             await httpContext.Response.WriteAsJsonAsync(new ProblemDetails()
             {
                 Status = StatusCodes.Status400BadRequest,
-                Title = "An Exception has occurred.",
-                Detail = ex.Message
+                Title = $"an {ex.GetType().ToString()} has occurred",
+                Detail = ex.Message,
             });
         }
     }

@@ -1,22 +1,16 @@
-﻿using E_Commerce.Application.Interfaces;
-
-namespace E_Commerce.Application.Features.Brands
+﻿namespace E_Commerce.Application.Features.Brands
 {
     public class BrandDto
     {
-        public BrandDto()
-        {
-        }
         public Guid Id { get; set; }
         public string Name { get; set; } = string.Empty;
         public string? Image { get; set; }
     }
 
-    public class BrandMapping : Profile
+    public class Mapping : Profile
     {
-        public BrandMapping()
+        public Mapping()
         {
-
             CreateMap<Brand, BrandDto>();
         }
     }

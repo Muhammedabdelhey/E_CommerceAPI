@@ -8,9 +8,9 @@
         public Guid? ParentId { get; init; }
         public string? ParentName { get; init; }
         public IReadOnlyCollection<CategoryDto> Childrens { get; init; } = [];
-        private class Mapping : Profile
+        private class CategoryMapping : Profile
         {
-            public Mapping()
+            public CategoryMapping()
             {
                 CreateMap<Category, CategoryDto>()
                     .ForMember(dest => dest.ParentName, opt => opt.MapFrom(src => src.Parent.Name))

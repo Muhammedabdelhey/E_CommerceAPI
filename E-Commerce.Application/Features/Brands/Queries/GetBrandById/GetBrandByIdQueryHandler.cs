@@ -4,10 +4,12 @@
     {
         private readonly IBaseRepository<Brand> _brandRepository;
         private readonly IMapper _mapper;
-        public GetBrandByIdQueryHandler(IBaseRepository<Brand> brandRepository, IMapper mapper)
+        private readonly IFileService _fileService;
+        public GetBrandByIdQueryHandler(IBaseRepository<Brand> brandRepository, IMapper mapper, IFileService fileService)
         {
             _brandRepository = brandRepository;
             _mapper = mapper;
+            _fileService = fileService;
         }
         public async Task<BrandDto> Handle(GetBrandByIdQuery request, CancellationToken cancellationToken)
         {

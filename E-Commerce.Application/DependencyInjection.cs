@@ -6,14 +6,14 @@ namespace E_Commerce.Application
     {
         public static IServiceCollection AddApplication(this IServiceCollection services)
         {
-            services.AddAutoMapper(Assembly.GetExecutingAssembly()); // AutoMapper registration
+
 
             //services.AddFluentValidationAutoValidation();
             services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehaviour<,>));
             services.AddScoped(typeof(IFileService), typeof(FileService));
             services.AddHttpContextAccessor();
-
+            services.AddAutoMapper(Assembly.GetExecutingAssembly()); // AutoMapper registration
             services.AddMediatR(cfg =>
             {
                 cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly());

@@ -16,13 +16,13 @@ namespace E_Commerce.Infrastructure.Adapters.Storage
             _httpContextAccessor = httpContextAccessor;
         }
 
-        public async Task<string> UploadFileAsync(string path, IFormFile file)
+        public async Task<string> UploadFileAsync(string folderName, IFormFile file)
         {
             if (!Directory.Exists(serverPath))
             {
                 Directory.CreateDirectory("wwwroot");
             }
-            var filePath = Path.Combine(serverPath, path);
+            var filePath = Path.Combine(serverPath, folderName);
             if (!Directory.Exists(filePath))
             {
                 Directory.CreateDirectory(filePath);
@@ -37,9 +37,9 @@ namespace E_Commerce.Infrastructure.Adapters.Storage
             return fileName;
         }
 
-        public async Task<bool> DeleteFileAsync(string path, string fileName)
+        public async Task<bool> DeleteFileAsync(string folderName, string fileName)
         {
-            var filePath = Path.Combine(path, fileName);
+            var filePath = Path.Combine(folderName, fileName);
             var fullPath = Path.Combine(serverPath, filePath);
             if (!File.Exists(fullPath))
             {
@@ -49,16 +49,16 @@ namespace E_Commerce.Infrastructure.Adapters.Storage
             return true;
         }
 
-        public string? GetFileUrl(string filePath, string fileName)
+        public string? GetFileUrl(string folderName, string fileName)
         {
             var request = _httpContextAccessor.HttpContext?.Request;
-            var file = Path.Combine(filePath, fileName);
-            var fullPath = Path.Combine(serverPath, file);
+            var filePath = Path.Combine(folderName, fileName);
+            var fullPath = Path.Combine(serverPath, filePath);
             if (!File.Exists(fullPath))
             {
                 return null;
             }
-            return $"{request?.Scheme}://{request?.Host}/{fullPath}";
+            return $"{request?.Scheme}://{request?.Host}/{folderName}/{fileName}";
         }
     }
 }

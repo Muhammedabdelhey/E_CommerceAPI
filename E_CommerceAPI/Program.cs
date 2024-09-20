@@ -23,10 +23,14 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+
 // this will take your custom exception handler and use to handle all exceptions 
+
 app.UseExceptionHandler(options => { });
 
 app.UseHttpsRedirection();
+
+app.UseStaticFiles();
 
 app.UseAuthorization();
 

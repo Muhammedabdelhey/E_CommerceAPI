@@ -12,11 +12,11 @@ namespace E_Commerce.Application.Common.Services
             _fileAdapter = fileAdapter;
         }
 
-        public async Task<string> UploadFileAsync(string filePath, IFormFile file)
+        public async Task<string> UploadFileAsync(string folderName, IFormFile file)
         {
             try
             {
-                var fileName = await _fileAdapter.UploadFileAsync(filePath, file);
+                var fileName = await _fileAdapter.UploadFileAsync(folderName, file);
                 return fileName;
             }
             catch (Exception ex)
@@ -25,11 +25,11 @@ namespace E_Commerce.Application.Common.Services
             }
         }
 
-        public async Task<bool> DeleteFileAsync(string filePath, string fileName)
+        public async Task<bool> DeleteFileAsync(string folderName, string fileName)
         {
             try
             {
-                var deleted = await _fileAdapter.DeleteFileAsync(filePath, fileName);
+                var deleted = await _fileAdapter.DeleteFileAsync(folderName, fileName);
                 if (!deleted)
                 {
                     throw new NotFoundException("the file you want delete not found.");
@@ -42,9 +42,9 @@ namespace E_Commerce.Application.Common.Services
             }
         }
 
-        public string? GetFileUrl(string filePath, string fileName)
+        public string? GetFileUrl(string folderName, string fileName)
         {
-            return _fileAdapter.GetFileUrl(filePath, fileName);
+            return _fileAdapter.GetFileUrl(folderName, fileName);
         }
     }
 }
