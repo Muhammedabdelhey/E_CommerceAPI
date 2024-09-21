@@ -1,13 +1,15 @@
 ﻿namespace E_Commerce.Application.Features.Attributes.Commands.CreateAttribute
 {
-    public class CreateAttributeCommandHandler : IRequestHandler<CreateAttributeCommand, Attribute>
+    public class CreateAttributeCommandHandler : IRequestHandler<CreateAttributeCommand, AttributeDto>
     {
-        IBaseRepository<Attribute> _atrributeRepository;
-        public CreateAttributeCommandHandler(IBaseRepository<Attribute> atrributeRepository)
+        private readonly IBaseRepository<Attribute> _atrributeRepository;
+        private readonly IMapper _mapper;
+        public CreateAttributeCommandHandler(IBaseRepository<Attribute> atrributeRepository, IMapper mapper)
         {
             _atrributeRepository = atrributeRepository;
+            _mapper = mapper;
         }
-        public async Task<Attribute> Handle(CreateAttributeCommand request, CancellationToken cancellationToken)
+        public async Task<AttributeDto> Handle(CreateAttributeCommand request, CancellationToken cancellationToken)
         {
             Attribute attribute = new()
             {
@@ -15,7 +17,7 @@
                 Name = request.Name,
             };
             await _atrributeRepository.AddAsync(attribute, cancellationToken);
-            return attribute;
+            return _mapper.Map<AttributeDto>(attribute);
         }
     }
 }

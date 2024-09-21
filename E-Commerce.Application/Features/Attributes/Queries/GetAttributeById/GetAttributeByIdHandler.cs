@@ -1,19 +1,21 @@
 ﻿namespace E_Commerce.Application.Features.Attributes.Queries.GetAttributeById
 {
-    public class GetAttributeByIdHandler : IRequestHandler<GetAttributeByIdQuery, Attribute>
+    public class GetAttributeByIdHandler : IRequestHandler<GetAttributeByIdQuery, AttributeDto>
     {
         private readonly IBaseRepository<Attribute> _attributeRepository;
-
-        public GetAttributeByIdHandler(IBaseRepository<Attribute> attributeRepository)
+        private readonly IMapper _mapper;
+        public GetAttributeByIdHandler(IBaseRepository<Attribute> attributeRepository, IMapper mapper)
         {
             _attributeRepository = attributeRepository;
+            _mapper = mapper;
         }
 
-        public async Task<Attribute> Handle(GetAttributeByIdQuery request, CancellationToken cancellationToken)
+        public async Task<AttributeDto> Handle(GetAttributeByIdQuery request, CancellationToken cancellationToken)
         {
             var attribute = await _attributeRepository.GetByIdAsync(Guid.Parse(request.guid), cancellationToken)
                 ?? throw new NotFoundException($"Attribute with guid{request.guid} not found");
-            return attribute;
+            return _mapper.Map<AttributeDto>(attribute);
+
         }
     }
 }
