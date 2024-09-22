@@ -5,7 +5,7 @@
         public DeleteAttributeCommandValidator()
         {
             RuleFor(v => v.guid)
-                .SetValidator(new GuidValidator());
+                .NotEmpty();
         }
     }
 }

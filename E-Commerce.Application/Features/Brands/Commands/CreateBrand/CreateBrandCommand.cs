@@ -2,7 +2,7 @@
 {
     public record CreateBrandCommand : IRequest<BrandDto> 
     {
-        public string? Name { get; init; } 
+        public string Name { get; init; } =string.Empty;
         public IFormFile? Image { get; init; }
     }
 }

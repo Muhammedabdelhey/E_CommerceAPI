@@ -8,6 +8,6 @@ namespace E_Commerce.Domain.Entities
         [StringLength(50)]
         public string Name { get; set; } = string.Empty;
         public string? Image { get; set; }
-        public ICollection<Product> Products { get; set; } = [];
+        public virtual ICollection<Product> Products { get; set; } = [];
     }
 }

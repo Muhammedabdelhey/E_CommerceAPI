@@ -32,7 +32,6 @@
                 ParentId = parentId,
                 Image = image,
             };
-
             await _categoryRepository.AddAsync(category, cancellationToken);
             return _mapper.Map<CategoryDto>(category);
         }

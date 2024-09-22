@@ -1,4 +1,4 @@
 ﻿namespace E_Commerce.Application.Features.Brands.Queries
 {
-    public record GetBrandByIdQuery(string Id):IRequest<BrandDto>;
+    public record GetBrandByIdQuery(Guid guid):IRequest<BrandDto>;
 }

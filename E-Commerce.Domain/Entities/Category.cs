@@ -11,13 +11,12 @@ namespace E_Commerce.Domain.Entities
 
         public Guid? ParentId { get; set; }
         [ForeignKey(nameof(ParentId))]
-        public Category? Parent { get; set; }
-        public ICollection<Category> Childrens { get; set; } = [];
+        public virtual Category? Parent { get; set; }
+        public virtual ICollection<Category> Childrens { get; set; } = [];
 
-        public ICollection<Product> Products { get; set; } = [];
+        public virtual ICollection<Product> Products { get; set; } = [];
 
         // Correct navigation property
-        public ICollection<Attribute> Attributes { get; set; } = [];
-        public ICollection<CategoryAttributes> CategoryAttributes { get; set; } = [];
+        public virtual ICollection<Attribute> Attributes { get; set; } = [];
     }
 }

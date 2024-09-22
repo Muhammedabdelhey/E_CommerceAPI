@@ -12,10 +12,7 @@ namespace E_Commerce.Domain.Entities
         public string? Image { get; set; }
         public Guid ProductId { get; set; }
         [ForeignKey(nameof(ProductId))]
-        public required Product Product { get; set; }
-        public ICollection<Attribute> Attributes { get; set; } = [];
-        public ICollection<ProductVariantAttributes> ProductVariantAttributess { get; set; } = [];
-
-
+        public virtual required Product Product { get; set; }
+        public virtual ICollection<Attribute> Attributes { get; set; } = [];
     }
 }

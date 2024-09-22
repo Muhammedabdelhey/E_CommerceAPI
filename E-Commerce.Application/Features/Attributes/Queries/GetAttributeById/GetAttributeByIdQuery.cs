@@ -1,4 +1,4 @@
 ﻿namespace E_Commerce.Application.Features.Attributes.Queries.GetAttributeById
 {
-    public record GetAttributeByIdQuery(string guid) : IRequest<AttributeDto>;
+    public record GetAttributeByIdQuery(Guid guid) : IRequest<AttributeDto>;
 }

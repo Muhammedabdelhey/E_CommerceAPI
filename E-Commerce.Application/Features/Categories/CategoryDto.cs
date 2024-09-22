@@ -13,8 +13,7 @@
             public CategoryMapping()
             {
                 CreateMap<Category, CategoryDto>()
-                    .ForMember(dest => dest.ParentName, opt => opt.MapFrom(src => src.Parent.Name))
-                    .ForMember(dest => dest.Childrens, opt => opt.MapFrom(src => src.Childrens));
+                    .ForMember(dest => dest.ParentName, opt => opt.MapFrom(src => src.Parent.Name));
             }
         }
     }

@@ -4,8 +4,8 @@
     {
         public UpdateBrandCommandValidator()
         {
-            RuleFor(v => v.Id)
-                .SetValidator(new GuidValidator());
+            RuleFor(v => v.guid)
+                .NotEmpty();
 
             RuleFor(v => v.Name)
                 .ValidateString(50);

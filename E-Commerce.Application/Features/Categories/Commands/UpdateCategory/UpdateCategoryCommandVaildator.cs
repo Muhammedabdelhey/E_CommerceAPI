@@ -5,7 +5,7 @@
         public UpdateCategoryCommandVaildator()
         {
             RuleFor(v => v.guid)
-                .SetValidator(new GuidValidator());
+                .NotEmpty();
 
             RuleFor(v => v.Name)
                 .ValidateString(50);

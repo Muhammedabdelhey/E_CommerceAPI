@@ -7,9 +7,6 @@ public class Attribute : BaseEntity
     public string Name { get; set; } = string.Empty;
 
     // Correct navigation property
-    public ICollection<Category> Categories { get; set; } = [];
-    public ICollection<CategoryAttributes> CategoryAttributes { get; set; } = [];
-
-    public ICollection<ProductVariant> ProductVariants { get; set; } = [];
-    public ICollection<ProductVariantAttributes> ProductVariantsAttributes { get; set; } = [];
+    public virtual ICollection<Category> Categories { get; set; } = [];
+    public virtual ICollection<ProductVariant> ProductVariants { get; set; } = [];
 }

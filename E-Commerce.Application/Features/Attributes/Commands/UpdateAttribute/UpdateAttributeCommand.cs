@@ -2,7 +2,7 @@
 {
     public record UpdateAttributeCommand : IRequest<AttributeDto>
     {
-        public string Guid { get; init; } = string.Empty;
+        public Guid Guid { get; init; }
         public string Name { get; init; } = string.Empty;
 
     }

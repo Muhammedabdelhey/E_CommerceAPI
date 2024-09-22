@@ -5,7 +5,7 @@
         public DeleteCategoryCommandValidator()
         {
             RuleFor(v => v.guid)
-                .SetValidator(new GuidValidator());
+                .NotEmpty();
         }
     }
 }

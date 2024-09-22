@@ -4,7 +4,7 @@
     {
         public Guid CategoryId { get; set; }
         public Guid AttributeId { get; set; }
-        public required Category Category { get; set; }
-        public required Attribute Attribute { get; set; }
+        public virtual required Category Category { get; set; }
+        public virtual required Attribute Attribute { get; set; }
     }
 }

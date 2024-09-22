@@ -20,7 +20,7 @@ namespace E_Commerce.Presentation.Controllers
             _mediator = mediator;
         }
         [HttpGet("{guid}")]
-        public async Task<IActionResult> Get(string guid, CancellationToken cancellationToken)
+        public async Task<IActionResult> Get(Guid guid, CancellationToken cancellationToken)
         {
             var brand = await _mediator.Send(new GetBrandByIdQuery(guid), cancellationToken);
             return Ok(brand);
@@ -41,11 +41,11 @@ namespace E_Commerce.Presentation.Controllers
         }
 
         [HttpPut("{guid}")]
-        public async Task<IActionResult> Update(string guid,
+        public async Task<IActionResult> Update(Guid guid,
             [FromForm] UpdateBrandCommand command
             , CancellationToken cancellationToken)
         {
-            if (guid != command.Id)
+            if (guid != command.guid)
             {
                 return BadRequest("Guid you pass in route not equal to one passed on request");
             }
@@ -54,7 +54,7 @@ namespace E_Commerce.Presentation.Controllers
         }
 
         [HttpDelete("{guid}")]
-        public async Task<IActionResult> Delete(string guid, CancellationToken cancellationToken)
+        public async Task<IActionResult> Delete(Guid guid, CancellationToken cancellationToken)
         {
             var brand =await _mediator.Send(new DeleteBrandCommand(guid), cancellationToken);
             return Ok($"Brand with guid {brand.Id} deleted ");

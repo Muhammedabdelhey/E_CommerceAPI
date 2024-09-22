@@ -4,8 +4,8 @@
     {
         public DeleteBrandCommandValidator()
         {
-            RuleFor(v => v.Id)
-                .SetValidator(new GuidValidator());
+            RuleFor(v => v.guid)
+                .NotEmpty();
         }
     }
 }

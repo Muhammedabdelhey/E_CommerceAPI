@@ -19,15 +19,15 @@ namespace E_Commerce.Presentation.Controllers
             _mediatR = mediatR;
         }
         [HttpGet("{guid}")]
-        public async Task<IActionResult> Get(string guid, CancellationToken cancellationToken)
+        public async Task<IActionResult> Get(Guid guid, CancellationToken cancellationToken)
         {
-            var category = await _mediatR.Send(new GetCategoryByIdCommand(guid), cancellationToken);
+            var category = await _mediatR.Send(new GetCategoryByIdQuery(guid), cancellationToken);
             return Ok(category);
         }
         [HttpGet]
         public async Task<IActionResult> GetAll(CancellationToken cancellationToken)
         {
-            var categories = await _mediatR.Send(new GetCategoriesCommand());
+            var categories = await _mediatR.Send(new GetCategoriesQuery());
             return Ok(categories);
         }
         [HttpPost]
@@ -38,7 +38,7 @@ namespace E_Commerce.Presentation.Controllers
         }
 
         [HttpPut("{guid}")]
-        public async Task<IActionResult> Update(string guid,
+        public async Task<IActionResult> Update(Guid guid,
             [FromForm] UpdateCategoryCommand command,
             CancellationToken cancellationToken)
         {
@@ -51,7 +51,7 @@ namespace E_Commerce.Presentation.Controllers
         }
 
         [HttpDelete("{guid}")]
-        public async Task<IActionResult> Delete(string guid, CancellationToken cancellationToken)
+        public async Task<IActionResult> Delete(Guid guid, CancellationToken cancellationToken)
         {
             var category = await _mediatR.Send(new DeleteCategoryCommand(guid), cancellationToken);
             return Ok($"Category with guid {category.Id} deleted ");
