@@ -14,5 +14,6 @@ namespace E_Commerce.Domain.Entities
         [ForeignKey(nameof(ProductId))]
         public virtual required Product Product { get; set; }
         public virtual ICollection<Attribute> Attributes { get; set; } = [];
+        public virtual ICollection<ProductVariantAttributes> ProductVariantAttributes { get; set; } = [];
     }
 }

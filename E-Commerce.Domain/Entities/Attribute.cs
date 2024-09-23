@@ -8,5 +8,8 @@ public class Attribute : BaseEntity
 
     // Correct navigation property
     public virtual ICollection<Category> Categories { get; set; } = [];
+    public virtual ICollection<CategoryAttributes> AttributeCategories { get; set; } = [];
+
     public virtual ICollection<ProductVariant> ProductVariants { get; set; } = [];
+    public ICollection<ProductVariantAttributes> ProductVariantsAttributes { get; set; } = [];
 }

@@ -18,5 +18,7 @@ namespace E_Commerce.Domain.Entities
 
         // Correct navigation property
         public virtual ICollection<Attribute> Attributes { get; set; } = [];
+        public virtual ICollection<CategoryAttributes> CategoryAttributes { get; set; } = [];
+
     }
 }

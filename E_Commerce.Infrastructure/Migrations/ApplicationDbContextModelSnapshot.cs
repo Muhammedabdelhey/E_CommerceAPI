@@ -216,7 +216,7 @@ namespace E_Commerce.Infrastructure.Migrations
             modelBuilder.Entity("E_Commerce.Domain.Entities.CategoryAttributes", b =>
                 {
                     b.HasOne("Attribute", "Attribute")
-                        .WithMany("CategoryAttributes")
+                        .WithMany("AttributeCategories")
                         .HasForeignKey("AttributeId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -235,7 +235,7 @@ namespace E_Commerce.Infrastructure.Migrations
             modelBuilder.Entity("E_Commerce.Domain.Entities.Product", b =>
                 {
                     b.HasOne("E_Commerce.Domain.Entities.Brand", "Brand")
-                        .WithMany()
+                        .WithMany("Products")
                         .HasForeignKey("BrandId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -271,7 +271,7 @@ namespace E_Commerce.Infrastructure.Migrations
                         .IsRequired();
 
                     b.HasOne("E_Commerce.Domain.Entities.ProductVariant", "ProductVariant")
-                        .WithMany("ProductVariantAttributess")
+                        .WithMany("ProductVariantAttributes")
                         .HasForeignKey("ProductVariantId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -283,9 +283,14 @@ namespace E_Commerce.Infrastructure.Migrations
 
             modelBuilder.Entity("Attribute", b =>
                 {
-                    b.Navigation("CategoryAttributes");
+                    b.Navigation("AttributeCategories");
 
                     b.Navigation("ProductVariantsAttributes");
+                });
+
+            modelBuilder.Entity("E_Commerce.Domain.Entities.Brand", b =>
+                {
+                    b.Navigation("Products");
                 });
 
             modelBuilder.Entity("E_Commerce.Domain.Entities.Category", b =>
@@ -299,7 +304,7 @@ namespace E_Commerce.Infrastructure.Migrations
 
             modelBuilder.Entity("E_Commerce.Domain.Entities.ProductVariant", b =>
                 {
-                    b.Navigation("ProductVariantAttributess");
+                    b.Navigation("ProductVariantAttributes");
                 });
 #pragma warning restore 612, 618
         }
