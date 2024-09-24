@@ -35,7 +35,7 @@ namespace E_Commerce.Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Attributes");
+                    b.ToTable("Attributes", (string)null);
                 });
 
             modelBuilder.Entity("E_Commerce.Domain.Entities.Brand", b =>
@@ -54,7 +54,7 @@ namespace E_Commerce.Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Brands");
+                    b.ToTable("Brands", (string)null);
                 });
 
             modelBuilder.Entity("E_Commerce.Domain.Entities.Category", b =>
@@ -78,7 +78,7 @@ namespace E_Commerce.Infrastructure.Migrations
 
                     b.HasIndex("ParentId");
 
-                    b.ToTable("Categories");
+                    b.ToTable("Categories", (string)null);
                 });
 
             modelBuilder.Entity("E_Commerce.Domain.Entities.CategoryAttributes", b =>
@@ -93,7 +93,7 @@ namespace E_Commerce.Infrastructure.Migrations
 
                     b.HasIndex("AttributeId");
 
-                    b.ToTable("CategoryAttributes");
+                    b.ToTable("CategoryAttributes", (string)null);
                 });
 
             modelBuilder.Entity("E_Commerce.Domain.Entities.Coupon", b =>
@@ -110,7 +110,7 @@ namespace E_Commerce.Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Coupons");
+                    b.ToTable("Coupons", (string)null);
                 });
 
             modelBuilder.Entity("E_Commerce.Domain.Entities.Product", b =>
@@ -152,7 +152,7 @@ namespace E_Commerce.Infrastructure.Migrations
 
                     b.HasIndex("CategoryId");
 
-                    b.ToTable("Products");
+                    b.ToTable("Products", (string)null);
                 });
 
             modelBuilder.Entity("E_Commerce.Domain.Entities.ProductVariant", b =>
@@ -182,7 +182,7 @@ namespace E_Commerce.Infrastructure.Migrations
 
                     b.HasIndex("ProductId");
 
-                    b.ToTable("ProductsVariants");
+                    b.ToTable("ProductsVariants", (string)null);
                 });
 
             modelBuilder.Entity("E_Commerce.Domain.Entities.ProductVariantAttributes", b =>
@@ -201,7 +201,7 @@ namespace E_Commerce.Infrastructure.Migrations
 
                     b.HasIndex("AttributeId");
 
-                    b.ToTable("ProductVariantAttributes");
+                    b.ToTable("ProductVariantAttributes", (string)null);
                 });
 
             modelBuilder.Entity("E_Commerce.Domain.Entities.Category", b =>

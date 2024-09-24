@@ -4,21 +4,31 @@ namespace E_Commerce.Application.Features.Categories.Commands.CreateCategory
 {
     public class CreateCategoryCommandValidator : AbstractValidator<CreateCategoryCommand>
     {
-        public CreateCategoryCommandValidator()
+        private readonly IBaseRepository<Attribute> _attributeRepository;
+        public CreateCategoryCommandValidator(IBaseRepository<Attribute> attributeRepository)
         {
+            _attributeRepository = attributeRepository;
             RuleFor(v => v.Name)
                 .ValidateString(50);
-            RuleFor(v => v.ParentId)
-                .Must(IsValidGuid)
-                .WithMessage("Invalid GUID Format");
+
             RuleFor(v => v.Image)
                 .SetValidator(new ImageValidator());
+
+            RuleFor(v => v.AttributeIds)
+                .NotEmpty().WithMessage("AttributeIds cannot be empty.")
+                .MustAsync(ExistInDatabase).WithMessage("One or more AttributeIds do not exist.");
         }
-        private bool IsValidGuid(string guid)
+
+
+
+        private async Task<bool> ExistInDatabase(IEnumerable<Guid> attributeIds, CancellationToken cancellationToken)
         {
-            if (guid != null)
+            foreach (var attributeId in attributeIds)
             {
-                return Guid.TryParse(guid, out _);
+                if (await _attributeRepository.GetByIdAsync(attributeId, cancellationToken) is null)
+                {
+                    return false;
+                }
             }
             return true;
         }

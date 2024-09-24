@@ -11,5 +11,5 @@ public class Attribute : BaseEntity
     public virtual ICollection<CategoryAttributes> AttributeCategories { get; set; } = [];
 
     public virtual ICollection<ProductVariant> ProductVariants { get; set; } = [];
-    public ICollection<ProductVariantAttributes> ProductVariantsAttributes { get; set; } = [];
+    public virtual ICollection<ProductVariantAttributes> ProductVariantsAttributes { get; set; } = [];
 }

@@ -7,7 +7,7 @@
         public string? Image { get; init; }
         public Guid? ParentId { get; init; }
         public string? ParentName { get; init; }
-        public IReadOnlyCollection<CategoryDto> Childrens { get; init; } = [];
+        public IReadOnlyCollection<CategoryDto> SubCategories { get; init; } = [];
         private class CategoryMapping : Profile
         {
             public CategoryMapping()
