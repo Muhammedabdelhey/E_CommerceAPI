@@ -6,7 +6,7 @@ public class BaseRepository<T>(ApplicationDbContext context) : IBaseRepository<T
 
     public virtual async Task<IEnumerable<T>> GetAllAsync(CancellationToken cancellationToken = default)
     {
-        return await _context.Set<T>().ToListAsync(cancellationToken);
+        return await _context.Set<T>().AsNoTracking().ToListAsync(cancellationToken);
     }
 
     public virtual async Task<IEnumerable<T>> GetAllAsync(string[] includes, CancellationToken cancellationToken = default)
@@ -16,7 +16,7 @@ public class BaseRepository<T>(ApplicationDbContext context) : IBaseRepository<T
         {
             query = query.Include(include);
         }
-        return await query.ToListAsync(cancellationToken);
+        return await query.AsNoTracking().ToListAsync(cancellationToken);
     }
 
     public async Task<T?> GetByIdAsync(Guid id, CancellationToken cancellationToken = default)

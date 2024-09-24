@@ -17,34 +17,19 @@ namespace E_Commerce.Application.Features.Categories.Commands.CreateCategory
 
         public async Task<CategoryDto> Handle(CreateCategoryCommand request, CancellationToken cancellationToken)
         {
-            string? image = null;
-            if (request.Image != null)
-            {
-                image = await _fileService.UploadFileAsync(Constants.Category, request.Image);
-            }
-            Guid? parentId = null;
-            if (request.ParentId is not null)
-            {
-                parentId = request.ParentId;
-            }
             Category category = new()
             {
                 Id = Guid.NewGuid(),
                 Name = request.Name,
-                ParentId = parentId,
-                Image = image,
+                ParentId = request.ParentId,
+                Image = await _fileService.UploadFileAsync(Constants.Category, request.Image),
             };
-            if (request.AttributeIds.Any())
+            foreach (var attributeId in request.AttributeIds)
             {
-                foreach (var attributeId in request.AttributeIds)
-                {
-
-                    category.CategoryAttributes.Add(new CategoryAttributes { AttributeId = attributeId });
-                }
+                category.CategoryAttributes.Add(new CategoryAttributes { AttributeId = (Guid)attributeId });
             }
             await _categoryRepository.AddAsync(category, cancellationToken);
             return _mapper.Map<CategoryDto>(category);
         }
-
     }
 }

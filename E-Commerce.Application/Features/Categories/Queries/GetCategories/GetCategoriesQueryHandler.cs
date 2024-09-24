@@ -13,7 +13,7 @@
 
         public async Task<IEnumerable<CategoryDto>> Handle(GetCategoriesQuery request, CancellationToken cancellationToken)
         {
-            var categories = await _categoryRepository.GetAllAsync(cancellationToken);
+            var categories = await _categoryRepository.GetAllAsync(["Attributes"],cancellationToken);
             return _mapper.Map<IEnumerable<CategoryDto>>(categories);
         }
     }

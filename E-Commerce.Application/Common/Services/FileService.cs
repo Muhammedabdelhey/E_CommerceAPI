@@ -12,12 +12,12 @@ namespace E_Commerce.Application.Common.Services
             _fileAdapter = fileAdapter;
         }
 
-        public async Task<string> UploadFileAsync(string folderName, IFormFile file)
+        public async Task<string?> UploadFileAsync(string folderName, IFormFile file)
         {
             try
             {
-                var fileName = await _fileAdapter.UploadFileAsync(folderName, file);
-                return fileName;
+                if (file is null) return null;
+                return await _fileAdapter.UploadFileAsync(folderName, file); ;
             }
             catch (Exception ex)
             {

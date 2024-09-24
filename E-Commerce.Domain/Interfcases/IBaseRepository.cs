@@ -9,13 +9,13 @@ namespace E_Commerce.Domain.Interfaces;
 public interface IBaseRepository<T> where T : class
 {
     /// <summary>
-    /// Retrieves all entities of type <typeparamref name="T"/> from the database.
+    /// Retrieves all entities of type <typeparamref name="T"/> from the database without Tracking.
     /// </summary>
     /// <returns>An IEnumerable of entities of type <typeparamref name="T"/>.</returns>
     Task<IEnumerable<T>> GetAllAsync(CancellationToken cancellationToken = default);
 
     /// <summary>
-    /// Retrieves all entities of type <typeparamref name="T"/> from the database with specified navigation properties included.
+    /// Retrieves all entities of type <typeparamref name="T"/> from the database without Tracking with specified navigation properties included.
     /// </summary>
     /// <param name="includes">Array of navigation properties to include.</param>
     /// <returns>An IEnumerable of entities.</returns>

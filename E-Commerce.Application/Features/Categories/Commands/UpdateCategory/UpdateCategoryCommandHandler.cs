@@ -16,24 +16,17 @@
         {
             var category = await _categoryRepository.GetByIdAsync(request.guid, cancellationToken)
                 ?? throw new NotFoundException($"Category with Guid {request.guid} not found");
-            var image = category.Image;
-            if (image != null)
+            if (category.Image != null)
             {
-                await _fileService.DeleteFileAsync(Constants.Category, image);
-                image = null;
-            }
-            if (request.Image != null)
-            {
-                image = await _fileService.UploadFileAsync(Constants.Category, request.Image);
-            }
-            Guid? parentId = null;
-            if (request.ParentId is not null)
-            {
-                parentId = request.ParentId;
+                await _fileService.DeleteFileAsync(Constants.Category, category.Image);
             }
             category.Name = request.Name;
-            category.Image = image;
-            category.ParentId = parentId;
+            category.Image = await _fileService.UploadFileAsync(Constants.Category, request.Image);
+            category.ParentId = request.ParentId;
+            foreach (var attributeId in request.AttributeIds)
+            {
+                category.CategoryAttributes.Add(new CategoryAttributes { AttributeId = (Guid)attributeId });
+            }
             category = await _categoryRepository.UpdateAsync(category, cancellationToken);
             return _mapper.Map<CategoryDto>(category);
         }

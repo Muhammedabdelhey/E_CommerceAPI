@@ -2,8 +2,11 @@
 {
     public class UpdateCategoryCommandVaildator : AbstractValidator<UpdateCategoryCommand>
     {
-        public UpdateCategoryCommandVaildator()
+        private readonly IBaseRepository<Attribute> _attributeRepository;
+
+        public UpdateCategoryCommandVaildator(IBaseRepository<Attribute> attributeRepository)
         {
+            _attributeRepository = attributeRepository;
             RuleFor(v => v.guid)
                 .NotEmpty();
 
@@ -12,6 +15,12 @@
 
             RuleFor(v => v.Image)
                 .SetValidator(new ImageValidator());
+
+            RuleFor(v => v.AttributeIds)
+                .NotEmpty().WithMessage("AttributeIds cannot be empty; at least one attribute is required.");
+
+            RuleForEach(v => v.AttributeIds)
+                .SetValidator(new EntityExistenceValidator<Attribute>(_attributeRepository));
         }
     }
 }
