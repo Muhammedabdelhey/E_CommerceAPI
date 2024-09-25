@@ -6,9 +6,9 @@
         public string Name { get; set; } = string.Empty;
     }
 
-    public class Mapping : Profile
+    public class AttributeMapping : Profile
     {
-        public Mapping()
+        public AttributeMapping()
         {
             CreateMap<Attribute, AttributeDto>();
         }

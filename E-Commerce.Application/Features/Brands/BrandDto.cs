@@ -7,9 +7,9 @@
         public string? Image { get; set; }
     }
 
-    public class Mapping : Profile
+    public class BrandMapping : Profile
     {
-        public Mapping()
+        public BrandMapping()
         {
             CreateMap<Brand, BrandDto>();
         }

@@ -10,9 +10,11 @@ namespace E_Commerce.Domain.Entities
         public string Description { get; set; } = string.Empty;
         public Guid CategoryId { get; set; }
         [ForeignKey("CategoryId")]
-        public virtual required Category Category { get; set; }
+        public virtual Category Category { get; set; } 
         public Guid BrandId { get; set; }
         [ForeignKey(nameof(BrandId))]
-        public virtual Brand Brand { get; set; } = new Brand();
+        public virtual Brand Brand { get; set; } 
+
+        public virtual ICollection<ProductVariant> Variants { get; set; } = [];
     }
 }
