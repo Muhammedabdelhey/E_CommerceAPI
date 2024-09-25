@@ -11,7 +11,6 @@
 
         public async Task<TRsponse> Handle(TRequest request, RequestHandlerDelegate<TRsponse> next, CancellationToken cancellationToken)
         {
-
             if (_validators.Any())
             {
                 var context = new ValidationContext<TRequest>(request);

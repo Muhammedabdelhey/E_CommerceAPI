@@ -29,7 +29,6 @@ namespace E_Commerce.Infrastructure.Adapters.Storage
             }
             var fileName = Guid.NewGuid().ToString() + Path.GetExtension(file.FileName);
             var fullPath = Path.Combine(filePath, fileName);
-
             using (var stream = new FileStream(fullPath, FileMode.Create))
             {
                 await file.CopyToAsync(stream);

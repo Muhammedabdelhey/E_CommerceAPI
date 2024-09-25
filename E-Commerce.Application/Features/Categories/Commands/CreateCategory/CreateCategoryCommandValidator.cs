@@ -7,11 +7,11 @@ namespace E_Commerce.Application.Features.Categories.Commands.CreateCategory
         private readonly IBaseRepository<Attribute> _attributeRepository;
         private readonly IBaseRepository<Category> _caetgoryRepository;
         public CreateCategoryCommandValidator(IBaseRepository<Attribute> attributeRepository,
-            IBaseRepository<Category> categoryRepository
-            )
+            IBaseRepository<Category> categoryRepository)
         {
             _attributeRepository = attributeRepository;
             _caetgoryRepository = categoryRepository;
+
             RuleFor(v => v.Name)
                 .ValidateString(50);
 

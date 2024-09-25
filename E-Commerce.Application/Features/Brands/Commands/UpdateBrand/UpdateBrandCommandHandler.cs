@@ -20,18 +20,15 @@ namespace E_Commerce.Application.Features.Brands.Commands.UpdateBrand
                 ?? throw new NotFoundException($"Brand with ID {request.guid} not found.");
 
             var image = brand.Image;
+            brand.Name = request.Name;
+            brand.Image = await _fileService.UploadFileAsync(Constants.Brands, request.Image);
+            await _brandRepository.UpdateAsync(brand, cancellationToken);
+
             if (image != null)
             {
                 await _fileService.DeleteFileAsync(Constants.Brands, image);
-                image = null;
             }
-            if (request.Image != null)
-            {
-                image = await _fileService.UploadFileAsync(Constants.Brands, request.Image);
-            }
-            brand.Name = request.Name;
-            brand.Image = image;
-            await _brandRepository.UpdateAsync(brand, cancellationToken);
+
             return _mapper.Map<BrandDto>(brand);
         }
     }

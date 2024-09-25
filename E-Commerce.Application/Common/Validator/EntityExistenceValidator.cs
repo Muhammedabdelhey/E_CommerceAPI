@@ -13,11 +13,7 @@
         }
         private async Task<bool> ExistInDatabase(Guid? id, CancellationToken cancellationToken)
         {
-
-            if (id is null)
-            {
-                return true;
-            }
+            if (id is null) return true;
             return await _repository.GetByIdAsync((Guid)id, cancellationToken) is not null;
         }
     }

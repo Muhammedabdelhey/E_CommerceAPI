@@ -1,4 +1,6 @@
-﻿namespace E_Commerce.Application.Features.Categories.Commands.UpdateCategory
+﻿using System.Reflection;
+
+namespace E_Commerce.Application.Features.Categories.Commands.UpdateCategory
 {
     public class UpdateCategoryCommandHandler : IRequestHandler<UpdateCategoryCommand, CategoryDto>
     {
@@ -14,20 +16,25 @@
 
         public async Task<CategoryDto> Handle(UpdateCategoryCommand request, CancellationToken cancellationToken)
         {
-            var category = await _categoryRepository.GetByIdAsync(request.guid, cancellationToken)
+            var category = await _categoryRepository.GetByIdAsync(request.guid, ["Attributes"], cancellationToken)
                 ?? throw new NotFoundException($"Category with Guid {request.guid} not found");
-            if (category.Image != null)
-            {
-                await _fileService.DeleteFileAsync(Constants.Category, category.Image);
-            }
+
+            var image = category.Image;
+
             category.Name = request.Name;
             category.Image = await _fileService.UploadFileAsync(Constants.Category, request.Image);
             category.ParentId = request.ParentId;
-            foreach (var attributeId in request.AttributeIds)
-            {
-                category.CategoryAttributes.Add(new CategoryAttributes { AttributeId = (Guid)attributeId });
-            }
+            category.CategoryAttributes = request.AttributeIds
+                .Select(id => new CategoryAttributes { AttributeId = (Guid)id })
+                .ToList();
+
             category = await _categoryRepository.UpdateAsync(category, cancellationToken);
+
+            if (image != null)
+            {
+                await _fileService.DeleteFileAsync(Constants.Category, image);
+            }
+
             return _mapper.Map<CategoryDto>(category);
         }
     }

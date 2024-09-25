@@ -15,18 +15,13 @@ namespace E_Commerce.Application.Features.Brands.Commands.CreateBrand
         }
         public async Task<BrandDto> Handle(CreateBrandCommand request, CancellationToken cancellationToken)
         {
-            string? image = null;
-            if (request.Image != null)
-            {
-                image = await _fileService.UploadFileAsync(Constants.Brands, request.Image);
-            }
             Brand brand = new()
             {
                 Id = Guid.NewGuid(),
                 Name = request.Name,
-                Image = image
+                Image = await _fileService.UploadFileAsync(Constants.Brands, request.Image)
             };
-            await _brandRepository.AddAsync(brand, cancellationToken);
+            brand = await _brandRepository.AddAsync(brand, cancellationToken);
             return _mapper.Map<BrandDto>(brand);
         }
     }

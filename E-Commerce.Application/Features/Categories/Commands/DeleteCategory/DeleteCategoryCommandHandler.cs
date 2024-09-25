@@ -17,11 +17,14 @@ namespace E_Commerce.Application.Features.Categories.Commands.DeleteCategory
         {
             var category = await _categoryRepository.GetByIdAsync(request.guid, cancellationToken)
                 ?? throw new NotFoundException($"Category with Guid {request.guid} not found");
+
+            await _categoryRepository.DeleteAsync(category, cancellationToken);
+
             if (category.Image != null)
             {
                 await _fileService.DeleteFileAsync(Constants.Category, category.Image);
             }
-            await _categoryRepository.DeleteAsync(category, cancellationToken);
+
             return _mapper.Map<CategoryDto>(category);
         }
     }

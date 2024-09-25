@@ -1,6 +1,6 @@
 ﻿namespace E_Commerce.Infrastructure.Data.Repositories;
 
-public class BaseRepository<T>(ApplicationDbContext context) : IBaseRepository<T> where T : class
+public class BaseRepository<T>(ApplicationDbContext context) : IBaseRepository<T> where T : BaseEntity
 {
     private readonly ApplicationDbContext _context = context ?? throw new ArgumentNullException(nameof(context));
 
@@ -22,6 +22,16 @@ public class BaseRepository<T>(ApplicationDbContext context) : IBaseRepository<T
     public async Task<T?> GetByIdAsync(Guid id, CancellationToken cancellationToken = default)
     {
         return await _context.Set<T>().FindAsync(id, cancellationToken);
+    }
+    public async Task<T?> GetByIdAsync(Guid id, string[] includes, CancellationToken cancellationToken = default)
+    {
+        IQueryable<T> query = _context.Set<T>();
+
+        foreach (string include in includes)
+        {
+            query = query.Include(include);
+        }
+        return await query.FirstOrDefaultAsync(entity => entity.Id == id, cancellationToken);
     }
 
     public virtual async Task<IEnumerable<T?>> GetByAsync(Expression<Func<T, bool>> expression, CancellationToken cancellationToken = default)

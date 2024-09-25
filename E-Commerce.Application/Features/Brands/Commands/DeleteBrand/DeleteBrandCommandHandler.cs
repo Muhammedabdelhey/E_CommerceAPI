@@ -16,12 +16,14 @@
         {
             var brand = await _brandRepository.GetByIdAsync(request.guid, cancellationToken)
                 ?? throw new NotFoundException($"Brand with ID {request.guid} not found.");
-            var image = brand.Image;
-            if (image != null)
-            {
-                await _fileService.DeleteFileAsync(Constants.Brands, image);
-            }
+
             await _brandRepository.DeleteAsync(brand, cancellationToken);
+
+            if (brand.Image != null)
+            {
+                await _fileService.DeleteFileAsync(Constants.Brands, brand.Image);
+            }
+
             return _mapper.Map<BrandDto>(brand);
         }
     }
