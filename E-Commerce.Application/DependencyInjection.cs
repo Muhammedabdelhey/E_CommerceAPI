@@ -1,4 +1,5 @@
 ﻿using E_Commerce.Application.Common.Services;
+using FluentValidation.AspNetCore;
 
 namespace E_Commerce.Application
 {
@@ -8,7 +9,7 @@ namespace E_Commerce.Application
         {
 
 
-            //services.AddFluentValidationAutoValidation();
+            services.AddFluentValidationAutoValidation();
             services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehaviour<,>));
             services.AddScoped(typeof(IFileService), typeof(FileService));

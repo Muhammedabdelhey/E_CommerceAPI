@@ -13,7 +13,7 @@
         public async Task<AttributeDto> Handle(GetAttributeByIdQuery request, CancellationToken cancellationToken)
         {
             var attribute = await _attributeRepository.GetByIdAsync(request.guid, cancellationToken)
-                ?? throw new NotFoundException($"Attribute with guid{request.guid} not found");
+                ?? throw new NotFoundException($"Attribute with guid {request.guid} not found");
             return _mapper.Map<AttributeDto>(attribute);
 
         }

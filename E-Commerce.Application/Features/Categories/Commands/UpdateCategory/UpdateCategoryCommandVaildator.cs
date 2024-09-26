@@ -19,8 +19,6 @@
             RuleFor(v => v.Image)
                 .SetValidator(new ImageValidator());
 
-            RuleFor(v => v.AttributeIds)
-                .NotEmpty().WithMessage("AttributeIds cannot be empty; at least one attribute is required.");
 
             When(v => v.ParentId != null, () =>
             {
@@ -28,9 +26,13 @@
                    .SetValidator(new EntityExistenceValidator<Category>(_categoryRepository));
             });
 
+            RuleFor(v => v.AttributeIds)
+                .NotEmpty().WithMessage("AttributeIds cannot be empty; at least one attribute is required.");
+
             When(v => v.AttributeIds != null, () =>
             {
                 RuleForEach(v => v.AttributeIds)
+                    .NotEmpty()
                     .SetValidator(new EntityExistenceValidator<Attribute>(_attributeRepository));
             });
         }
