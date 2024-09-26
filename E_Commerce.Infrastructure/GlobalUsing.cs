@@ -14,4 +14,6 @@ global using Microsoft.EntityFrameworkCore.Diagnostics;
 global using E_Commerce.Infrastructure.Data.Interceptors;
 global using E_Commerce.Infrastructure.Adapters.Storage;
 global using E_Commerce.Application.Interfaces;
+global using Attribute = E_Commerce.Domain.Entities.Attribute;
+
 

@@ -1,15 +1,17 @@
 ﻿using E_Commerce.Domain.Comman;
-
-public class Attribute : BaseEntity
+namespace E_Commerce.Domain.Entities
 {
-    [Required]
-    [StringLength(50)]
-    public string Name { get; set; } = string.Empty;
+    public class Attribute : BaseEntity
+    {
+        [Required]
+        [StringLength(50)]
+        public string Name { get; set; } = string.Empty;
 
-    // Correct navigation property
-    public virtual ICollection<Category> Categories { get; set; } = [];
-    public virtual ICollection<CategoryAttributes> AttributeCategories { get; set; } = [];
+        // Correct navigation property
+        public virtual ICollection<Category> Categories { get; set; } = [];
+        public virtual ICollection<CategoryAttributes> AttributeCategories { get; set; } = [];
 
-    public virtual ICollection<ProductVariant> ProductVariants { get; set; } = [];
-    public virtual ICollection<ProductVariantAttributes> ProductVariantsAttributes { get; set; } = [];
+        public virtual ICollection<ProductVariant> ProductVariants { get; set; } = [];
+        public virtual ICollection<ProductVariantAttributes> ProductVariantsAttributes { get; set; } = [];
+    }
 }

@@ -31,13 +31,13 @@ namespace E_Commerce.Presentation.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create(CreateAttributeCommand command, CancellationToken cancellationToken)
+        public async Task<IActionResult> Create([FromForm] CreateAttributeCommand command, CancellationToken cancellationToken)
         {
             var attribute = await _mediator.Send(command, cancellationToken);
             return Ok(attribute);
         }
         [HttpPut("{guid}")]
-        public async Task<IActionResult> Update(Guid guid, [FromBody] UpdateAttributeCommand command,
+        public async Task<IActionResult> Update(Guid guid, [FromForm] UpdateAttributeCommand command,
             CancellationToken cancellationToken)
         {
             if (guid != command.Guid)

@@ -14,7 +14,7 @@ namespace E_Commerce.Presentation.Controllers
             _mediator = mediator;
         }
         [HttpPost]
-        public async Task<IActionResult> Create(CreateProductCommand command, CancellationToken cancellationToken)
+        public async Task<IActionResult> Create([FromForm] CreateProductCommand command, CancellationToken cancellationToken)
         {
             var product = await _mediator.Send(command, cancellationToken);
             return Ok(product);

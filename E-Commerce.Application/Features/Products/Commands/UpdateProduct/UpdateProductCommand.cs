@@ -1,7 +1,8 @@
-﻿namespace E_Commerce.Application.Features.Products.Commands.CreateProduct
+﻿namespace E_Commerce.Application.Features.Products.Commands.UpdateProduct
 {
-    public record CreateProductCommand : IRequest<ProductDto>
+    public record UpdateProductCommand: IRequest<ProductDto>
     {
+        public Guid guid { get; init; }
         public string Name { get; init; } = string.Empty;
         public string Description { get; init; } = string.Empty;
         public Guid CategoryId { get; init; }

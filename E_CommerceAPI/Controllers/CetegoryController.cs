@@ -27,7 +27,7 @@ namespace E_Commerce.Presentation.Controllers
         [HttpGet]
         public async Task<IActionResult> GetAll(CancellationToken cancellationToken)
         {
-            var categories = await _mediatR.Send(new GetCategoriesQuery());
+            var categories = await _mediatR.Send(new GetCategoriesQuery(),cancellationToken);
             return Ok(categories);
         }
         [HttpPost]

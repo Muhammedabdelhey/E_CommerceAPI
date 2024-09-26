@@ -11,11 +11,6 @@
         }
         private bool IsImage(IFormFile? image)
         {
-
-            if (image == null)
-            {
-                return true;
-            }
             string extension = Path.GetExtension(image.FileName);
             return AllowedExtensions.Split(',').Contains(extension, StringComparer.OrdinalIgnoreCase);
 

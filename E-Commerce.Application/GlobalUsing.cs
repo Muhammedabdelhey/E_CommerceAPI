@@ -11,5 +11,6 @@ global using E_Commerce.Application.Common;
 global using Microsoft.AspNetCore.Http;
 global using ValidationException = E_Commerce.Application.Common.Exceptions.ValidationException;
 global using AutoMapper;
+global using Attribute = E_Commerce.Domain.Entities.Attribute;
 
 
