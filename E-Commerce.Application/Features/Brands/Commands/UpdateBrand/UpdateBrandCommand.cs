@@ -2,7 +2,7 @@
 {
     public record UpdateBrandCommand : IRequest<BrandDto>
     {
-        public Guid guid { get; init; } 
+        public string guid { get; init; } = string.Empty; 
         public string Name { get; init; } = string.Empty;
         public IFormFile? Image { get; init; }
     }

@@ -4,8 +4,8 @@
     {
         public string Name { get; init; } = string.Empty;
         public IFormFile? Image { get; init; }
-        public Guid? ParentId { get; init; }
-        public List<Guid> AttributeIds { get; init; } = [];
+        public string? ParentId { get; init; }
+        public List<string?> AttributeIds { get; init; } = [];
     }
 }
 

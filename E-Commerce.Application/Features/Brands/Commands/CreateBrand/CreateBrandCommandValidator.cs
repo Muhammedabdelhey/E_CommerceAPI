@@ -7,11 +7,9 @@
             RuleFor(v => v.Name)
                 .ValidateString(50);
 
-            When(v => v.Image != null, () =>
-            {
-                RuleFor(v => v.Image)
-                    .SetValidator(new ImageValidator());
-            });
+
+            RuleFor(v => v.Image)
+                .SetValidator(new ImageValidator());
 
         }
     }

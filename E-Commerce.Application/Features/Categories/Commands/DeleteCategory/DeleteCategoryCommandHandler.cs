@@ -15,7 +15,7 @@ namespace E_Commerce.Application.Features.Categories.Commands.DeleteCategory
 
         public async Task<CategoryDto> Handle(DeleteCategoryCommand request, CancellationToken cancellationToken)
         {
-            var category = await _categoryRepository.GetByIdAsync(request.guid, cancellationToken)
+            var category = await _categoryRepository.GetByIdAsync(Guid.Parse(request.guid), cancellationToken)
                 ?? throw new NotFoundException($"Category with Guid {request.guid} not found");
 
             await _categoryRepository.DeleteAsync(category, cancellationToken);

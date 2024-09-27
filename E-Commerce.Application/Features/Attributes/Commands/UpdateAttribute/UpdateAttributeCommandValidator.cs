@@ -5,7 +5,7 @@
         public UpdateAttributeCommandValidator()
         {
             RuleFor(v => v.Guid)
-                .NotEmpty();
+                .SetValidator(new GuidValidator());
 
             RuleFor(v => v.Name)
                 .ValidateString(50);

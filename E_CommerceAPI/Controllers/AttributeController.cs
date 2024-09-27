@@ -18,7 +18,7 @@ namespace E_Commerce.Presentation.Controllers
             _mediator = mediator;
         }
         [HttpGet("{guid}")]
-        public async Task<IActionResult> Get(Guid guid, CancellationToken cancellationToken)
+        public async Task<IActionResult> Get(string guid, CancellationToken cancellationToken)
         {
             var attributes = await _mediator.Send(new GetAttributeByIdQuery(guid), cancellationToken);
             return Ok(attributes);
@@ -37,7 +37,7 @@ namespace E_Commerce.Presentation.Controllers
             return Ok(attribute);
         }
         [HttpPut("{guid}")]
-        public async Task<IActionResult> Update(Guid guid, [FromForm] UpdateAttributeCommand command,
+        public async Task<IActionResult> Update(string guid, [FromForm] UpdateAttributeCommand command,
             CancellationToken cancellationToken)
         {
             if (guid != command.Guid)
@@ -48,7 +48,7 @@ namespace E_Commerce.Presentation.Controllers
             return Ok(attribute);
         }
         [HttpDelete("{guid}")]
-        public async Task<IActionResult> Delete(Guid guid, CancellationToken cancellationToken)
+        public async Task<IActionResult> Delete(string guid, CancellationToken cancellationToken)
         {
             await _mediator.Send(new DeleteAttributeCommand(guid), cancellationToken);
             return Ok("Attribute Deleted");

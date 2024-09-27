@@ -5,7 +5,7 @@
         public Guid guid { get; init; }
         public string Name { get; init; } = string.Empty;
         public string Description { get; init; } = string.Empty;
-        public Guid CategoryId { get; init; }
-        public Guid BrandId { get; init; }
+        public string CategoryId { get; init; }= string.Empty;
+        public string BrandId { get; init; } = string.Empty;
     }
 }

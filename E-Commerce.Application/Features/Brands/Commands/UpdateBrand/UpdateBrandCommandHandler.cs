@@ -16,7 +16,7 @@ namespace E_Commerce.Application.Features.Brands.Commands.UpdateBrand
 
         public async Task<BrandDto> Handle(UpdateBrandCommand request, CancellationToken cancellationToken)
         {
-            var brand = await _brandRepository.GetByIdAsync(request.guid, cancellationToken)
+            var brand = await _brandRepository.GetByIdAsync(Guid.Parse(request.guid), cancellationToken)
                 ?? throw new NotFoundException($"Brand with ID {request.guid} not found.");
 
             var image = brand.Image;

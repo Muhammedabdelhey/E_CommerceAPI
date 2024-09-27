@@ -21,10 +21,10 @@ namespace E_Commerce.Application.Features.Categories.Commands.CreateCategory
             {
                 Id = Guid.NewGuid(),
                 Name = request.Name,
-                ParentId = request.ParentId,
+                //ParentId = request.ParentId,
                 Image = await _fileService.UploadFileAsync(Constants.Category, request.Image),
                 CategoryAttributes = request.AttributeIds
-                    .Select(id => new CategoryAttributes { AttributeId = (Guid)id })
+                    .Select(id => new CategoryAttributes { AttributeId = Guid.Parse(id) })
                     .ToList()
             };
             await _categoryRepository.AddAsync(category, cancellationToken);

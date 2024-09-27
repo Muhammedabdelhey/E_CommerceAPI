@@ -17,20 +17,28 @@
             RuleFor(v => v.Image)
                 .SetValidator(new ImageValidator());
 
-            When(v => v.ParentId.HasValue, () =>
+            When(v => !string.IsNullOrWhiteSpace(v.ParentId), () =>
             {
-                RuleFor(v => v.ParentId.Value)
-                    .SetValidator(new EntityExistenceValidator<Category>(_categoryRepository));
+                RuleFor(v => v.ParentId)
+                    .SetValidator(new GuidValidator())
+                    .DependentRules(() =>
+                    {
+                        RuleFor(v => v.ParentId)
+                            .SetValidator(new EntityExistenceValidator<Category>(_categoryRepository));
+                    });
             });
-
-            RuleFor(v => v.AttributeIds)
-                .NotEmpty().WithMessage("AttributeIds cannot be empty; at least one attribute is required.");
 
             When(v => v.AttributeIds != null, () =>
             {
                 RuleForEach(v => v.AttributeIds)
-                    .SetValidator(new EntityExistenceValidator<Attribute>(_attributeRepository));
+                    .SetValidator(new GuidValidator())
+                    .DependentRules(() =>
+                    {
+                        RuleForEach(v => v.AttributeIds)
+                            .SetValidator(new EntityExistenceValidator<Attribute>(_attributeRepository));
+                    });
             });
+
         }
     }
 }

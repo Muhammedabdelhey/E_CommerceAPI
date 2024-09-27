@@ -13,7 +13,7 @@ namespace E_Commerce.Application.Features.Categories.Queries.GetCategoryById
 
         public async Task<CategoryDto> Handle(GetCategoryByIdQuery request, CancellationToken cancellationToken)
         {
-            var category = await _categoryRepository.GetByIdAsync(request.guid, ["Attributes"], cancellationToken)
+            var category = await _categoryRepository.GetByIdAsync(Guid.Parse(request.guid), ["Parent", "Attributes"], cancellationToken)
                 ?? throw new NotFoundException($"Category with guid {request.guid} not found");
             return _mapper.Map<CategoryDto>(category);
         }

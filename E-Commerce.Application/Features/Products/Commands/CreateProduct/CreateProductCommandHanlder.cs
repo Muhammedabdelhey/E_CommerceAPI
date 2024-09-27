@@ -15,8 +15,8 @@
             {
                 Name = request.Name,
                 Description = request.Description,
-                CategoryId = (Guid)request.CategoryId,
-                BrandId = (Guid)request.BrandId
+                CategoryId = Guid.Parse(request.CategoryId),
+                BrandId = Guid.Parse(request.BrandId)
             };
             await _productRepository.AddAsync(product, cancellationToken);
             return _mapper.Map<ProductDto>(product);

@@ -10,16 +10,16 @@ namespace E_Commerce.Presentation.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class CetegoryController : ControllerBase
+    public class CategoryController : ControllerBase
     {
         private readonly IMediator _mediatR;
 
-        public CetegoryController(IMediator mediatR)
+        public CategoryController(IMediator mediatR)
         {
             _mediatR = mediatR;
         }
         [HttpGet("{guid}")]
-        public async Task<IActionResult> Get(Guid guid, CancellationToken cancellationToken)
+        public async Task<IActionResult> Get(string guid, CancellationToken cancellationToken)
         {
             var category = await _mediatR.Send(new GetCategoryByIdQuery(guid), cancellationToken);
             return Ok(category);
@@ -27,7 +27,7 @@ namespace E_Commerce.Presentation.Controllers
         [HttpGet]
         public async Task<IActionResult> GetAll(CancellationToken cancellationToken)
         {
-            var categories = await _mediatR.Send(new GetCategoriesQuery(),cancellationToken);
+            var categories = await _mediatR.Send(new GetCategoriesQuery(), cancellationToken);
             return Ok(categories);
         }
         [HttpPost]
@@ -38,7 +38,7 @@ namespace E_Commerce.Presentation.Controllers
         }
 
         [HttpPut("{guid}")]
-        public async Task<IActionResult> Update(Guid guid,
+        public async Task<IActionResult> Update(string guid,
             [FromForm] UpdateCategoryCommand command,
             CancellationToken cancellationToken)
         {
@@ -51,7 +51,7 @@ namespace E_Commerce.Presentation.Controllers
         }
 
         [HttpDelete("{guid}")]
-        public async Task<IActionResult> Delete(Guid guid, CancellationToken cancellationToken)
+        public async Task<IActionResult> Delete(string guid, CancellationToken cancellationToken)
         {
             var category = await _mediatR.Send(new DeleteCategoryCommand(guid), cancellationToken);
             return Ok($"Category with guid {category.Id} deleted ");

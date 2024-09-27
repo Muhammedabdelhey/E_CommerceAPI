@@ -1,5 +1,5 @@
 ﻿namespace E_Commerce.Application.Features.Brands.Commands.DeleteBrand
 {
-    public record DeleteBrandCommand(Guid guid) : IRequest<BrandDto>;
+    public record DeleteBrandCommand(string guid) : IRequest<BrandDto>;
 
 }
