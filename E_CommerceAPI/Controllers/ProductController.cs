@@ -1,7 +1,9 @@
-﻿using E_Commerce.Application.Features.Products.Commands.CreateProduct;
+﻿using E_Commerce.Application.Features.Attributes.Queries.GetAttributeById;
+using E_Commerce.Application.Features.Products.Commands.CreateProduct;
 using E_Commerce.Application.Features.Products.Commands.DeleteProduct;
 using E_Commerce.Application.Features.Products.Commands.UpdateProduct;
-using E_Commerce.Domain.Entities;
+using E_Commerce.Application.Features.Products.Queries.GetAllProducts;
+using E_Commerce.Application.Features.Products.Queries.GetProductById;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -15,6 +17,18 @@ namespace E_Commerce.Presentation.Controllers
         public ProductController(IMediator mediator)
         {
             _mediator = mediator;
+        }
+        [HttpGet]
+        public async Task<IActionResult> GetAll(CancellationToken cancellationToken)
+        {
+            var prodcuts = await _mediator.Send(new GetProductsQuery(), cancellationToken);
+            return Ok(prodcuts);
+        }
+        [HttpGet("{guid}")]
+        public async Task<IActionResult> Get(string guid, CancellationToken cancellationToken)
+        {
+            var prodcut = await _mediator.Send(new GetProductByIdQuery(guid), cancellationToken);
+            return Ok(prodcut);
         }
         [HttpPost]
         public async Task<IActionResult> Create([FromForm] CreateProductCommand command, CancellationToken cancellationToken)
