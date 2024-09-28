@@ -1,5 +1,7 @@
 ﻿using E_Commerce.Application.Features.Products.Commands.CreateProduct;
+using E_Commerce.Application.Features.Products.Commands.DeleteProduct;
 using E_Commerce.Application.Features.Products.Commands.UpdateProduct;
+using E_Commerce.Domain.Entities;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -30,6 +32,12 @@ namespace E_Commerce.Presentation.Controllers
             }
             var product = await _mediator.Send(command, cancellationToken);
             return Ok(product);
+        }
+        [HttpDelete("{guid}")]
+        public async Task<IActionResult> Delete(string guid, CancellationToken cancellationToken)
+        {
+            var product = await _mediator.Send(new DeleteProductCommand(guid), cancellationToken);
+            return Ok($"Product with guid {product.Id} Deleted ");
         }
     }
 }
