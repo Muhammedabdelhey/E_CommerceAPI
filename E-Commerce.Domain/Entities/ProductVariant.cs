@@ -4,8 +4,7 @@ namespace E_Commerce.Domain.Entities
 {
     public class ProductVariant : BaseEntity
     {
-        [MaxLength(10)]
-        [Required]
+        [MaxLength(16)]
         public string Sku { get; set; } = string.Empty;
         public int Stock { get; set; }
         public double Price { get; set; }
