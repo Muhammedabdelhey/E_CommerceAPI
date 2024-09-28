@@ -2,23 +2,33 @@
 {
     public class UpdateProductCommandVaildator : AbstractValidator<UpdateProductCommand>
     {
-        private readonly IBaseRepository<Category> _categoryRepository;
-        private readonly IBaseRepository<Brand> _brandRepository;
-        public UpdateProductCommandVaildator(IBaseRepository<Category> categoryRepository, IBaseRepository<Brand> brandRepository)
+        public UpdateProductCommandVaildator(EntityExistenceValidator<Category> categoryExistenceValidator,
+            EntityExistenceValidator<Brand> brandExistenceValidator)
         {
-            _categoryRepository = categoryRepository;
-            _brandRepository = brandRepository;
+            RuleFor(v => v.guid)
+                .SetValidator(new GuidValidator());
 
             RuleFor(v => v.Name)
                 .ValidateString(100);
 
+            RuleFor(v => v.Description)
+                .NotEmpty();
+
             RuleFor(v => v.CategoryId)
-                .NotEmpty()
-                .SetValidator(new EntityExistenceValidator<Category>(_categoryRepository));
+                .SetValidator(new GuidValidator())
+                .DependentRules(() =>
+                {
+                    RuleFor(v => v.CategoryId)
+                        .SetValidator(categoryExistenceValidator);
+                });
 
             RuleFor(v => v.BrandId)
-                .NotEmpty()
-                .SetValidator(new EntityExistenceValidator<Brand>(_brandRepository));
+                .SetValidator(new GuidValidator())
+                .DependentRules(() =>
+                {
+                    RuleFor(v => v.BrandId)
+                        .SetValidator(brandExistenceValidator);
+                });
         }
     }
 }

@@ -45,7 +45,7 @@ namespace E_Commerce.Presentation.Controllers
             [FromForm] UpdateBrandCommand command
             , CancellationToken cancellationToken)
         {
-            if (guid != command.guid)
+            if (!guid.Equals(command.guid))
             {
                 return BadRequest("Guid you pass in route not equal to one passed on request");
             }

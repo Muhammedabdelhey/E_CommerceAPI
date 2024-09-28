@@ -4,7 +4,7 @@
     {
         public string Name { get; init; } = string.Empty;
         public string Description { get; init; } = string.Empty;
-        public string CategoryId { get; init; }
-        public string BrandId { get; init; }
+        public string CategoryId { get; init; } = string.Empty;
+        public string BrandId { get; init; } = string.Empty;
     }
 }

@@ -34,8 +34,7 @@ namespace E_Commerce.Application.Features.Categories.Commands.UpdateCategory
             {
                 await _fileService.DeleteFileAsync(Constants.Category, image);
             }
-            var updateCategory = await _categoryRepository.GetByIdAsync(Guid.Parse(request.guid), ["Parent", "Attributes"], cancellationToken);
-            return _mapper.Map<CategoryDto>(updateCategory);
+            return _mapper.Map<CategoryDto>(category);
         }
     }
 }

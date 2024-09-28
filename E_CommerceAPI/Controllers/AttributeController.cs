@@ -40,7 +40,7 @@ namespace E_Commerce.Presentation.Controllers
         public async Task<IActionResult> Update(string guid, [FromForm] UpdateAttributeCommand command,
             CancellationToken cancellationToken)
         {
-            if (guid != command.Guid)
+            if (!guid.Equals(command.Guid))
             {
                 return BadRequest("Guid you pass in route not equal to one passed on request");
             }

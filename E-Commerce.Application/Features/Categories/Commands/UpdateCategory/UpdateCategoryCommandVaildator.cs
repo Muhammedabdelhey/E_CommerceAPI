@@ -2,15 +2,9 @@
 {
     public class UpdateCategoryCommandVaildator : AbstractValidator<UpdateCategoryCommand>
     {
-        private readonly IBaseRepository<Attribute> _attributeRepository;
-        private readonly IBaseRepository<Category> _categoryRepository;
-
-        public UpdateCategoryCommandVaildator(IBaseRepository<Attribute> attributeRepository,
-            IBaseRepository<Category> categoryRepository)
+        public UpdateCategoryCommandVaildator(EntityExistenceValidator<Category> categoryExistenceValidator,
+            EntityExistenceValidator<Attribute> attributeExistenceValidator)
         {
-            _attributeRepository = attributeRepository;
-            _categoryRepository = categoryRepository;
-
             RuleFor(v => v.guid)
                 .SetValidator(new GuidValidator());
 
@@ -27,7 +21,7 @@
                     .DependentRules(() =>
                     {
                         RuleFor(v => v.ParentId)
-                            .SetValidator(new EntityExistenceValidator<Category>(_categoryRepository));
+                            .SetValidator(categoryExistenceValidator);
                     });
             });
 
@@ -38,7 +32,7 @@
                     .DependentRules(() =>
                     {
                         RuleForEach(v => v.AttributeIds)
-                            .SetValidator(new EntityExistenceValidator<Attribute>(_attributeRepository));
+                            .SetValidator(attributeExistenceValidator);
                     });
             });
         }

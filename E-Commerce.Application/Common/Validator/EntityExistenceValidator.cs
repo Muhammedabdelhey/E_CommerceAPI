@@ -1,6 +1,8 @@
-﻿namespace E_Commerce.Application.Common.Validator
+﻿using E_Commerce.Domain.Comman;
+
+namespace E_Commerce.Application.Common.Validator
 {
-    public class EntityExistenceValidator<TEntity> : AbstractValidator<string?> where TEntity : class
+    public class EntityExistenceValidator<TEntity> : AbstractValidator<string?> where TEntity : BaseEntity
     {
         private readonly IBaseRepository<TEntity> _repository;
         public EntityExistenceValidator(IBaseRepository<TEntity> repository)
