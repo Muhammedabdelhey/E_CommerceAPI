@@ -1,8 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc.ModelBinding;
-using System.Runtime.Serialization;
-using System.Text.Json.Serialization;
-
-namespace E_Commerce.Application.Features.Attributes.Commands.UpdateAttribute
+﻿namespace E_Commerce.Application.Features.Attributes.Commands.UpdateAttribute
 {
     public record UpdateAttributeCommand : IRequest<AttributeDto>
     {

@@ -1,12 +1,12 @@
-﻿using E_Commerce.Application.Common.Validator;
-
-namespace E_Commerce.Application.Features.ProductVariants.Commands.CreateProductVariant
+﻿namespace E_Commerce.Application.Features.ProductVariants.Commands.UpdateProductVariant
 {
-    public class CreateProductVariantCommandValidator : AbstractValidator<CreateProductVariantCommand>
+    public class UpdateProductVariantCommandValidator : AbstractValidator<UpdateProductVariantCommand>
     {
-        public CreateProductVariantCommandValidator(EntityExistenceValidator<Product> productExistenceValidator,
+        public UpdateProductVariantCommandValidator(EntityExistenceValidator<Product> productExistenceValidator,
             EntityExistenceValidator<Attribute> attributeExistenceValidator)
         {
+            RuleFor(v => v.ProductVariantId)
+                .SetValidator(new GuidValidator());
 
             RuleFor(v => v.ProductId)
                 .SetValidator(new GuidValidator())
@@ -31,7 +31,6 @@ namespace E_Commerce.Application.Features.ProductVariants.Commands.CreateProduct
                 RuleFor(v => v.Image)
                     .SetValidator(new ImageValidator());
             });
-
 
             RuleForEach(v => v.Attributes)
                 .NotEmpty()
