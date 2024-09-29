@@ -11,8 +11,11 @@
             RuleFor(v => v.Name)
                 .ValidateString(50);
 
-            RuleFor(v => v.Image)
-                .SetValidator(new ImageValidator());
+            When(v => v.Image != null, () =>
+            {
+                RuleFor(v => v.Image)
+                    .SetValidator(new ImageValidator());
+            });
 
             When(v => !string.IsNullOrWhiteSpace(v.ParentId), () =>
             {
