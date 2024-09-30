@@ -4,8 +4,8 @@
     {
         public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
         {
-            //var connectionString = configuration.GetConnectionString("default");
-            var connectionString = configuration.GetConnectionString("company");
+            var connectionString = configuration.GetConnectionString("default");
+            //var connectionString = configuration.GetConnectionString("company");
             services.AddScoped<ISaveChangesInterceptor, AuditableEntityInterceptor>();
             services.AddScoped<ISaveChangesInterceptor, DispatchDomainEventsInterceptor>();
             services.AddScoped(typeof(IBaseRepository<>), typeof(BaseRepository<>));

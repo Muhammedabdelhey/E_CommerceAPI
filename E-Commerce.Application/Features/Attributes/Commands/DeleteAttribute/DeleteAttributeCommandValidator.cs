@@ -2,10 +2,11 @@
 {
     public class DeleteAttributeCommandValidator : AbstractValidator<DeleteAttributeCommand>
     {
-        public DeleteAttributeCommandValidator()
+        public DeleteAttributeCommandValidator(EntityExistenceValidator<Attribute> attributeExistenceValidator)
         {
             RuleFor(v => v.guid)
-                .SetValidator(new GuidValidator());
+                .SetValidator(new GuidValidator())
+                .SetValidator(attributeExistenceValidator);
         }
     }
 }

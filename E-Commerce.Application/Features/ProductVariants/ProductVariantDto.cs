@@ -11,6 +11,7 @@
         public List<AttributeValues> Attributes { get; set; } = new List<AttributeValues>();
         public class AttributeValues
         {
+            public Guid Id { get; set; }
             public string Name { get; set; } = string.Empty;
             public string Value { get; set; } = string.Empty;
         }
@@ -26,6 +27,7 @@
                         opt => opt.MapFrom(src => src.ProductVariantAttributes
                             .Select(pva => new AttributeValues
                             {
+                                Id = pva.AttributeId,
                                 Name = pva.Attribute.Name,
                                 Value = pva.Value
                             })
