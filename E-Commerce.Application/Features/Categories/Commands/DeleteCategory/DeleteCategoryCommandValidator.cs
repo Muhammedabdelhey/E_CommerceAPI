@@ -2,10 +2,11 @@
 {
     public class DeleteCategoryCommandValidator : AbstractValidator<DeleteCategoryCommand>
     {
-        public DeleteCategoryCommandValidator()
+        public DeleteCategoryCommandValidator(EntityExistenceValidator<Category> categoryExistenceValidator)
         {
             RuleFor(v => v.guid)
-                 .SetValidator(new GuidValidator());
+                .SetValidator(new GuidValidator())
+                .SetValidator(categoryExistenceValidator);
         }
     }
 }

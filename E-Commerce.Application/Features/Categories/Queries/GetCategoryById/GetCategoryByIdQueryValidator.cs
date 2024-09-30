@@ -2,10 +2,11 @@
 {
     public class GetCategoryByIdQueryValidator : AbstractValidator<GetCategoryByIdQuery>
     {
-        public GetCategoryByIdQueryValidator()
+        public GetCategoryByIdQueryValidator(EntityExistenceValidator<Category> categoryExistenceValidator)
         {
             RuleFor(v => v.guid)
-                .SetValidator(new GuidValidator());
+                .SetValidator(new GuidValidator())
+                .SetValidator(categoryExistenceValidator);
         }
     }
 }

@@ -2,13 +2,14 @@
 {
     public class UpdateBrandCommandValidator : AbstractValidator<UpdateBrandCommand>
     {
-        public UpdateBrandCommandValidator()
+        public UpdateBrandCommandValidator(EntityExistenceValidator<Brand> brandExistenceValidator)
         {
             RuleFor(v => v.guid)
-                .SetValidator(new GuidValidator());
+                .SetValidator(new GuidValidator())
+                .SetValidator(brandExistenceValidator);
 
             RuleFor(v => v.Name)
-                .ValidateString(50);
+                    .ValidateString(50);
 
             When(v => v.Image != null, () =>
             {

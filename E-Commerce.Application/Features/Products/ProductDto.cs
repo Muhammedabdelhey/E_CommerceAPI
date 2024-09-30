@@ -1,4 +1,6 @@
-﻿namespace E_Commerce.Application.Features.Products
+﻿using E_Commerce.Application.Features.ProductVariants;
+
+namespace E_Commerce.Application.Features.Products
 {
     public class ProductDto
     {
@@ -9,6 +11,7 @@
         public string CategoryName { get; init; } = string.Empty;
         public string BrandId { get; init; } = string.Empty;
         public string BrandName { get; init; } = string.Empty;
+        public IReadOnlyCollection<ProductVariantDto> Variants { get; init; } = [];
 
         private class ProductMapping : Profile
         {

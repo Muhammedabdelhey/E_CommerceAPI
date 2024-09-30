@@ -2,10 +2,11 @@
 {
     public class DeleteBrandCommandValidator : AbstractValidator<DeleteBrandCommand>
     {
-        public DeleteBrandCommandValidator()
+        public DeleteBrandCommandValidator(EntityExistenceValidator<Brand> brandExistenceValidator)
         {
             RuleFor(v => v.guid)
-                .SetValidator(new GuidValidator());
+                .SetValidator(new GuidValidator())
+                .SetValidator(brandExistenceValidator);
         }
     }
 }

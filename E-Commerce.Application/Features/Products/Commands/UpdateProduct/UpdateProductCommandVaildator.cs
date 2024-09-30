@@ -2,11 +2,14 @@
 {
     public class UpdateProductCommandVaildator : AbstractValidator<UpdateProductCommand>
     {
-        public UpdateProductCommandVaildator(EntityExistenceValidator<Category> categoryExistenceValidator,
+        public UpdateProductCommandVaildator(
+            EntityExistenceValidator<Product> productExistenceValidator,
+            EntityExistenceValidator<Category> categoryExistenceValidator,
             EntityExistenceValidator<Brand> brandExistenceValidator)
         {
             RuleFor(v => v.guid)
-                .SetValidator(new GuidValidator());
+                .SetValidator(new GuidValidator())
+                .SetValidator(productExistenceValidator);
 
             RuleFor(v => v.Name)
                 .ValidateString(100);

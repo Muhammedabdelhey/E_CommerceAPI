@@ -2,10 +2,11 @@
 {
     public class GetBrandByIdValidator : AbstractValidator<GetBrandByIdQuery>
     {
-        public GetBrandByIdValidator()
+        public GetBrandByIdValidator(EntityExistenceValidator<Brand> brandExistenceValidator)
         {
             RuleFor(v => v.guid)
-                .SetValidator(new GuidValidator());
+                .SetValidator(new GuidValidator())
+                .SetValidator(brandExistenceValidator);
         }
     }
 }

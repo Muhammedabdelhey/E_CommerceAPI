@@ -2,10 +2,11 @@
 {
     public class GetProductByIdQueryValidator : AbstractValidator<GetProductByIdQuery>
     {
-        public GetProductByIdQueryValidator()
+        public GetProductByIdQueryValidator(EntityExistenceValidator<Product> productExistenceValidator)
         {
             RuleFor(v => v.guid)
-                .SetValidator(new GuidValidator());
+                .SetValidator(new GuidValidator())
+                .SetValidator(productExistenceValidator);
         }
     }
 }

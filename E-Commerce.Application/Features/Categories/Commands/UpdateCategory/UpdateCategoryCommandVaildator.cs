@@ -2,11 +2,13 @@
 {
     public class UpdateCategoryCommandVaildator : AbstractValidator<UpdateCategoryCommand>
     {
-        public UpdateCategoryCommandVaildator(EntityExistenceValidator<Category> categoryExistenceValidator,
-            EntityExistenceValidator<Attribute> attributeExistenceValidator)
+        public UpdateCategoryCommandVaildator(
+            EntityExistenceValidator<Attribute> attributeExistenceValidator,
+            EntityExistenceValidator<Category> categoryExistenceValidator)
         {
             RuleFor(v => v.guid)
-                .SetValidator(new GuidValidator());
+                .SetValidator(new GuidValidator())
+                .SetValidator(categoryExistenceValidator);
 
             RuleFor(v => v.Name)
                 .ValidateString(50);
