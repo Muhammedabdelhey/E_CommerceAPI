@@ -18,18 +18,21 @@ namespace E_Commerce.Presentation.Controllers
         {
             _mediatR = mediatR;
         }
+
         [HttpGet("{guid}")]
         public async Task<IActionResult> Get(string guid, CancellationToken cancellationToken)
         {
             var category = await _mediatR.Send(new GetCategoryByIdQuery(guid), cancellationToken);
             return Ok(category);
         }
+
         [HttpGet]
         public async Task<IActionResult> GetAll(CancellationToken cancellationToken)
         {
             var categories = await _mediatR.Send(new GetCategoriesQuery(), cancellationToken);
             return Ok(categories);
         }
+
         [HttpPost]
         public async Task<IActionResult> Add([FromForm] CreateCategoryCommand command, CancellationToken cancellationToken)
         {
@@ -38,7 +41,8 @@ namespace E_Commerce.Presentation.Controllers
         }
 
         [HttpPut("{guid}")]
-        public async Task<IActionResult> Update(string guid,
+        public async Task<IActionResult> Update(
+            string guid,
             [FromForm] UpdateCategoryCommand command,
             CancellationToken cancellationToken)
         {

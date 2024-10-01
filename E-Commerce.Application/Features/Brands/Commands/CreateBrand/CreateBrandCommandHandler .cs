@@ -19,7 +19,7 @@ namespace E_Commerce.Application.Features.Brands.Commands.CreateBrand
             {
                 Id = Guid.NewGuid(),
                 Name = request.Name,
-                Image = await _fileService.UploadFileAsync(Constants.Brands, request.Image)
+                Image = await _fileService.UploadFileAsync(Constants.Brands, request.Image, cancellationToken)
             };
             brand = await _brandRepository.AddAsync(brand, cancellationToken);
             return _mapper.Map<BrandDto>(brand);

@@ -21,12 +21,12 @@ namespace E_Commerce.Application.Features.Brands.Commands.UpdateBrand
 
             var image = brand.Image;
             brand.Name = request.Name;
-            brand.Image = await _fileService.UploadFileAsync(Constants.Brands, request.Image);
+            brand.Image = await _fileService.UploadFileAsync(Constants.Brands, request.Image, cancellationToken);
             await _brandRepository.UpdateAsync(brand, cancellationToken);
 
             if (image != null)
             {
-                await _fileService.DeleteFileAsync(Constants.Brands, image);
+                await _fileService.DeleteFileAsync(Constants.Brands, brand.Image, cancellationToken);
             }
 
             return _mapper.Map<BrandDto>(brand);

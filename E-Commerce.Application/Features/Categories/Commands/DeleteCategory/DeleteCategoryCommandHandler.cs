@@ -22,7 +22,7 @@ namespace E_Commerce.Application.Features.Categories.Commands.DeleteCategory
 
             if (category.Image != null)
             {
-                await _fileService.DeleteFileAsync(Constants.Category, category.Image);
+                await _fileService.DeleteFileAsync(Constants.Category, category.Image,cancellationToken);
             }
 
             return _mapper.Map<CategoryDto>(category);

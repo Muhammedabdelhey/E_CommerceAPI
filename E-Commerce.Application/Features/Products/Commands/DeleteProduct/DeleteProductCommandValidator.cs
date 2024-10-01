@@ -5,6 +5,7 @@
         public DeleteProductCommandValidator(EntityExistenceValidator<Product> productExistenceValidator)
         {
             RuleFor(v => v.guid)
+                .NotEmpty()
                 .SetValidator(new GuidValidator())
                 .SetValidator(productExistenceValidator);
         }

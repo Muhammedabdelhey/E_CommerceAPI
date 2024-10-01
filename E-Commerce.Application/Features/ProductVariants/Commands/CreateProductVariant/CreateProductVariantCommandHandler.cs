@@ -21,7 +21,7 @@
                 Price = request.Price,
                 Stock = request.Stock,
                 ProductId = Guid.Parse(request.ProductId),
-                Image = await _fileService.UploadFileAsync(Constants.Products, request.Image),
+                Image = await _fileService.UploadFileAsync(Constants.Products, request.Image,cancellationToken),
                 ProductVariantAttributes = request.Attributes.Select(attribute =>
                     new ProductVariantAttributes
                     {

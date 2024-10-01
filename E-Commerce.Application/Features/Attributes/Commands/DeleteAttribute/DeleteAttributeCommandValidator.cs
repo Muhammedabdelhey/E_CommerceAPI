@@ -5,6 +5,7 @@
         public DeleteAttributeCommandValidator(EntityExistenceValidator<Attribute> attributeExistenceValidator)
         {
             RuleFor(v => v.guid)
+                .NotEmpty()
                 .SetValidator(new GuidValidator())
                 .SetValidator(attributeExistenceValidator);
         }

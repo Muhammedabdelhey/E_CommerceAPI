@@ -8,6 +8,7 @@
             EntityExistenceValidator<Brand> brandExistenceValidator)
         {
             RuleFor(v => v.guid)
+                .NotEmpty()
                 .SetValidator(new GuidValidator())
                 .SetValidator(productExistenceValidator);
 
@@ -18,6 +19,7 @@
                 .NotEmpty();
 
             RuleFor(v => v.CategoryId)
+                .NotEmpty()
                 .SetValidator(new GuidValidator())
                 .DependentRules(() =>
                 {
@@ -26,6 +28,7 @@
                 });
 
             RuleFor(v => v.BrandId)
+                .NotEmpty()
                 .SetValidator(new GuidValidator())
                 .DependentRules(() =>
                 {

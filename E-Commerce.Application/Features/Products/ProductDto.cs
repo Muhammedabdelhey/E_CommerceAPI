@@ -11,7 +11,7 @@ namespace E_Commerce.Application.Features.Products
         public string CategoryName { get; init; } = string.Empty;
         public string BrandId { get; init; } = string.Empty;
         public string BrandName { get; init; } = string.Empty;
-        public IReadOnlyCollection<ProductVariantDto> Variants { get; init; } = [];
+        public IReadOnlyCollection<ProductVariantDto> ProductVariants { get; init; } = [];
 
         private class ProductMapping : Profile
         {
@@ -19,7 +19,8 @@ namespace E_Commerce.Application.Features.Products
             {
                 CreateMap<Product, ProductDto>()
                     .ForMember(dto => dto.CategoryName, opt => opt.MapFrom(src => src.Category.Name))
-                    .ForMember(dto => dto.BrandName, opt => opt.MapFrom(src => src.Brand.Name));
+                    .ForMember(dto => dto.BrandName, opt => opt.MapFrom(src => src.Brand.Name))
+                    .ForMember(dto => dto.ProductVariants, opt => opt.MapFrom(src => src.Variants));
             }
         }
     }

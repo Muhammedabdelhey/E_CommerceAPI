@@ -12,6 +12,7 @@
                 .NotEmpty();
 
             RuleFor(v => v.CategoryId)
+                .NotEmpty()
                 .SetValidator(new GuidValidator())
                 .DependentRules(() =>
                 {
@@ -20,6 +21,7 @@
                 });
 
             RuleFor(v => v.BrandId)
+                .NotEmpty()
                 .SetValidator(new GuidValidator())
                 .DependentRules(() =>
                 {

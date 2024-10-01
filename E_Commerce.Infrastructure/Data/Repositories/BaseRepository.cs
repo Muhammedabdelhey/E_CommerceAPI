@@ -16,7 +16,8 @@ public class BaseRepository<T>(ApplicationDbContext context) : IBaseRepository<T
         {
             query = query.Include(include);
         }
-        return await query.AsNoTracking().ToListAsync(cancellationToken);
+        return await query.AsNoTracking()
+            .ToListAsync(cancellationToken);
     }
 
     public async Task<T?> GetByIdAsync(Guid id, CancellationToken cancellationToken = default)

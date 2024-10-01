@@ -21,7 +21,7 @@
 
             if (brand.Image != null)
             {
-                await _fileService.DeleteFileAsync(Constants.Brands, brand.Image);
+                await _fileService.DeleteFileAsync(Constants.Brands, brand.Image,cancellationToken);
             }
 
             return _mapper.Map<BrandDto>(brand);

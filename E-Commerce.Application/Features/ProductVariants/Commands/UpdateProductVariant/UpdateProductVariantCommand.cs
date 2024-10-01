@@ -2,7 +2,7 @@
 {
     public class UpdateProductVariantCommand : IRequest<ProductVariantDto>
     {
-        public string ProductVariantId { get; init; } = string.Empty;
+        public string guid { get; init; } = string.Empty;
         public string ProductId { get; init; } = string.Empty;
         public int Stock { get; init; }
         public double Price { get; init; }

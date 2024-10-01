@@ -22,7 +22,7 @@ namespace E_Commerce.Application.Features.Categories.Commands.UpdateCategory
             var image = category.Image;
 
             category.Name = request.Name;
-            category.Image = await _fileService.UploadFileAsync(Constants.Category, request.Image);
+            category.Image = await _fileService.UploadFileAsync(Constants.Category, request.Image, cancellationToken);
             category.ParentId = Guid.Parse(request.ParentId);
             category.CategoryAttributes = request.AttributeIds
                 .Select(id => new CategoryAttributes { AttributeId = Guid.Parse(id) })
@@ -32,7 +32,7 @@ namespace E_Commerce.Application.Features.Categories.Commands.UpdateCategory
 
             if (image != null)
             {
-                await _fileService.DeleteFileAsync(Constants.Category, image);
+                await _fileService.DeleteFileAsync(Constants.Category, image,cancellationToken);
             }
             return _mapper.Map<CategoryDto>(category);
         }

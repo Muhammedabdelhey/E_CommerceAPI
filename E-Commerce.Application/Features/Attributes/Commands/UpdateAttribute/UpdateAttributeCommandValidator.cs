@@ -5,6 +5,7 @@
         public UpdateAttributeCommandValidator(EntityExistenceValidator<Attribute> attributeExistenceValidator)
         {
             RuleFor(v => v.Guid)
+                .NotEmpty()
                 .SetValidator(new GuidValidator())
                 .SetValidator(attributeExistenceValidator);
 

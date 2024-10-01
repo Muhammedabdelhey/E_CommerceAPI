@@ -7,6 +7,7 @@
             EntityExistenceValidator<Category> categoryExistenceValidator)
         {
             RuleFor(v => v.guid)
+                .NotEmpty()
                 .SetValidator(new GuidValidator())
                 .SetValidator(categoryExistenceValidator);
 
@@ -33,6 +34,7 @@
             When(v => v.AttributeIds != null, () =>
             {
                 RuleForEach(v => v.AttributeIds)
+                    .NotEmpty()
                     .SetValidator(new GuidValidator())
                     .DependentRules(() =>
                     {

@@ -16,7 +16,7 @@ namespace E_Commerce.Infrastructure.Adapters.Storage
             _httpContextAccessor = httpContextAccessor;
         }
 
-        public async Task<string> UploadFileAsync(string folderName, IFormFile file)
+        public async Task<string> UploadFileAsync(string folderName, IFormFile file, CancellationToken cancellationToken = default)
         {
             if (!Directory.Exists(serverPath))
             {
@@ -31,12 +31,12 @@ namespace E_Commerce.Infrastructure.Adapters.Storage
             var fullPath = Path.Combine(filePath, fileName);
             using (var stream = new FileStream(fullPath, FileMode.Create))
             {
-                await file.CopyToAsync(stream);
+                await file.CopyToAsync(stream, cancellationToken);
             }
             return fileName;
         }
 
-        public async Task<bool> DeleteFileAsync(string folderName, string fileName)
+        public async Task<bool> DeleteFileAsync(string folderName, string fileName, CancellationToken cancellationToken = default)
         {
             var filePath = Path.Combine(folderName, fileName);
             var fullPath = Path.Combine(serverPath, filePath);
@@ -44,7 +44,7 @@ namespace E_Commerce.Infrastructure.Adapters.Storage
             {
                 return false;
             }
-            await Task.Run(() => File.Delete(fullPath));
+            await Task.Run(() => File.Delete(fullPath), cancellationToken);
             return true;
         }
 

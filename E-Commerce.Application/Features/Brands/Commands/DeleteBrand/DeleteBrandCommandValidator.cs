@@ -5,6 +5,7 @@
         public DeleteBrandCommandValidator(EntityExistenceValidator<Brand> brandExistenceValidator)
         {
             RuleFor(v => v.guid)
+                .NotEmpty()
                 .SetValidator(new GuidValidator())
                 .SetValidator(brandExistenceValidator);
         }

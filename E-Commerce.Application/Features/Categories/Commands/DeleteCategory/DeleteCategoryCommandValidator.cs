@@ -5,6 +5,7 @@
         public DeleteCategoryCommandValidator(EntityExistenceValidator<Category> categoryExistenceValidator)
         {
             RuleFor(v => v.guid)
+                .NotEmpty()
                 .SetValidator(new GuidValidator())
                 .SetValidator(categoryExistenceValidator);
         }

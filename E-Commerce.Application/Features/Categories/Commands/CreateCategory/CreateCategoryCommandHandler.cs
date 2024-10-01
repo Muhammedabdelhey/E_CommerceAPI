@@ -22,7 +22,7 @@ namespace E_Commerce.Application.Features.Categories.Commands.CreateCategory
                 Id = Guid.NewGuid(),
                 Name = request.Name,
                 ParentId = Guid.Parse(request.ParentId),
-                Image = await _fileService.UploadFileAsync(Constants.Category, request.Image),
+                Image = await _fileService.UploadFileAsync(Constants.Category, request.Image, cancellationToken),
                 CategoryAttributes = request.AttributeIds
                     .Select(id => new CategoryAttributes { AttributeId = Guid.Parse(id) })
                     .ToList()

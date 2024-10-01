@@ -28,6 +28,7 @@
             When(v => v.AttributeIds != null, () =>
             {
                 RuleForEach(v => v.AttributeIds)
+                    .NotEmpty()
                     .SetValidator(new GuidValidator())
                     .DependentRules(() =>
                     {
