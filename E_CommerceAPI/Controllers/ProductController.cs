@@ -4,6 +4,7 @@ using E_Commerce.Application.Features.Products.Commands.UpdateProduct;
 using E_Commerce.Application.Features.Products.Queries.GetAllProducts;
 using E_Commerce.Application.Features.Products.Queries.GetProductById;
 using E_Commerce.Application.Features.ProductVariants.Commands.CreateProductVariant;
+using E_Commerce.Application.Features.ProductVariants.Commands.DeleteProductVariant;
 using E_Commerce.Application.Features.ProductVariants.Commands.UpdateProductVariant;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -85,6 +86,15 @@ namespace E_Commerce.Presentation.Controllers
                 return BadRequest("Guid you pass in route not equal to one passed on request");
             }
             var productVariant = await _mediator.Send(command, cancellationToken);
+            return Ok(productVariant);
+        }
+
+        [HttpDelete("{productId}/productVariant/{productVariantId}")]
+        public async Task<IActionResult> DeleteProductVariant(string productVariantId,
+            string productId,
+            CancellationToken cancellationToken)
+        {
+            var productVariant = await _mediator.Send(new DeleteProductVariantCommand(productId, productVariantId), cancellationToken);
             return Ok(productVariant);
         }
     }

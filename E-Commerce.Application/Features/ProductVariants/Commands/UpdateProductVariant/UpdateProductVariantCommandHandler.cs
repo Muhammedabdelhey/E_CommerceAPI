@@ -23,7 +23,7 @@ namespace E_Commerce.Application.Features.ProductVariants.Commands.UpdateProduct
         {
             var productVariant = await _productVariantRepository.GetByIdAsync(Guid.Parse(request.guid),
                 ["ProductVariantAttributes", "Product"], cancellationToken)
-                ?? throw new NotFoundException($"Product variant with {request.guid} not Found");
+                ?? throw new NotFoundException($"Product variant with Guid {request.guid} not Found");
             var image = productVariant.Image;
             productVariant.Stock = request.Stock;
             productVariant.Price = request.Price;
