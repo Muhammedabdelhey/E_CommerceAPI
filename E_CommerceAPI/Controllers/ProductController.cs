@@ -3,11 +3,12 @@ using E_Commerce.Application.Features.Products.Commands.DeleteProduct;
 using E_Commerce.Application.Features.Products.Commands.UpdateProduct;
 using E_Commerce.Application.Features.Products.Queries.GetAllProducts;
 using E_Commerce.Application.Features.Products.Queries.GetProductById;
-using E_Commerce.Application.Features.ProductVariants.Commands.CreateProductVariant;
-using E_Commerce.Application.Features.ProductVariants.Commands.DeleteProductVariant;
-using E_Commerce.Application.Features.ProductVariants.Commands.UpdateProductVariant;
+using E_Commerce.Application.Features.Products.Commands.DeleteProductVariant;
+using E_Commerce.Application.Features.Products.Commands.CreateProductVariant;
+using E_Commerce.Application.Features.Products.Commands.UpdateProductVariant;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using E_Commerce.Application.Features.Products.Queries.GetProductVariants;
 
 namespace E_Commerce.Presentation.Controllers
 {
@@ -74,7 +75,12 @@ namespace E_Commerce.Presentation.Controllers
             var productVariant = await _mediator.Send(command, cancellationToken);
             return Ok(productVariant);
         }
-
+        [HttpGet("{productId}/productVariant")]
+        public async Task<IActionResult> GetProuctVariants(string productId,CancellationToken cancellationToken)
+        {
+            var productVariants =await _mediator.Send(new GetProductVariantsQuery(productId), cancellationToken);
+            return Ok(productVariants);
+        }
         [HttpPut("{productId}/productVariant/{productVariantId}")]
         public async Task<IActionResult> UpdateProductVariant(string productVariantId,
             string productId,

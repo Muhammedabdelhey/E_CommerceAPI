@@ -1,4 +1,4 @@
-﻿namespace E_Commerce.Application.Features.ProductVariants.Commands.DeleteProductVariant
+﻿namespace E_Commerce.Application.Features.Products.Commands.DeleteProductVariant
 {
     public class DeleteProductVariantCommandValidator : AbstractValidator<DeleteProductVariantCommand>
     {

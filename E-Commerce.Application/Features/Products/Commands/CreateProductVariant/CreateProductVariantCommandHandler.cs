@@ -1,4 +1,4 @@
-﻿namespace E_Commerce.Application.Features.ProductVariants.Commands.CreateProductVariant
+﻿namespace E_Commerce.Application.Features.Products.Commands.CreateProductVariant
 {
     public class CreateProductVariantCommandHandler : IRequestHandler<CreateProductVariantCommand, ProductVariantDto>
     {
@@ -21,7 +21,7 @@
                 Price = request.Price,
                 Stock = request.Stock,
                 ProductId = Guid.Parse(request.ProductId),
-                Image = await _fileService.UploadFileAsync(Constants.Products, request.Image,cancellationToken),
+                Image = await _fileService.UploadFileAsync(Constants.Products, request.Image, cancellationToken),
                 ProductVariantAttributes = request.Attributes.Select(attribute =>
                     new ProductVariantAttributes
                     {

@@ -1,7 +1,8 @@
-﻿namespace E_Commerce.Application.Features.ProductVariants
+﻿namespace E_Commerce.Application.Features.Products
 {
     public class ProductVariantDto
     {
+        public string Id { get; set; } = string.Empty;
         public string Sku { get; set; } = string.Empty;
         public int Stock { get; set; }
         public double Price { get; set; }

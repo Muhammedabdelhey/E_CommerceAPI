@@ -1,7 +1,8 @@
-﻿namespace E_Commerce.Application.Features.ProductVariants.Commands.CreateProductVariant
+﻿namespace E_Commerce.Application.Features.Products.Commands.UpdateProductVariant
 {
-    public record CreateProductVariantCommand : IRequest<ProductVariantDto>
+    public class UpdateProductVariantCommand : IRequest<ProductVariantDto>
     {
+        public string guid { get; init; } = string.Empty;
         public string ProductId { get; init; } = string.Empty;
         public int Stock { get; init; }
         public double Price { get; init; }

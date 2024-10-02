@@ -1,6 +1,4 @@
-﻿using E_Commerce.Application.Features.ProductVariants;
-
-namespace E_Commerce.Application.Features.Products
+﻿namespace E_Commerce.Application.Features.Products
 {
     public class ProductDto
     {

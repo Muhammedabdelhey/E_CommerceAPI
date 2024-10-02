@@ -1,20 +1,12 @@
-﻿namespace E_Commerce.Application.Features.ProductVariants.Commands.UpdateProductVariant
+﻿using E_Commerce.Application.Common.Validator;
+
+namespace E_Commerce.Application.Features.Products.Commands.CreateProductVariant
 {
-    public class UpdateProductVariantCommandValidator : AbstractValidator<UpdateProductVariantCommand>
+    public class CreateProductVariantCommandValidator : AbstractValidator<CreateProductVariantCommand>
     {
-        public UpdateProductVariantCommandValidator(
-            EntityExistenceValidator<ProductVariant> productVariantExistenceValidator,
-            EntityExistenceValidator<Product> productExistenceValidator,
+        public CreateProductVariantCommandValidator(EntityExistenceValidator<Product> productExistenceValidator,
             EntityExistenceValidator<Attribute> attributeExistenceValidator)
         {
-            RuleFor(v => v.guid)
-                .NotEmpty()
-                .SetValidator(new GuidValidator())
-                .DependentRules(() =>
-                {
-                    RuleFor(v => v.guid)
-                        .SetValidator(productVariantExistenceValidator);
-                });
 
             RuleFor(v => v.ProductId)
                 .NotEmpty()
@@ -31,7 +23,7 @@
 
             RuleFor(v => v.Price)
                 .NotEmpty()
-                .GreaterThan(0);
+                .GreaterThanOrEqualTo(0);
 
             When(v => v.Image != null, () =>
             {
@@ -43,10 +35,8 @@
                 .NotEmpty();
 
             RuleForEach(v => v.Attributes)
-                .NotEmpty()
                 .ChildRules(attribute =>
                 {
-                    // Validate the GUID field within each attribute
                     attribute.RuleFor(a => a.Guid)
                        .NotEmpty()
                        .SetValidator(new GuidValidator())
@@ -55,9 +45,8 @@
                            attribute.RuleFor(a => a.Guid)
                                .SetValidator(attributeExistenceValidator);
                        });
-                    //  validate the Value of the attribute
                     attribute.RuleFor(a => a.Value)
-                    .NotEmpty().WithMessage("Attribute value cannot be empty.");
+                        .NotEmpty();
                 });
         }
     }

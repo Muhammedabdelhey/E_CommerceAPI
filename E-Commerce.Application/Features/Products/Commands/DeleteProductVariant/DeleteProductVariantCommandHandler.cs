@@ -1,5 +1,4 @@
-﻿
-namespace E_Commerce.Application.Features.ProductVariants.Commands.DeleteProductVariant
+﻿namespace E_Commerce.Application.Features.Products.Commands.DeleteProductVariant
 {
     internal class DeleteProductVariantCommandHandler : IRequestHandler<DeleteProductVariantCommand, ProductVariantDto>
     {

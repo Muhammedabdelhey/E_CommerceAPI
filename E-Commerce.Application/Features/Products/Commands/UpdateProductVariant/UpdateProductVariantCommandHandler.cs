@@ -1,8 +1,7 @@
-﻿
-using E_Commerce.Domain.Entities;
+﻿using E_Commerce.Domain.Entities;
 using static System.Net.Mime.MediaTypeNames;
 
-namespace E_Commerce.Application.Features.ProductVariants.Commands.UpdateProductVariant
+namespace E_Commerce.Application.Features.Products.Commands.UpdateProductVariant
 {
     public class UpdateProductVariantCommandHandler : IRequestHandler<UpdateProductVariantCommand, ProductVariantDto>
     {
