@@ -1,22 +1,24 @@
-﻿using E_Commerce.Domain.Comman;
-
-namespace E_Commerce.Domain.Entities
+﻿namespace E_Commerce.Application.Features.Coupons
 {
-    public class Coupon : BaseEntity
+    public class CouponDto
     {
+        public Guid Id { get; set; }
         public string CouponCode { get; set; } = string.Empty;
         public decimal DiscountValue { get; set; }
         public DiscountType DiscountType { get; set; }
         public DateTimeOffset StartDate { get; set; }
         public DateTimeOffset EndDate { get; set; }
-        public int NumberOfUsing { get; set; } = 0;
+        public int NumberOfUsing { get; set; }
         public int MaxNumberOfUses { get; set; }
         public int UsageLimitPerUser { get; set; }
-        public bool IsActive { get; set; } = true;
-    }
-    public enum DiscountType
-    {
-        Percentage,
-        FixedAmount
+        public bool IsActive { get; set; }
+
+        private class CouponMapping : Profile
+        {
+            public CouponMapping()
+            {
+                CreateMap<Coupon, CouponDto>();
+            }
+        }
     }
 }
