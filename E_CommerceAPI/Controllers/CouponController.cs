@@ -1,4 +1,5 @@
-﻿using E_Commerce.Application.Features.Coupons.Commands;
+﻿using E_Commerce.Application.Features.Coupons.Commands.CreateCoupon;
+using E_Commerce.Application.Features.Coupons.Commands.DeleteCoupon;
 using E_Commerce.Application.Features.Coupons.Queries.GetActiveCoupons;
 using E_Commerce.Application.Features.Coupons.Queries.GetCouponById;
 using E_Commerce.Application.Features.Coupons.Queries.GetCoupons;
@@ -39,6 +40,12 @@ namespace E_Commerce.Presentation.Controllers
         public async Task<IActionResult> Create([FromForm] CreateCouponCommand command, CancellationToken cancellationToken)
         {
             var coupon = await _mediator.Send(command, cancellationToken);
+            return Ok(coupon);
+        }
+        [HttpDelete("{guid}")]
+        public async Task<IActionResult> Delete(string guid,CancellationToken cancellationToken)
+        {
+            var coupon = await _mediator.Send(new DeleteCouponQuery(guid), cancellationToken);
             return Ok(coupon);
         }
     }

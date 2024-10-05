@@ -2,7 +2,7 @@
 {
     public class CouponDto
     {
-        public Guid Id { get; set; }
+        public string Id { get; set; }
         public string CouponCode { get; set; } = string.Empty;
         public decimal DiscountValue { get; set; }
         public DiscountType DiscountType { get; set; }

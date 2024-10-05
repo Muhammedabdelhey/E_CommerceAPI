@@ -63,7 +63,7 @@ namespace E_Commerce.Application.ExceptionHandlers
             {
                 Status = StatusCodes.Status400BadRequest,
                 Title = $"an {ex.GetType().ToString()} has occurred",
-                Detail = ex.Message,
+                Detail = ex.StackTrace,
             });
         }
     }

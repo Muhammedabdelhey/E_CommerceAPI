@@ -9,7 +9,7 @@ namespace E_Commerce.Application
         {
 
 
-            //services.AddFluentValidationAutoValidation();
+            services.AddFluentValidationAutoValidation();
             services.AddTransient(typeof(EntityExistenceValidator<>));
             services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehaviour<,>));

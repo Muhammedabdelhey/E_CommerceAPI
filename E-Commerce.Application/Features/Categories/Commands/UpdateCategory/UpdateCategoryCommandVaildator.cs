@@ -9,7 +9,11 @@
             RuleFor(v => v.guid)
                 .NotEmpty()
                 .SetValidator(new GuidValidator())
-                .SetValidator(categoryExistenceValidator);
+                .DependentRules(() =>
+                {
+                    RuleFor(v => v.guid)
+                        .SetValidator(categoryExistenceValidator);
+                });
 
             RuleFor(v => v.Name)
                 .ValidateString(50);

@@ -1,8 +1,8 @@
-﻿namespace E_Commerce.Application.Features.Coupons.Queries.GetCouponById
+﻿namespace E_Commerce.Application.Features.Coupons.Commands.DeleteCoupon
 {
-    public class GetCouponByIdQueryValidator : AbstractValidator<GetCouponByIdQuery>
+    public class DeleteCouponQueryValidator : AbstractValidator<DeleteCouponQuery>
     {
-        public GetCouponByIdQueryValidator(EntityExistenceValidator<Coupon> couponExistenceValidator)
+        public DeleteCouponQueryValidator(EntityExistenceValidator<Coupon> couponExistenceValidator)
         {
             RuleFor(v => v.guid)
                 .NotEmpty()

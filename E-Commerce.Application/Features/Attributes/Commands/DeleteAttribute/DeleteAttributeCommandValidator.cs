@@ -7,7 +7,11 @@
             RuleFor(v => v.guid)
                 .NotEmpty()
                 .SetValidator(new GuidValidator())
-                .SetValidator(attributeExistenceValidator);
+                .DependentRules(() =>
+                {
+                    RuleFor(v => v.guid)
+                        .SetValidator(attributeExistenceValidator);
+                });
         }
     }
 }

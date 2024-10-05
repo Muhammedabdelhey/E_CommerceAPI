@@ -7,7 +7,11 @@
             RuleFor(v => v.guid)
                 .NotEmpty()
                 .SetValidator(new GuidValidator())
-                .SetValidator(brandExistenceValidator);
+                .DependentRules(() =>
+                {
+                    RuleFor(v => v.guid)
+                       .SetValidator(brandExistenceValidator);
+                });
 
             RuleFor(v => v.Name)
                     .ValidateString(50);

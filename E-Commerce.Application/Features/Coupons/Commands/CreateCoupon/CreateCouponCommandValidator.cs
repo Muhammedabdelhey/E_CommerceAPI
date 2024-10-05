@@ -1,4 +1,4 @@
-﻿namespace E_Commerce.Application.Features.Coupons.Commands
+﻿namespace E_Commerce.Application.Features.Coupons.Commands.CreateCoupon
 {
     public class CreateCouponCommandValidator : AbstractValidator<CreateCouponCommand>
     {

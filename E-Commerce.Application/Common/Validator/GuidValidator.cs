@@ -1,6 +1,6 @@
 ﻿namespace E_Commerce.Application.Common.Validator
 {
-    public class GuidValidator : AbstractValidator<string?>
+    public class GuidValidator : AbstractValidator<string>
     {
         /// <summary>
         /// check this is valid Guid and not empty
