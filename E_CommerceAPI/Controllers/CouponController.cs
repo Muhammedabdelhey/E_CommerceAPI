@@ -1,5 +1,6 @@
 ﻿using E_Commerce.Application.Features.Coupons.Commands.CreateCoupon;
 using E_Commerce.Application.Features.Coupons.Commands.DeleteCoupon;
+using E_Commerce.Application.Features.Coupons.Commands.UpdateCoupon;
 using E_Commerce.Application.Features.Coupons.Queries.GetActiveCoupons;
 using E_Commerce.Application.Features.Coupons.Queries.GetCouponById;
 using E_Commerce.Application.Features.Coupons.Queries.GetCoupons;
@@ -42,8 +43,20 @@ namespace E_Commerce.Presentation.Controllers
             var coupon = await _mediator.Send(command, cancellationToken);
             return Ok(coupon);
         }
+        [HttpPut("{guid}")]
+        public async Task<IActionResult> Update(string guid,
+            [FromForm] UpdateCouponCommand command,
+            CancellationToken cancellationToken)
+        {
+            if (!guid.Equals(command.guid))
+            {
+                return BadRequest("Guid you pass in route not equal to one passed on request");
+            }
+            var coupon =await _mediator.Send(Request, cancellationToken);
+            return Ok(coupon);
+        }
         [HttpDelete("{guid}")]
-        public async Task<IActionResult> Delete(string guid,CancellationToken cancellationToken)
+        public async Task<IActionResult> Delete(string guid, CancellationToken cancellationToken)
         {
             var coupon = await _mediator.Send(new DeleteCouponQuery(guid), cancellationToken);
             return Ok(coupon);

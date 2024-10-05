@@ -22,7 +22,7 @@
                 .WithMessage("The End Date must be after the Start Date.");
 
             RuleFor(v => v.CouponLength)
-                .Must(v => v >= 6 && v <= 16)
+                .InclusiveBetween(6, 16)
                 .WithMessage("Coupon length must be between 6 and 16 characters.");
 
             RuleFor(v => v.MaxNumberOfUses)
