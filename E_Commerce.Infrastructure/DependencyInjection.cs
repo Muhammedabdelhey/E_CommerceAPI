@@ -1,4 +1,7 @@
-﻿namespace E_Commerce.Infrastructure
+﻿using E_Commerce.Infrastructure.Seeds;
+using Microsoft.AspNetCore.Identity;
+
+namespace E_Commerce.Infrastructure
 {
     public static class ServiceCollectionExtension
     {
@@ -12,11 +15,20 @@
             services.AddSingleton(TimeProvider.System);
             services.AddScoped(typeof(IFileAdapter), typeof(LocalFileAdapter));
             services.AddDbContext<ApplicationDbContext>((sp, options) =>
-        {
-            options.UseSqlServer(connectionString)
-                   .AddInterceptors(sp.GetServices<ISaveChangesInterceptor>());
-        });
+            {
+                options.UseSqlServer(connectionString)
+                       .AddInterceptors(sp.GetServices<ISaveChangesInterceptor>());
+            });
 
+            services.AddIdentity<User, IdentityRole>(options =>
+            {
+                options.Password.RequireDigit = true;
+                options.Password.RequireLowercase = true;
+                options.Password.RequireUppercase = true;
+                options.Password.RequireNonAlphanumeric = true;
+                options.User.RequireUniqueEmail = true;
+            })
+            .AddEntityFrameworkStores<ApplicationDbContext>();
             return services;
         }
     }

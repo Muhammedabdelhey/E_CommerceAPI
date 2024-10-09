@@ -1,7 +1,13 @@
-﻿namespace E_Commerce.Infrastructure.Data;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
-public class ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : DbContext(options)
+namespace E_Commerce.Infrastructure.Data;
+
+public class ApplicationDbContext : IdentityDbContext<User>
 {
+    public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
+    {
+
+    }
     internal DbSet<Attribute> Attributes { get; set; }
     internal DbSet<Category> Categories { get; set; }
     internal DbSet<Brand> Brands { get; set; }

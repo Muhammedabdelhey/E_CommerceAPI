@@ -1,4 +1,5 @@
-﻿using E_Commerce.Application.Common.Services;
+﻿using E_Commerce.Application.Common.Interfaces;
+using E_Commerce.Application.Common.Services;
 using FluentValidation.AspNetCore;
 
 namespace E_Commerce.Application
