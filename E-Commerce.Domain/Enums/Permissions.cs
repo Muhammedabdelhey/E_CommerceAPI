@@ -1,6 +1,6 @@
 ﻿namespace E_Commerce.Domain.Enums
 {
-    public enum Permission
+    public enum Permissions
     {
         User_Permission,
         Role_Permission,

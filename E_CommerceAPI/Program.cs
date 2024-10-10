@@ -2,6 +2,7 @@ using E_Commerce.Application;
 using E_Commerce.Application.Common.Interfaces;
 using E_Commerce.Infrastructure;
 using E_Commerce.Presentation;
+using E_Commerce.Presentation.Extensions;
 using E_Commerce.Presentation.Services;
 using Microsoft.AspNetCore.Mvc;
 using System.Text.Json.Serialization;
@@ -14,6 +15,8 @@ builder.Services.AddApplication();
 builder.Services.AddInfrastructure(builder.Configuration);
 
 builder.Services.AddPresentation();
+
+builder.Services.AddPolicies();
 
 builder.Services.AddControllers()
        .AddJsonOptions(options =>
