@@ -38,6 +38,7 @@ namespace E_Commerce.Application.ExceptionHandlers
 
             await httpContext.Response.WriteAsJsonAsync(new ValidationProblemDetails(exception.Errors)
             {
+                Title = exception.Message,
                 Status = StatusCodes.Status400BadRequest,
             });
         }

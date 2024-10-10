@@ -2,7 +2,7 @@
 {
     public record CreateCouponCommand : IRequest<CouponDto>
     {
-        public decimal DiscountValue { get; init; }
+        public double DiscountValue { get; init; }
         public DiscountType DiscountType { get; init; }
         public DateTimeOffset StartDate { get; init; }
         public DateTimeOffset EndDate { get; init; }

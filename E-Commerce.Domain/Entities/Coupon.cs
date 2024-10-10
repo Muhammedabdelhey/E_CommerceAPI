@@ -5,7 +5,7 @@ namespace E_Commerce.Domain.Entities
     public class Coupon : BaseEntity
     {
         public string CouponCode { get; set; } = string.Empty;
-        public decimal DiscountValue { get; set; }
+        public double DiscountValue { get; set; }
         public DiscountType DiscountType { get; set; }
         public DateTimeOffset StartDate { get; set; }
         public DateTimeOffset EndDate { get; set; }
