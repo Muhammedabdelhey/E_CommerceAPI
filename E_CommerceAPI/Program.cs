@@ -1,9 +1,13 @@
 using E_Commerce.Application;
+using E_Commerce.Application.Common.Interfaces;
 using E_Commerce.Infrastructure;
 using E_Commerce.Presentation;
+using E_Commerce.Presentation.Services;
 using Microsoft.AspNetCore.Mvc;
 using System.Text.Json.Serialization;
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddScoped<IUser, CurrentUser>();
 
 builder.Services.AddApplication();
 

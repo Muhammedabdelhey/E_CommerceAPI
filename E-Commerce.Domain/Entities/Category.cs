@@ -16,9 +16,5 @@ namespace E_Commerce.Domain.Entities
         public virtual ICollection<Category> SubCategories { get; set; } = [];
 
         public virtual ICollection<Product> Products { get; set; } = [];
-
-        public virtual ICollection<Attribute> Attributes { get; set; } = [];
-        public virtual ICollection<CategoryAttributes> CategoryAttributes { get; set; } = [];
-
     }
 }

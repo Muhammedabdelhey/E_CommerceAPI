@@ -24,10 +24,6 @@ namespace E_Commerce.Application.Features.Categories.Commands.UpdateCategory
             category.Name = request.Name;
             category.Image = await _fileService.UploadFileAsync(Constants.Category, request.Image, cancellationToken);
             category.ParentId = Guid.Parse(request.ParentId);
-            category.CategoryAttributes = request.AttributeIds
-                .Select(id => new CategoryAttributes { AttributeId = Guid.Parse(id) })
-                .ToList();
-
             category = await _categoryRepository.UpdateAsync(category, cancellationToken);
 
             if (image != null)

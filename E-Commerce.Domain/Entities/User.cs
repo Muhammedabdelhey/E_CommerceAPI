@@ -4,6 +4,6 @@ namespace E_Commerce.Domain.Entities
 {
     public class User : IdentityUser
     {
-        public string Address { get; set; } = string.Empty;
+        public string? Address { get; set; } = string.Empty;
     }
 }

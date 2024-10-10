@@ -29,6 +29,8 @@ namespace E_Commerce.Infrastructure
                 options.User.RequireUniqueEmail = true;
             })
             .AddEntityFrameworkStores<ApplicationDbContext>();
+            DefaultRolesSeeder.SeedRolesAsync(services.BuildServiceProvider()).Wait();
+            DefaultUsersSeeder.SeedUsersAsync(services.BuildServiceProvider()).Wait();
             return services;
         }
     }

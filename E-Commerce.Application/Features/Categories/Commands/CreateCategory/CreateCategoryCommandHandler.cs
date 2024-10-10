@@ -23,9 +23,6 @@ namespace E_Commerce.Application.Features.Categories.Commands.CreateCategory
                 Name = request.Name,
                 ParentId = Guid.Parse(request.ParentId),
                 Image = await _fileService.UploadFileAsync(Constants.Category, request.Image, cancellationToken),
-                CategoryAttributes = request.AttributeIds
-                    .Select(id => new CategoryAttributes { AttributeId = Guid.Parse(id) })
-                    .ToList()
             };
             await _categoryRepository.AddAsync(category, cancellationToken);
             return _mapper.Map<CategoryDto>(category);

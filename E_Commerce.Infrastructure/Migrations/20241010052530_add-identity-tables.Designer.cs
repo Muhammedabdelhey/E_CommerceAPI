@@ -4,6 +4,7 @@ using E_Commerce.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace E_Commerce.Infrastructure.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241010052530_add-identity-tables")]
+    partial class addidentitytables
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -79,6 +82,21 @@ namespace E_Commerce.Infrastructure.Migrations
                     b.HasIndex("ParentId");
 
                     b.ToTable("Categories");
+                });
+
+            modelBuilder.Entity("E_Commerce.Domain.Entities.CategoryAttributes", b =>
+                {
+                    b.Property<Guid>("CategoryId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("AttributeId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("CategoryId", "AttributeId");
+
+                    b.HasIndex("AttributeId");
+
+                    b.ToTable("CategoryAttributes");
                 });
 
             modelBuilder.Entity("E_Commerce.Domain.Entities.Coupon", b =>
@@ -423,6 +441,25 @@ namespace E_Commerce.Infrastructure.Migrations
                     b.Navigation("Parent");
                 });
 
+            modelBuilder.Entity("E_Commerce.Domain.Entities.CategoryAttributes", b =>
+                {
+                    b.HasOne("E_Commerce.Domain.Entities.Attribute", "Attribute")
+                        .WithMany("AttributeCategories")
+                        .HasForeignKey("AttributeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("E_Commerce.Domain.Entities.Category", "Category")
+                        .WithMany("CategoryAttributes")
+                        .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Attribute");
+
+                    b.Navigation("Category");
+                });
+
             modelBuilder.Entity("E_Commerce.Domain.Entities.Product", b =>
                 {
                     b.HasOne("E_Commerce.Domain.Entities.Brand", "Brand")
@@ -525,6 +562,8 @@ namespace E_Commerce.Infrastructure.Migrations
 
             modelBuilder.Entity("E_Commerce.Domain.Entities.Attribute", b =>
                 {
+                    b.Navigation("AttributeCategories");
+
                     b.Navigation("ProductVariantsAttributes");
                 });
 
@@ -535,6 +574,8 @@ namespace E_Commerce.Infrastructure.Migrations
 
             modelBuilder.Entity("E_Commerce.Domain.Entities.Category", b =>
                 {
+                    b.Navigation("CategoryAttributes");
+
                     b.Navigation("Products");
 
                     b.Navigation("SubCategories");

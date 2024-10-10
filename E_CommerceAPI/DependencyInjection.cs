@@ -9,10 +9,7 @@ namespace E_Commerce.Presentation
     {
         public static IServiceCollection AddPresentation(this IServiceCollection services)
         {
-            services.AddScoped<IUser, CurrentUser>();
             services.AddExceptionHandler<CustomExceptionHandler>();// should register it in program.cs
-            DefaultRolesSeeder.SeedRolesAsync(services.BuildServiceProvider()).Wait();
-
             return services;
         }
     }
