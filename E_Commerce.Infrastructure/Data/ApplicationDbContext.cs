@@ -12,7 +12,7 @@ public class ApplicationDbContext : IdentityDbContext<User>
     internal DbSet<Category> Categories { get; set; }
     internal DbSet<Brand> Brands { get; set; }
     internal DbSet<Coupon> Coupons { get; set; }
-    //internal DbSet<CouponUsage> couponUsages { get; set; }
+    internal DbSet<CouponUsage> CouponUsages { get; set; }
     internal DbSet<Product> Products { get; set; }
     internal DbSet<ProductVariant> ProductsVariants { get; set; }
 

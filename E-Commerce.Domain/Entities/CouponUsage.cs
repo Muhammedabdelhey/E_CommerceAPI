@@ -4,7 +4,7 @@ namespace E_Commerce.Domain.Entities
 {
     public class CouponUsage : BaseEntity
     {
-        public Guid UserId { get; set; }
+        public string UserId { get; set; }
         [ForeignKey("UserId")]
         public User User { get; set; }
         public Guid CouponId { get; set; }
