@@ -1,9 +1,8 @@
 ﻿using E_Commerce.Application.Features.RoleManagement.Commands.CreateRole;
-using E_Commerce.Application.Features.RoleManagement.Commands.CreateRoleClaim;
 using E_Commerce.Application.Features.RoleManagement.Commands.DeleteRole;
+using E_Commerce.Application.Features.RoleManagement.Commands.ManageRoleClaims;
 using E_Commerce.Application.Features.RoleManagement.Queries.GetRoleClaims;
 using E_Commerce.Application.Features.RoleManagement.Queries.GetRoles;
-using E_Commerce.Domain.Entities;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -44,9 +43,10 @@ namespace E_Commerce.Presentation.Controllers
         {
             return Ok(await _mediator.Send(new GetRoleClaimsQuery(guid), cancellationToken));
         }
+
         [HttpPost("{guid}/Claims")]
         public async Task<IActionResult> CreateRoleClaim(string guid,
-             CreateRoleClaimCommand command,
+             [FromForm]ManageRoleClaimsCommand command,
              CancellationToken cancellationToken)
         {
             if (!guid.Equals(command.RoleId))

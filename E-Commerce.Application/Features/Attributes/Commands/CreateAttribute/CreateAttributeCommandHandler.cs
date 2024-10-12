@@ -13,7 +13,6 @@
         {
             Attribute attribute = new()
             {
-                Id = Guid.NewGuid(),
                 Name = request.Name,
             };
             await _atrributeRepository.AddAsync(attribute, cancellationToken);

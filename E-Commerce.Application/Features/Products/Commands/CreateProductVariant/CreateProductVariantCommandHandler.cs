@@ -17,7 +17,6 @@
         {
             ProductVariant productVariant = new()
             {
-                Id = Guid.NewGuid(),
                 Price = request.Price,
                 Stock = request.Stock,
                 ProductId = Guid.Parse(request.ProductId),

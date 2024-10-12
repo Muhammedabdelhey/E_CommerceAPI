@@ -17,7 +17,6 @@ namespace E_Commerce.Application.Features.Brands.Commands.CreateBrand
         {
             Brand brand = new()
             {
-                Id = Guid.NewGuid(),
                 Name = request.Name,
                 Image = await _fileService.UploadFileAsync(Constants.Brands, request.Image, cancellationToken)
             };

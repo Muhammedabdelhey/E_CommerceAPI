@@ -15,7 +15,6 @@
         {
             Coupon coupon = new()
             {
-                Id = Guid.NewGuid(),
                 CouponCode = await GenerateCouponCode(request.CouponLength, cancellationToken),
                 StartDate = request.StartDate,
                 EndDate = request.EndDate,
