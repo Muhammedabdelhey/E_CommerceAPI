@@ -11,10 +11,11 @@ namespace E_Commerce.Application
 
 
             services.AddFluentValidationAutoValidation();
-            services.AddTransient(typeof(EntityExistenceValidator<>));
             services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
+            services.AddTransient(typeof(EntityExistenceValidator<>));
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehaviour<,>));
             services.AddScoped(typeof(IFileService), typeof(FileService));
+            services.AddTransient(typeof(JwtService));
             services.AddHttpContextAccessor();
             services.AddAutoMapper(Assembly.GetExecutingAssembly()); // AutoMapper registration
             services.AddMediatR(cfg =>

@@ -18,6 +18,7 @@ namespace E_Commerce.Presentation.Controllers
         {
             _mediator = mediator;
         }
+
         [HttpGet]
         public async Task<IActionResult> Get(CancellationToken cancellationToken)
         {

@@ -63,7 +63,7 @@ namespace E_Commerce.Application.ExceptionHandlers
             await httpContext.Response.WriteAsJsonAsync(new ProblemDetails()
             {
                 Status = StatusCodes.Status400BadRequest,
-                Title = $"an {ex.GetType().ToString()} has occurred",
+                Title = $"an {ex.GetType()} has occurred",
                 Detail = ex.StackTrace,
             });
         }

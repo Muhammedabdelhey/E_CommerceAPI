@@ -10,13 +10,22 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddScoped<IUser, CurrentUser>();
 
+#region register Project Layers
+
 builder.Services.AddApplication();
 
 builder.Services.AddInfrastructure(builder.Configuration);
 
 builder.Services.AddPresentation();
+#endregion
 
+#region AddJwtAuthentication
+builder.Services.AddJwtAuthentication(builder.Configuration);
+#endregion
+
+#region Add Authorization
 builder.Services.AddPolicies();
+#endregion
 
 builder.Services.AddControllers()
        .AddJsonOptions(options =>
@@ -52,6 +61,7 @@ app.UseHttpsRedirection();
 
 app.UseStaticFiles();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();

@@ -38,7 +38,6 @@ namespace E_Commerce.Application.Features.RoleManagement.Commands.ManageRoleClai
                 }
             }
             var currentClaims = await _roleManager.GetClaimsAsync(role);
-
             return _mapper.Map<IEnumerable<PermissionsDto>>(currentClaims);
         }
     }

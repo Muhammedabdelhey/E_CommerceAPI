@@ -4,7 +4,7 @@
     {
         private readonly IBaseRepository<Coupon> _couponRepository;
         private readonly IMapper _mapper;
-        private readonly Random _random = new Random();
+        private readonly Random _random = new ();
         public CreateCouponCommandhandler(IBaseRepository<Coupon> couponRepository, IMapper mapper)
         {
             _couponRepository = couponRepository;

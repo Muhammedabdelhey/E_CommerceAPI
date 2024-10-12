@@ -2,7 +2,7 @@
 
 namespace E_Commerce.Presentation.Extensions
 {
-    public static class AddPoliciesExtensions
+    public static class AddAuthorizationPoliciesExtension
     {
         public static void AddPolicies(this IServiceCollection services)
         {
