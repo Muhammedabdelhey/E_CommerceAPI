@@ -1,6 +1,7 @@
 ﻿using E_Commerce.Application.Models;
 using E_Commerce.Domain.Enums;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
@@ -8,21 +9,21 @@ using System.Text;
 
 namespace E_Commerce.Application.Common.Services
 {
-    public class JwtService(JwtOptions _jwtOptions, UserManager<User> _userManager, RoleManager<IdentityRole> _roleManager)
+    public class JwtService(IOptions<JwtOptions> _jwtOptions, UserManager<User> _userManager, RoleManager<IdentityRole> _roleManager)
     {
-        public async Task<JwtSecurityToken> GenerateToken(User user)
+        public async Task<JwtSecurityToken> GenerateTokenAsync(User user)
         {
             var claims = await GetClaims(user);
             var tokenHandler = new JwtSecurityTokenHandler();
             var tokenDescriptor = new SecurityTokenDescriptor()
             {
-                Issuer = _jwtOptions.Issuer,
-                Audience = _jwtOptions.Audience,
+                Issuer = _jwtOptions.Value.Issuer,
+                Audience = _jwtOptions.Value.Audience,
                 SigningCredentials = new SigningCredentials(
-                    new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_jwtOptions.SigningKey)),
+                    new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_jwtOptions.Value.SigningKey)),
                     SecurityAlgorithms.HmacSha256),
                 Subject = new ClaimsIdentity(claims),
-                Expires = DateTime.UtcNow.AddMinutes(_jwtOptions.Lifetime)
+                Expires = DateTime.UtcNow.AddMinutes(_jwtOptions.Value.Lifetime)
             };
             var token = tokenHandler.CreateToken(tokenDescriptor);
             var accessToken = (JwtSecurityToken)token;
@@ -64,7 +65,7 @@ namespace E_Commerce.Application.Common.Services
                     var roleClaims = await _roleManager.GetClaimsAsync(identityRole);
                     foreach (var claim in roleClaims)
                     {
-                        claims.Add(new Claim(typeof(Permissions).Name.ToLower(), claim.Value));
+                        claims.Add(new Claim(typeof(Permissions).Name, claim.Value));
                     }
                 }
             }
@@ -75,7 +76,7 @@ namespace E_Commerce.Application.Common.Services
             var userCustomClaims = await _userManager.GetClaimsAsync(user);
             foreach (var claim in userCustomClaims)
             {
-                claims.Add(new Claim(typeof(Permissions).Name.ToLower(), claim.Value));
+                claims.Add(new Claim(typeof(Permissions).Name, claim.Value));
             }
         }
     }

@@ -5,6 +5,7 @@ using E_Commerce.Application.Features.Brands.Queries;
 using E_Commerce.Application.Features.Brands.Queries.GetBrands;
 using E_Commerce.Domain.Entities;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace E_Commerce.Presentation.Controllers
@@ -27,6 +28,7 @@ namespace E_Commerce.Presentation.Controllers
             return Ok(brand);
         }
 
+        [Authorize(Policy = "RequireBrand_Read")]
         [HttpGet]
         public async Task<IActionResult> GetAll(CancellationToken cancellationToken)
         {

@@ -4,6 +4,7 @@ using E_Commerce.Application.Features.Attributes.Commands.UpdateAttribute;
 using E_Commerce.Application.Features.Attributes.Queries.GetAttributeById;
 using E_Commerce.Application.Features.Attributes.Queries.GetAttributs;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace E_Commerce.Presentation.Controllers
@@ -18,6 +19,7 @@ namespace E_Commerce.Presentation.Controllers
             _mediator = mediator;
         }
 
+        [Authorize(Policy = "RequireAttribute_Read")]
         [HttpGet("{guid}")]
         public async Task<IActionResult> Get(string guid, CancellationToken cancellationToken)
         {
@@ -25,6 +27,7 @@ namespace E_Commerce.Presentation.Controllers
             return Ok(attributes);
         }
 
+        [Authorize(Policy = "RequireAttribute_Read")]
         [HttpGet]
         public async Task<IActionResult> GetAll(CancellationToken cancellationToken)
         {

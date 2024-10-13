@@ -4,6 +4,7 @@ using E_Commerce.Application.Features.Categories.Commands.UpdateCategory;
 using E_Commerce.Application.Features.Categories.Queries.GetCategories;
 using E_Commerce.Application.Features.Categories.Queries.GetCategoryById;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace E_Commerce.Presentation.Controllers
@@ -25,6 +26,7 @@ namespace E_Commerce.Presentation.Controllers
             var category = await _mediatR.Send(new GetCategoryByIdQuery(guid), cancellationToken);
             return Ok(category);
         }
+        [Authorize(Policy = "RequireCategory_Read")]
 
         [HttpGet]
         public async Task<IActionResult> GetAll(CancellationToken cancellationToken)

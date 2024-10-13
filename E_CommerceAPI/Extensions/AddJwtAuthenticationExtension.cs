@@ -1,5 +1,6 @@
 ﻿using E_Commerce.Application.Models;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 
@@ -7,11 +8,9 @@ namespace E_Commerce.Presentation.Extensions
 {
     public static class AddJwtAuthenticationExtension
     {
-        public static void AddJwtAuthentication(this IServiceCollection service, IConfiguration configuration)
+        public static void AddJwtAuthentication(this IServiceCollection service)
         {
-            var jwtOptions = configuration.GetSection("JWT").Get<JwtOptions>();
-            service.AddSingleton(jwtOptions);
-
+            var jwtOptions = service.BuildServiceProvider().GetRequiredService<IOptions<JwtOptions>>().Value;
             service.AddAuthentication(options =>
             {
                 // assign all this shceme to jwt default Scheme 

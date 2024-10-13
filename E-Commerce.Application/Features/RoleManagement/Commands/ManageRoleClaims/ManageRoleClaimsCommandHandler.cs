@@ -33,7 +33,7 @@ namespace E_Commerce.Application.Features.RoleManagement.Commands.ManageRoleClai
             {
                 if (!existingClaims.Any(c => c.Value == permission.ToString()))
                 {
-                    var newClaim = new Claim(typeof(Permissions).Name.ToLower(), permission.ToString());
+                    var newClaim = new Claim(typeof(Permissions).Name, permission.ToString());
                     await _roleManager.AddClaimAsync(role, newClaim);
                 }
             }

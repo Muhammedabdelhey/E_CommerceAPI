@@ -5,6 +5,7 @@ using E_Commerce.Presentation;
 using E_Commerce.Presentation.Extensions;
 using E_Commerce.Presentation.Services;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.DependencyInjection;
 using System.Text.Json.Serialization;
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,7 +13,7 @@ builder.Services.AddScoped<IUser, CurrentUser>();
 
 #region register Project Layers
 
-builder.Services.AddApplication();
+builder.Services.AddApplication(builder.Configuration);
 
 builder.Services.AddInfrastructure(builder.Configuration);
 
@@ -20,7 +21,7 @@ builder.Services.AddPresentation();
 #endregion
 
 #region AddJwtAuthentication
-builder.Services.AddJwtAuthentication(builder.Configuration);
+builder.Services.AddJwtAuthentication();
 #endregion
 
 #region Add Authorization
@@ -62,6 +63,7 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseAuthentication();
+
 app.UseAuthorization();
 
 app.MapControllers();

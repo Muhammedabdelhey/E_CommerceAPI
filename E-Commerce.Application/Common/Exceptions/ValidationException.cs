@@ -1,4 +1,5 @@
 ﻿using FluentValidation.Results;
+using Microsoft.AspNetCore.Identity;
 
 namespace E_Commerce.Application.Common.Exceptions;
 
@@ -22,5 +23,12 @@ public class ValidationException : Exception
             .ToDictionary(failureGroup => failureGroup.Key, failureGroup => failureGroup.ToArray());
     }
 
+    public ValidationException(IEnumerable<IdentityError> identityErrors)
+    : this()
+    {
+        Errors = identityErrors
+            .GroupBy(e => e.Code, e => e.Description)
+            .ToDictionary(errorGroup => errorGroup.Key, errorGroup => errorGroup.ToArray());
+    }
     public IDictionary<string, string[]> Errors { get; }
 }
