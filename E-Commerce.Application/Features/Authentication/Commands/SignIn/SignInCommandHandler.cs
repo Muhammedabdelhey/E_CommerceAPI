@@ -1,5 +1,4 @@
-﻿
-using E_Commerce.Application.Common.Services;
+﻿using E_Commerce.Application.Common.Services;
 using Microsoft.AspNetCore.Identity;
 using System.IdentityModel.Tokens.Jwt;
 

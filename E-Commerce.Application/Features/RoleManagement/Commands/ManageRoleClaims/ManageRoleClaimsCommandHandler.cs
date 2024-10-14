@@ -8,6 +8,7 @@ namespace E_Commerce.Application.Features.RoleManagement.Commands.ManageRoleClai
     {
         private readonly RoleManager<IdentityRole> _roleManager;
         private readonly IMapper _mapper;
+
         public ManageRoleClaimsCommandHandler(RoleManager<IdentityRole> roleManager, IMapper mapper)
         {
             _roleManager = roleManager;
@@ -17,28 +18,30 @@ namespace E_Commerce.Application.Features.RoleManagement.Commands.ManageRoleClai
         public async Task<IEnumerable<PermissionsDto>> Handle(ManageRoleClaimsCommand request, CancellationToken cancellationToken)
         {
             var role = await _roleManager.FindByIdAsync(request.RoleId)
-                ?? throw new NotFoundException($"Role With Guid {request.RoleId} not Exist");
+                ?? throw new NotFoundException($"Role with ID {request.RoleId} does not exist");
 
             var existingClaims = await _roleManager.GetClaimsAsync(role);
+            var existingClaimValues = existingClaims.Select(c => c.Value).ToList();
 
-            foreach (var claim in existingClaims)
+            var claimsToRemove = existingClaimValues.Except(request.ClaimsValues);
+            foreach (var claimValue in claimsToRemove)
             {
-                if (!request.ClaimsValues.Contains(Enum.Parse<Permissions>(claim.Value)))
+                var claim = existingClaims.FirstOrDefault(c => c.Value == claimValue);
+                if (claim != null)
                 {
                     await _roleManager.RemoveClaimAsync(role, claim);
                 }
             }
 
-            foreach (var permission in request.ClaimsValues)
+            var claimsToAdd = request.ClaimsValues.Except(existingClaimValues);
+            foreach (var claimValue in claimsToAdd)
             {
-                if (!existingClaims.Any(c => c.Value == permission.ToString()))
-                {
-                    var newClaim = new Claim(typeof(Permissions).Name, permission.ToString());
-                    await _roleManager.AddClaimAsync(role, newClaim);
-                }
+                var newClaim = new Claim(typeof(Permissions).Name, claimValue);
+                await _roleManager.AddClaimAsync(role, newClaim);
             }
-            var currentClaims = await _roleManager.GetClaimsAsync(role);
-            return _mapper.Map<IEnumerable<PermissionsDto>>(currentClaims);
+
+            var updatedClaims = await _roleManager.GetClaimsAsync(role);
+            return _mapper.Map<IEnumerable<PermissionsDto>>(updatedClaims);
         }
     }
 }

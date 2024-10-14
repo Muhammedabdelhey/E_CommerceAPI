@@ -11,7 +11,6 @@
                 {
                     RuleFor(v => v.guid)
                         .SetValidator(brandExistenceValidator);
-
                 });
         }
     }

@@ -3,6 +3,7 @@ using E_Commerce.Application.Features.Categories.Commands.DeleteCategory;
 using E_Commerce.Application.Features.Categories.Commands.UpdateCategory;
 using E_Commerce.Application.Features.Categories.Queries.GetCategories;
 using E_Commerce.Application.Features.Categories.Queries.GetCategoryById;
+using E_Commerce.Domain.Enums;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -20,14 +21,15 @@ namespace E_Commerce.Presentation.Controllers
             _mediatR = mediatR;
         }
 
+        [Authorize(Policy = nameof(Permissions.Category_Read))]
         [HttpGet("{guid}")]
         public async Task<IActionResult> Get(string guid, CancellationToken cancellationToken)
         {
             var category = await _mediatR.Send(new GetCategoryByIdQuery(guid), cancellationToken);
             return Ok(category);
         }
-        [Authorize(Policy = "RequireCategory_Read")]
 
+        [Authorize(Policy = nameof(Permissions.Category_Read))]
         [HttpGet]
         public async Task<IActionResult> GetAll(CancellationToken cancellationToken)
         {
@@ -35,6 +37,7 @@ namespace E_Commerce.Presentation.Controllers
             return Ok(categories);
         }
 
+        [Authorize(Policy = nameof(Permissions.Category_Write))]
         [HttpPost]
         public async Task<IActionResult> Add([FromForm] CreateCategoryCommand command, CancellationToken cancellationToken)
         {
@@ -42,6 +45,7 @@ namespace E_Commerce.Presentation.Controllers
             return Ok(category);
         }
 
+        [Authorize(Policy = nameof(Permissions.Category_Write))]
         [HttpPut("{guid}")]
         public async Task<IActionResult> Update(
             string guid,
@@ -56,6 +60,7 @@ namespace E_Commerce.Presentation.Controllers
             return Ok(category);
         }
 
+        [Authorize(Policy = nameof(Permissions.Category_Delete))]
         [HttpDelete("{guid}")]
         public async Task<IActionResult> Delete(string guid, CancellationToken cancellationToken)
         {

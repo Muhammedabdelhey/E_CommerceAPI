@@ -3,7 +3,7 @@ using E_Commerce.Application.Features.Brands.Commands.DeleteBrand;
 using E_Commerce.Application.Features.Brands.Commands.UpdateBrand;
 using E_Commerce.Application.Features.Brands.Queries;
 using E_Commerce.Application.Features.Brands.Queries.GetBrands;
-using E_Commerce.Domain.Entities;
+using E_Commerce.Domain.Enums;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -21,6 +21,7 @@ namespace E_Commerce.Presentation.Controllers
             _mediator = mediator;
         }
 
+        [Authorize(Policy =nameof(Permissions.Brand_Read))]
         [HttpGet("{guid}")]
         public async Task<IActionResult> Get(string guid, CancellationToken cancellationToken)
         {
@@ -28,7 +29,7 @@ namespace E_Commerce.Presentation.Controllers
             return Ok(brand);
         }
 
-        [Authorize(Policy = "RequireBrand_Read")]
+        [Authorize(Policy = nameof(Permissions.Brand_Read))]
         [HttpGet]
         public async Task<IActionResult> GetAll(CancellationToken cancellationToken)
         {
@@ -36,6 +37,7 @@ namespace E_Commerce.Presentation.Controllers
             return Ok(brands);
         }
 
+        [Authorize(Policy = nameof(Permissions.Brand_Write))]
         [HttpPost]
         public async Task<IActionResult> Create([FromForm] CreateBrandCommand command
             , CancellationToken cancellationToken)
@@ -44,6 +46,7 @@ namespace E_Commerce.Presentation.Controllers
             return Ok(brand);
         }
 
+        [Authorize(Policy = nameof(Permissions.Brand_Write))]
         [HttpPut("{guid}")]
         public async Task<IActionResult> Update(
             string guid,
@@ -58,6 +61,7 @@ namespace E_Commerce.Presentation.Controllers
             return Ok(brand);
         }
 
+        [Authorize(Policy = nameof(Permissions.Brand_Delete))]
         [HttpDelete("{guid}")]
         public async Task<IActionResult> Delete(string guid, CancellationToken cancellationToken)
         {

@@ -10,7 +10,7 @@ namespace E_Commerce.Presentation.Extensions
             {
                 foreach (Permissions PermissionName in Enum.GetValues(typeof(Permissions)))
                 {
-                    options.AddPolicy($"Require{PermissionName}", policy =>
+                    options.AddPolicy($"{PermissionName}", policy =>
                         policy.RequireClaim(typeof(Permissions).Name, PermissionName.ToString()));
                 }
             });

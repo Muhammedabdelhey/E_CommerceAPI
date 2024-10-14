@@ -9,6 +9,8 @@ using E_Commerce.Application.Features.Products.Commands.UpdateProductVariant;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using E_Commerce.Application.Features.Products.Queries.GetProductVariants;
+using E_Commerce.Domain.Enums;
+using Microsoft.AspNetCore.Authorization;
 
 namespace E_Commerce.Presentation.Controllers
 {
@@ -22,6 +24,7 @@ namespace E_Commerce.Presentation.Controllers
             _mediator = mediator;
         }
 
+        [Authorize(Policy = nameof(Permissions.Product_Read))]
         [HttpGet]
         public async Task<IActionResult> GetAll(CancellationToken cancellationToken)
         {
@@ -29,6 +32,7 @@ namespace E_Commerce.Presentation.Controllers
             return Ok(prodcuts);
         }
 
+        [Authorize(Policy = nameof(Permissions.Product_Read))]
         [HttpGet("{guid}")]
         public async Task<IActionResult> Get(string guid, CancellationToken cancellationToken)
         {
@@ -36,6 +40,7 @@ namespace E_Commerce.Presentation.Controllers
             return Ok(prodcut);
         }
 
+        [Authorize(Policy = nameof(Permissions.Product_Write))]
         [HttpPost]
         public async Task<IActionResult> Create([FromForm] CreateProductCommand command, CancellationToken cancellationToken)
         {
@@ -43,6 +48,7 @@ namespace E_Commerce.Presentation.Controllers
             return Ok(product);
         }
 
+        [Authorize(Policy = nameof(Permissions.Product_Write))]
         [HttpPut("{guid}")]
         public async Task<IActionResult> Update(string guid, [FromForm] UpdateProductCommand command
             , CancellationToken cancellationToken)
@@ -55,6 +61,7 @@ namespace E_Commerce.Presentation.Controllers
             return Ok(product);
         }
 
+        [Authorize(Policy = nameof(Permissions.Product_Delete))]
         [HttpDelete("{guid}")]
         public async Task<IActionResult> Delete(string guid, CancellationToken cancellationToken)
         {
@@ -62,6 +69,15 @@ namespace E_Commerce.Presentation.Controllers
             return Ok($"Product with guid {product.Id} Deleted ");
         }
 
+        [Authorize(Policy = nameof(Permissions.Product_Read))]
+        [HttpGet("{productId}/productVariant")]
+        public async Task<IActionResult> GetProuctVariants(string productId,CancellationToken cancellationToken)
+        {
+            var productVariants =await _mediator.Send(new GetProductVariantsQuery(productId), cancellationToken);
+            return Ok(productVariants);
+        }
+
+        [Authorize(Policy = nameof(Permissions.Product_Write))]
         [HttpPost("{productId}/productVariant")]
         public async Task<IActionResult> AddProductVariant(
             string productId,
@@ -75,12 +91,8 @@ namespace E_Commerce.Presentation.Controllers
             var productVariant = await _mediator.Send(command, cancellationToken);
             return Ok(productVariant);
         }
-        [HttpGet("{productId}/productVariant")]
-        public async Task<IActionResult> GetProuctVariants(string productId,CancellationToken cancellationToken)
-        {
-            var productVariants =await _mediator.Send(new GetProductVariantsQuery(productId), cancellationToken);
-            return Ok(productVariants);
-        }
+
+        [Authorize(Policy = nameof(Permissions.Product_Write))]
         [HttpPut("{productId}/productVariant/{productVariantId}")]
         public async Task<IActionResult> UpdateProductVariant(string productVariantId,
             string productId,
@@ -95,6 +107,7 @@ namespace E_Commerce.Presentation.Controllers
             return Ok(productVariant);
         }
 
+        [Authorize(Policy = nameof(Permissions.Product_Delete))]
         [HttpDelete("{productId}/productVariant/{productVariantId}")]
         public async Task<IActionResult> DeleteProductVariant(string productVariantId,
             string productId,

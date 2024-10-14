@@ -28,7 +28,6 @@ namespace E_Commerce.Infrastructure.Seeds
                 Email = "Admin@gmail.com",
                 EmailConfirmed = true,
                 PhoneNumberConfirmed = true,
-
             };
             if (await userManager.FindByEmailAsync(admin.Email) is null)
             {

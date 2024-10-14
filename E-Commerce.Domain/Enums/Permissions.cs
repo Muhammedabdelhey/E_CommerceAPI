@@ -2,30 +2,30 @@
 {
     public enum Permissions
     {
-        User_Permission,
-        Role_Permission,
-        User_Role_Permission,
-        User_Claim_Permission,
-        Role_Claim_Permission,
+        User_Permission = 0,
+        Role_Permission = 1,
+        User_Role_Permission = 2,
+        User_Claim_Permission = 3,
+        Role_Claim_Permission = 4,
 
-        Attribute_Read,
-        Attribute_Write,
-        Attribute_Delete,
+        Attribute_Read = 5,
+        Attribute_Write = 6,
+        Attribute_Delete = 7,
 
-        Brand_Read,
-        Brand_Write,
-        Brand_Delete,
+        Brand_Read = 8,
+        Brand_Write = 9,
+        Brand_Delete = 10,
 
-        Category_Read,
-        Category_Write,
-        Category_Delete,
+        Category_Read = 11,
+        Category_Write = 12,
+        Category_Delete = 13,
 
-        Coupon_Read,
-        Coupon_Write,
-        Coupon_Delete,
+        Coupon_Read = 14,
+        Coupon_Write = 15,
+        Coupon_Delete = 16,
 
-        Product_Read,
-        Product_Write,
-        Product_Delete
+        Product_Read = 17,
+        Product_Write = 18,
+        Product_Delete = 19
     }
 }

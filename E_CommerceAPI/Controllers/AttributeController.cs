@@ -3,6 +3,7 @@ using E_Commerce.Application.Features.Attributes.Commands.DeleteAttribute;
 using E_Commerce.Application.Features.Attributes.Commands.UpdateAttribute;
 using E_Commerce.Application.Features.Attributes.Queries.GetAttributeById;
 using E_Commerce.Application.Features.Attributes.Queries.GetAttributs;
+using E_Commerce.Domain.Enums;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -19,7 +20,7 @@ namespace E_Commerce.Presentation.Controllers
             _mediator = mediator;
         }
 
-        [Authorize(Policy = "RequireAttribute_Read")]
+        [Authorize(Policy = nameof(Permissions.Attribute_Read))]
         [HttpGet("{guid}")]
         public async Task<IActionResult> Get(string guid, CancellationToken cancellationToken)
         {
@@ -27,7 +28,7 @@ namespace E_Commerce.Presentation.Controllers
             return Ok(attributes);
         }
 
-        [Authorize(Policy = "RequireAttribute_Read")]
+        [Authorize(Policy = nameof(Permissions.Attribute_Read))]
         [HttpGet]
         public async Task<IActionResult> GetAll(CancellationToken cancellationToken)
         {
@@ -35,6 +36,7 @@ namespace E_Commerce.Presentation.Controllers
             return Ok(attributes);
         }
 
+        [Authorize(Policy = nameof(Permissions.Attribute_Write))]
         [HttpPost]
         public async Task<IActionResult> Create([FromForm] CreateAttributeCommand command, CancellationToken cancellationToken)
         {
@@ -42,6 +44,7 @@ namespace E_Commerce.Presentation.Controllers
             return Ok(attribute);
         }
 
+        [Authorize(Policy = nameof(Permissions.Attribute_Write))]
         [HttpPut("{guid}")]
         public async Task<IActionResult> Update(string guid, [FromForm] UpdateAttributeCommand command,
             CancellationToken cancellationToken)
@@ -54,6 +57,7 @@ namespace E_Commerce.Presentation.Controllers
             return Ok(attribute);
         }
 
+        [Authorize(Policy = nameof(Permissions.Attribute_Delete))]
         [HttpDelete("{guid}")]
         public async Task<IActionResult> Delete(string guid, CancellationToken cancellationToken)
         {
