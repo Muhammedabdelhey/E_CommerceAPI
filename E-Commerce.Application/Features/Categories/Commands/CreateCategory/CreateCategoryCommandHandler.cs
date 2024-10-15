@@ -20,7 +20,7 @@ namespace E_Commerce.Application.Features.Categories.Commands.CreateCategory
             Category category = new()
             {
                 Name = request.Name,
-                ParentId = Guid.Parse(request.ParentId),
+                ParentId = request.ParentId != null ? Guid.Parse(request.ParentId) : null,
                 Image = await _fileService.UploadFileAsync(Constants.Category, request.Image, cancellationToken),
             };
             await _categoryRepository.AddAsync(category, cancellationToken);

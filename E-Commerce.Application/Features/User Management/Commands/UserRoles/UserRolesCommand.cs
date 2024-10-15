@@ -3,7 +3,7 @@
     public record UserRolesCommand : IRequest<IEnumerable<string>>
     {
         public string UserId { get; init; } = string.Empty;
-        public IEnumerable<string> RolesNames { get; init; } = Enumerable.Empty<string>();
+        public List<string> RolesNames { get; init; } = [];
 
     }
 }

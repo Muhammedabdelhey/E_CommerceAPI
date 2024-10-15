@@ -35,7 +35,6 @@ namespace E_Commerce.Application.Features.User_Management.Commands.UserRoles
                     await _userManager.AddToRoleAsync(user, roleName);
                 }
             }
-
             return await _userManager.GetRolesAsync(user);
         }
     }

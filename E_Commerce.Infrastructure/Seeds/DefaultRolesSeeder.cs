@@ -1,57 +1,51 @@
 ﻿using E_Commerce.Domain.Enums;
 using Microsoft.AspNetCore.Identity;
+using System.Security.Claims;
 
 namespace E_Commerce.Infrastructure.Seeds
 {
-    public  class DefaultRolesSeeder
+    public class DefaultRolesSeeder
     {
         public static async Task SeedRolesAsync(IServiceProvider serviceProvider)
         {
             var roleManager = serviceProvider.GetRequiredService<RoleManager<IdentityRole>>();
-
-            // Check and create SuperAdmin role
-            if (!await roleManager.RoleExistsAsync(Roles.SuperAdmin.ToString()))
+            var roles = await roleManager.Roles.ToListAsync();
+            foreach (var role in roles)
             {
-                var superAdmin = new IdentityRole
-                {
-                    Name = Roles.SuperAdmin.ToString(),
-                    NormalizedName = Roles.SuperAdmin.ToString().ToUpper()
-                };
-                await roleManager.CreateAsync(superAdmin);
+                await roleManager.DeleteAsync(role);
             }
 
-            // Check and create Admin role
-            if (!await roleManager.RoleExistsAsync(Roles.Admin.ToString()))
+            var superAdmin = new IdentityRole
             {
-                var admin = new IdentityRole
-                {
-                    Name = Roles.Admin.ToString(),
-                    NormalizedName = Roles.Admin.ToString().ToUpper()
-                };
-                await roleManager.CreateAsync(admin);
+                Name = Roles.SuperAdmin.ToString(),
+                NormalizedName = Roles.SuperAdmin.ToString().ToUpper()
+            };
+            await roleManager.CreateAsync(superAdmin);
+            foreach (Permissions permissionName in Enum.GetValues(typeof(Permissions)))
+            {
+                var claim = new Claim(typeof(Permissions).Name, permissionName.ToString());
+                await roleManager.AddClaimAsync(superAdmin, claim);
             }
 
-            // Check and create Vendor role
-            if (!await roleManager.RoleExistsAsync(Roles.Vendor.ToString()))
-            {
-                var vendor = new IdentityRole
-                {
-                    Name = Roles.Vendor.ToString(),
-                    NormalizedName = Roles.Vendor.ToString().ToUpper()
-                };
-                await roleManager.CreateAsync(vendor);
-            }
 
-            // Check and create User role
-            if (!await roleManager.RoleExistsAsync(Roles.User.ToString()))
+            var user = new IdentityRole
             {
-                var user = new IdentityRole
-                {
-                    Name = Roles.User.ToString(),
-                    NormalizedName = Roles.User.ToString().ToUpper()
-                };
-                await roleManager.CreateAsync(user);
-            }
+                Name = Roles.User.ToString(),
+                NormalizedName = Roles.User.ToString().ToUpper()
+            };
+            await roleManager.CreateAsync(user);
+            var Attribute_Read = new Claim(typeof(Permissions).Name, Permissions.Attribute_Read.ToString());
+            await roleManager.AddClaimAsync(user, Attribute_Read);
+
+            var Category_Read = new Claim(typeof(Permissions).Name, Permissions.Category_Read.ToString());
+            await roleManager.AddClaimAsync(user, Category_Read);
+
+            var Brand_Read = new Claim(typeof(Permissions).Name, Permissions.Brand_Read.ToString());
+            await roleManager.AddClaimAsync(user, Brand_Read);
+
+            var Product_Read = new Claim(typeof(Permissions).Name, Permissions.Product_Read.ToString());
+            await roleManager.AddClaimAsync(user, Product_Read);
+
         }
     }
 }

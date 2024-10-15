@@ -9,9 +9,9 @@ namespace E_Commerce.Application.Common.Validator
         {
             _repository = repository;
 
-            RuleFor(ids => ids)
+            RuleFor(id => id)
                 .MustAsync(ExistInDatabase)
-                .WithMessage($"The {typeof(TEntity).Name} doesn't exist in the database.");
+                .WithMessage(id=> $"The {typeof(TEntity).Name} With ID: {id} Doesn't Exist In Database.");
         }
         private async Task<bool> ExistInDatabase(string? id, CancellationToken cancellationToken)
         {

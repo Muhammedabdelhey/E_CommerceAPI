@@ -16,14 +16,14 @@ namespace E_Commerce.Application.Features.Categories.Commands.UpdateCategory
 
         public async Task<CategoryDto> Handle(UpdateCategoryCommand request, CancellationToken cancellationToken)
         {
-            var category = await _categoryRepository.GetByIdAsync(Guid.Parse(request.guid), ["Parent", "Attributes"], cancellationToken)
+            var category = await _categoryRepository.GetByIdAsync(Guid.Parse(request.guid), ["Parent"], cancellationToken)
                 ?? throw new NotFoundException($"Category with Guid {request.guid} not found");
 
             var image = category.Image;
 
             category.Name = request.Name;
             category.Image = await _fileService.UploadFileAsync(Constants.Category, request.Image, cancellationToken);
-            category.ParentId = Guid.Parse(request.ParentId);
+            category.ParentId = request.ParentId != null ? Guid.Parse(request.ParentId):null;
             category = await _categoryRepository.UpdateAsync(category, cancellationToken);
 
             if (image != null)

@@ -24,7 +24,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Features\User Management\Queries\" />
+    <Folder Include="Features\User Management\Queries\GetUserRoles\" />
+    <Folder Include="Features\User Management\Queries\GetUserClaims\" />
   </ItemGroup>
 
 </Project>

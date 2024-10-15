@@ -21,10 +21,10 @@ namespace E_Commerce.Presentation.Controllers
         }
 
         [Authorize(Policy = nameof(Permissions.Attribute_Read))]
-        [HttpGet("{guid}")]
-        public async Task<IActionResult> Get(string guid, CancellationToken cancellationToken)
+        [HttpGet("{attribute_id}")]
+        public async Task<IActionResult> Get(string attribute_id, CancellationToken cancellationToken)
         {
-            var attributes = await _mediator.Send(new GetAttributeByIdQuery(guid), cancellationToken);
+            var attributes = await _mediator.Send(new GetAttributeByIdQuery(attribute_id), cancellationToken);
             return Ok(attributes);
         }
 
@@ -45,11 +45,11 @@ namespace E_Commerce.Presentation.Controllers
         }
 
         [Authorize(Policy = nameof(Permissions.Attribute_Write))]
-        [HttpPut("{guid}")]
-        public async Task<IActionResult> Update(string guid, [FromForm] UpdateAttributeCommand command,
+        [HttpPut("{attribute_id}")]
+        public async Task<IActionResult> Update(string attribute_id, [FromForm] UpdateAttributeCommand command,
             CancellationToken cancellationToken)
         {
-            if (!guid.Equals(command.Guid))
+            if (!attribute_id.Equals(command.Guid))
             {
                 return BadRequest("Guid you pass in route not equal to one passed on request");
             }
@@ -58,10 +58,10 @@ namespace E_Commerce.Presentation.Controllers
         }
 
         [Authorize(Policy = nameof(Permissions.Attribute_Delete))]
-        [HttpDelete("{guid}")]
-        public async Task<IActionResult> Delete(string guid, CancellationToken cancellationToken)
+        [HttpDelete("{attribute_id}")]
+        public async Task<IActionResult> Delete(string attribute_id, CancellationToken cancellationToken)
         {
-            await _mediator.Send(new DeleteAttributeCommand(guid), cancellationToken);
+            await _mediator.Send(new DeleteAttributeCommand(attribute_id), cancellationToken);
             return Ok("Attribute Deleted");
         }
     }
