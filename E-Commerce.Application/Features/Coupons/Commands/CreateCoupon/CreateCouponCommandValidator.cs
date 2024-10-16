@@ -8,6 +8,7 @@
                  .GreaterThan(0);
 
             RuleFor(v => v.DiscountType)
+                .NotEmpty()
                 .IsInEnum();
 
             RuleFor(v => v.StartDate)

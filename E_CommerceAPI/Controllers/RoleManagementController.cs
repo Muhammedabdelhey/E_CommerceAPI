@@ -28,6 +28,19 @@ namespace E_Commerce.Presentation.Controllers
             return Ok(await _mediator.Send(new GetRolesQuery(), cancellationToken));
         }
 
+        [HttpGet("Permissions")]
+        public IActionResult GetPermissions()
+        {
+            var permissions = Enum.GetValues(typeof(Permissions))
+                  .Cast<Permissions>()
+                  .Select(p => new
+                  {
+                      Id = (int)p,
+                      Name = p.ToString()
+                  }).ToList();
+            return Ok(permissions);
+        }
+
         [HttpPost]
         public async Task<IActionResult> CreateRole(CreateRoleCommand command, CancellationToken cancellationToken)
         {
@@ -41,7 +54,6 @@ namespace E_Commerce.Presentation.Controllers
             var role = await _mediator.Send(new DeleteRoleCommand(guid), cancellationToken);
             return Ok($"role {role.Name} was deleted");
         }
-
 
         [HttpGet("{guid}/Claims")]
         public async Task<IActionResult> GetRoleClaims(string guid, CancellationToken cancellationToken)
