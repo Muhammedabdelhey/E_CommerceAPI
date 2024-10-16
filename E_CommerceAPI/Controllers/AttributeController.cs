@@ -3,10 +3,6 @@ using E_Commerce.Application.Features.Attributes.Commands.DeleteAttribute;
 using E_Commerce.Application.Features.Attributes.Commands.UpdateAttribute;
 using E_Commerce.Application.Features.Attributes.Queries.GetAttributeById;
 using E_Commerce.Application.Features.Attributes.Queries.GetAttributs;
-using E_Commerce.Domain.Enums;
-using MediatR;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
 
 namespace E_Commerce.Presentation.Controllers
 {

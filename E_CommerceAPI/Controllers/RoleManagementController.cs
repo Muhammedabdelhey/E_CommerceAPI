@@ -3,10 +3,6 @@ using E_Commerce.Application.Features.RoleManagement.Commands.DeleteRole;
 using E_Commerce.Application.Features.RoleManagement.Commands.ManageRoleClaims;
 using E_Commerce.Application.Features.RoleManagement.Queries.GetRoleClaims;
 using E_Commerce.Application.Features.RoleManagement.Queries.GetRoles;
-using E_Commerce.Domain.Enums;
-using MediatR;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
 
 namespace E_Commerce.Presentation.Controllers
 {

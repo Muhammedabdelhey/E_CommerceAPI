@@ -1,7 +1,5 @@
 ﻿using E_Commerce.Application.Features.Authentication.Commands.SignIn;
 using E_Commerce.Application.Features.Authentication.Commands.SignUp;
-using MediatR;
-using Microsoft.AspNetCore.Mvc;
 
 namespace E_Commerce.Presentation.Controllers
 {

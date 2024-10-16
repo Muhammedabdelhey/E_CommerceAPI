@@ -4,10 +4,6 @@ using E_Commerce.Application.Features.Coupons.Commands.UpdateCoupon;
 using E_Commerce.Application.Features.Coupons.Queries.GetActiveCoupons;
 using E_Commerce.Application.Features.Coupons.Queries.GetCouponById;
 using E_Commerce.Application.Features.Coupons.Queries.GetCoupons;
-using E_Commerce.Domain.Enums;
-using MediatR;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
 
 namespace E_Commerce.Presentation.Controllers
 {
@@ -64,7 +60,7 @@ namespace E_Commerce.Presentation.Controllers
             {
                 return BadRequest("Guid you pass in route not equal to one passed on request");
             }
-            var coupon =await _mediator.Send(Request, cancellationToken);
+            var coupon = await _mediator.Send(Request, cancellationToken);
             return Ok(coupon);
         }
 

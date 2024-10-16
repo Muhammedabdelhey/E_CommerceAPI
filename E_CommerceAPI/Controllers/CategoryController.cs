@@ -3,10 +3,6 @@ using E_Commerce.Application.Features.Categories.Commands.DeleteCategory;
 using E_Commerce.Application.Features.Categories.Commands.UpdateCategory;
 using E_Commerce.Application.Features.Categories.Queries.GetCategories;
 using E_Commerce.Application.Features.Categories.Queries.GetCategoryById;
-using E_Commerce.Domain.Enums;
-using MediatR;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
 
 namespace E_Commerce.Presentation.Controllers
 {

@@ -3,10 +3,6 @@ using E_Commerce.Application.Features.Brands.Commands.DeleteBrand;
 using E_Commerce.Application.Features.Brands.Commands.UpdateBrand;
 using E_Commerce.Application.Features.Brands.Queries;
 using E_Commerce.Application.Features.Brands.Queries.GetBrands;
-using E_Commerce.Domain.Enums;
-using MediatR;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
 
 namespace E_Commerce.Presentation.Controllers
 {
@@ -21,7 +17,7 @@ namespace E_Commerce.Presentation.Controllers
             _mediator = mediator;
         }
 
-        [Authorize(Policy =nameof(Permissions.Brand_Read))]
+        [Authorize(Policy = nameof(Permissions.Brand_Read))]
         [HttpGet("{guid}")]
         public async Task<IActionResult> Get(string guid, CancellationToken cancellationToken)
         {

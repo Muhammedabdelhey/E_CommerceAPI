@@ -1,16 +1,12 @@
 ﻿using E_Commerce.Application.Features.Products.Commands.CreateProduct;
+using E_Commerce.Application.Features.Products.Commands.CreateProductVariant;
 using E_Commerce.Application.Features.Products.Commands.DeleteProduct;
+using E_Commerce.Application.Features.Products.Commands.DeleteProductVariant;
 using E_Commerce.Application.Features.Products.Commands.UpdateProduct;
+using E_Commerce.Application.Features.Products.Commands.UpdateProductVariant;
 using E_Commerce.Application.Features.Products.Queries.GetAllProducts;
 using E_Commerce.Application.Features.Products.Queries.GetProductById;
-using E_Commerce.Application.Features.Products.Commands.DeleteProductVariant;
-using E_Commerce.Application.Features.Products.Commands.CreateProductVariant;
-using E_Commerce.Application.Features.Products.Commands.UpdateProductVariant;
-using MediatR;
-using Microsoft.AspNetCore.Mvc;
 using E_Commerce.Application.Features.Products.Queries.GetProductVariants;
-using E_Commerce.Domain.Enums;
-using Microsoft.AspNetCore.Authorization;
 
 namespace E_Commerce.Presentation.Controllers
 {
@@ -71,9 +67,9 @@ namespace E_Commerce.Presentation.Controllers
 
         [Authorize(Policy = nameof(Permissions.Product_Read))]
         [HttpGet("{productId}/productVariant")]
-        public async Task<IActionResult> GetProuctVariants(string productId,CancellationToken cancellationToken)
+        public async Task<IActionResult> GetProuctVariants(string productId, CancellationToken cancellationToken)
         {
-            var productVariants =await _mediator.Send(new GetProductVariantsQuery(productId), cancellationToken);
+            var productVariants = await _mediator.Send(new GetProductVariantsQuery(productId), cancellationToken);
             return Ok(productVariants);
         }
 

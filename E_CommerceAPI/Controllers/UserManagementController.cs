@@ -3,10 +3,6 @@ using E_Commerce.Application.Features.User_Management.Commands.UserRoles;
 using E_Commerce.Application.Features.User_Management.Queries.GetUserClaims;
 using E_Commerce.Application.Features.User_Management.Queries.GetUserRoles;
 using E_Commerce.Application.Features.User_Management.Queries.GetUsers;
-using E_Commerce.Domain.Enums;
-using MediatR;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
 
 namespace E_Commerce.Presentation.Controllers
 {

@@ -1,5 +1,3 @@
-using Microsoft.AspNetCore.Mvc;
-
 namespace E_CommerceAPI.Controllers
 {
     [ApiController]
