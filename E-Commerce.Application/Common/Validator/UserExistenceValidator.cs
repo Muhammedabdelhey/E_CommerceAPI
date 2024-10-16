@@ -12,8 +12,12 @@ namespace E_Commerce.Application.Common.Validator
             RuleFor(userId => userId)
                 .NotEmpty()
                 .SetValidator(new GuidValidator())
-                .MustAsync(UserExists)
-                .WithMessage(userId => $"User With ID: {userId} Not Exist");
+                .DependentRules(() =>
+                {
+                    RuleFor(userId => userId)
+                       .MustAsync(UserExists)
+                       .WithMessage(userId => $"User With ID: {userId} Not Exist");
+                });
         }
         private async Task<bool> UserExists(string userId, CancellationToken cancellationToken)
         {

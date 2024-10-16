@@ -4,16 +4,20 @@ using Microsoft.EntityFrameworkCore;
 
 namespace E_Commerce.Application.Features.User_Management.Queries.GetUsers
 {
-    public class GetUsersQueryHandler : IRequestHandler<GetUsersQuery, IEnumerable<User>>
+    public class GetUsersQueryHandler : IRequestHandler<GetUsersQuery, IEnumerable<UserDto>>
     {
         private readonly UserManager<User> _userManager;
-        public GetUsersQueryHandler(UserManager<User> userManager)
+        private readonly IMapper _mapper;
+        public GetUsersQueryHandler(UserManager<User> userManager, IMapper mapper)
         {
             _userManager = userManager;
+            _mapper = mapper;
         }
-        public async Task<IEnumerable<User>> Handle(GetUsersQuery request, CancellationToken cancellationToken)
+        public async Task<IEnumerable<UserDto>> Handle(GetUsersQuery request, CancellationToken cancellationToken)
         {
-            return await _userManager.Users.ToListAsync(cancellationToken);
+            var users = await _userManager.Users.ToListAsync(cancellationToken);
+
+            return _mapper.Map<IEnumerable<UserDto>>(users);
         }
     }
 }
