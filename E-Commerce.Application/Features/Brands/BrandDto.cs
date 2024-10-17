@@ -1,4 +1,7 @@
-﻿namespace E_Commerce.Application.Features.Brands
+﻿using E_Commerce.Application.Common.Resolvers;
+using E_Commerce.Application.Features.Products;
+
+namespace E_Commerce.Application.Features.Brands
 {
     public class BrandDto
     {
@@ -11,7 +14,9 @@
     {
         public BrandMapping()
         {
-            CreateMap<Brand, BrandDto>();
+            CreateMap<Brand, BrandDto>()
+                .ForMember(dest => dest.Image, opt =>
+                    opt.MapFrom<ImageResolver<Brand, BrandDto>>());
         }
     }
 }

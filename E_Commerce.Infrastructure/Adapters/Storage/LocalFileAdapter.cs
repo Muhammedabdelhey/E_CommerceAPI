@@ -12,23 +12,22 @@ namespace E_Commerce.Infrastructure.Adapters.Storage
 
         public LocalFileAdapter(IWebHostEnvironment webHostEnvironment, IHttpContextAccessor httpContextAccessor)
         {
-            serverPath = webHostEnvironment.WebRootPath;
+            serverPath = Path.Combine(webHostEnvironment.WebRootPath,"Images");
             _httpContextAccessor = httpContextAccessor;
         }
 
-        public async Task<string> UploadFileAsync(string folderName, IFormFile file, CancellationToken cancellationToken = default)
+        public async Task<string> UploadFileAsync( IFormFile file, CancellationToken cancellationToken = default)
         {
             if (!Directory.Exists(serverPath))
             {
                 Directory.CreateDirectory("wwwroot");
             }
-            var filePath = Path.Combine(serverPath, folderName);
-            if (!Directory.Exists(filePath))
+            if (!Directory.Exists(serverPath))
             {
-                Directory.CreateDirectory(filePath);
+                Directory.CreateDirectory(serverPath);
             }
             var fileName = Guid.NewGuid().ToString() + Path.GetExtension(file.FileName);
-            var fullPath = Path.Combine(filePath, fileName);
+            var fullPath = Path.Combine(serverPath, fileName);
             using (var stream = new FileStream(fullPath, FileMode.Create))
             {
                 await file.CopyToAsync(stream, cancellationToken);
@@ -36,10 +35,9 @@ namespace E_Commerce.Infrastructure.Adapters.Storage
             return fileName;
         }
 
-        public async Task<bool> DeleteFileAsync(string folderName, string fileName, CancellationToken cancellationToken = default)
+        public async Task<bool> DeleteFileAsync( string fileName, CancellationToken cancellationToken = default)
         {
-            var filePath = Path.Combine(folderName, fileName);
-            var fullPath = Path.Combine(serverPath, filePath);
+            var fullPath = Path.Combine(serverPath, fileName);
             if (!File.Exists(fullPath))
             {
                 return false;
@@ -48,16 +46,15 @@ namespace E_Commerce.Infrastructure.Adapters.Storage
             return true;
         }
 
-        public string? GetFileUrl(string folderName, string fileName)
+        public string? GetFileUrl( string fileName)
         {
             var request = _httpContextAccessor.HttpContext?.Request;
-            var filePath = Path.Combine(folderName, fileName);
-            var fullPath = Path.Combine(serverPath, filePath);
+            var fullPath = Path.Combine(serverPath, fileName);
             if (!File.Exists(fullPath))
             {
                 return null;
             }
-            return $"{request?.Scheme}://{request?.Host}/{folderName}/{fileName}";
+            return $"{request?.Scheme}://{request?.Host}/Images/{fileName}";
         }
     }
 }

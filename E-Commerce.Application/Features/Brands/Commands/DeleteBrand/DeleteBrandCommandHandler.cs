@@ -19,7 +19,7 @@
 
             if (brand.Image != null)
             {
-                await _fileService.DeleteFileAsync(Constants.Brands, brand.Image, cancellationToken);
+                await _fileService.DeleteFileAsync(brand.Image, cancellationToken);
             }
 
             return Unit.Value;

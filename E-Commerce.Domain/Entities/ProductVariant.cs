@@ -1,8 +1,9 @@
 ﻿using E_Commerce.Domain.Comman;
+using E_Commerce.Domain.Interfcases;
 using System.Text.Json.Serialization;
 namespace E_Commerce.Domain.Entities
 {
-    public class ProductVariant : BaseEntity
+    public class ProductVariant : BaseEntity, IEntityHasImage
     {
         public string Sku { get; set; } = string.Empty;
         public int Stock { get; set; }

@@ -28,7 +28,7 @@ namespace E_Commerce.Application.Features.Products.Commands.UpdateProductVariant
             productVariant.Stock = request.Stock;
             productVariant.Price = request.Price;
             productVariant.ProductId = Guid.Parse(request.ProductId);
-            productVariant.Image = await _fileService.UploadFileAsync(Constants.Products, request.Image, cancellationToken);
+            productVariant.Image = await _fileService.UploadFileAsync(request.Image, cancellationToken);
             productVariant.Sku = await GenerateSku(productVariant, cancellationToken);
 
             productVariant.ProductVariantAttributes = request.Attributes.Select(attribute =>
@@ -42,7 +42,7 @@ namespace E_Commerce.Application.Features.Products.Commands.UpdateProductVariant
             productVariant = await _productVariantRepository.UpdateAsync(productVariant, cancellationToken);
             if (image != null)
             {
-                await _fileService.DeleteFileAsync(Constants.Products, image, cancellationToken);
+                await _fileService.DeleteFileAsync(image, cancellationToken);
             }
             return _mapper.Map<ProductVariantDto>(productVariant);
         }

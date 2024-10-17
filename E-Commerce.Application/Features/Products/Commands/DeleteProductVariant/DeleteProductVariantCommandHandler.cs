@@ -22,7 +22,7 @@
             await _productVariantRepository.DeleteAsync(productVariant, cancellationToken);
             if (productVariant.Image != null)
             {
-                await _fileService.DeleteFileAsync(Constants.Products, productVariant.Image, cancellationToken);
+                await _fileService.DeleteFileAsync(productVariant.Image, cancellationToken);
             }
             return Unit.Value;
         }

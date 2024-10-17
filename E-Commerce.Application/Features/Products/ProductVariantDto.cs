@@ -1,4 +1,7 @@
-﻿namespace E_Commerce.Application.Features.Products
+﻿using E_Commerce.Application.Common.Resolvers;
+using E_Commerce.Application.Features.Brands;
+
+namespace E_Commerce.Application.Features.Products
 {
     public class ProductVariantDto
     {
@@ -23,6 +26,9 @@
                 CreateMap<ProductVariant, ProductVariantDto>()
                     .ForMember(dest => dest.ProductName,
                         opt => opt.MapFrom(src => src.Product.Name))
+
+                    .ForMember(dest => dest.Image, opt =>
+                        opt.MapFrom<ImageResolver<ProductVariant, ProductVariantDto>>())
 
                     .ForMember(dest => dest.Attributes,
                         opt => opt.MapFrom(src => src.ProductVariantAttributes

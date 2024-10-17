@@ -1,4 +1,4 @@
-﻿using E_Commerce.Application.Features.Attributes;
+﻿using E_Commerce.Application.Common.Resolvers;
 
 namespace E_Commerce.Application.Features.Categories
 {
@@ -14,7 +14,12 @@ namespace E_Commerce.Application.Features.Categories
             public CategoryMapping()
             {
                 CreateMap<Category, CategoryDto>()
-                    .ForMember(dest => dest.ParentName, opt => opt.MapFrom(src => src.Parent.Name));
+                    .ForMember(dest => dest.ParentName, opt =>
+                        opt.MapFrom(src => src.Parent.Name))
+
+                    .ForMember(dest => dest.Image, opt =>
+                        opt.MapFrom<ImageResolver<Category, CategoryDto>>());
+
             }
         }
     }

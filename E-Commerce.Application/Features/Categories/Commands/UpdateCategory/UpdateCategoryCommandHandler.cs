@@ -22,13 +22,13 @@ namespace E_Commerce.Application.Features.Categories.Commands.UpdateCategory
             var image = category.Image;
 
             category.Name = request.Name;
-            category.Image = await _fileService.UploadFileAsync(Constants.Category, request.Image, cancellationToken);
-            category.ParentId = request.ParentId != null ? Guid.Parse(request.ParentId):null;
+            category.Image = await _fileService.UploadFileAsync(request.Image, cancellationToken);
+            category.ParentId = request.ParentId != null ? Guid.Parse(request.ParentId) : null;
             category = await _categoryRepository.UpdateAsync(category, cancellationToken);
 
             if (image != null)
             {
-                await _fileService.DeleteFileAsync(Constants.Category, image,cancellationToken);
+                await _fileService.DeleteFileAsync(image, cancellationToken);
             }
             return _mapper.Map<CategoryDto>(category);
         }

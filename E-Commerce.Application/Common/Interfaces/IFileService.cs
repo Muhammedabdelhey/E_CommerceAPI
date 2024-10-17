@@ -12,7 +12,7 @@ namespace E_Commerce.Domain.Interfaces
         /// <param name="folderName">The desired path for the uploaded file (excluding the file name).</param>
         /// <param name="file">The file to be uploaded.</param>
         /// <returns> File name or null if no file passed.</returns>
-        Task<string?> UploadFileAsync(string folderName, IFormFile file, CancellationToken cancellationToken = default);
+        Task<string?> UploadFileAsync(IFormFile file, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Asynchronously Delete a file also this will use IFileAdapter for deleteing process itself.
@@ -20,13 +20,13 @@ namespace E_Commerce.Domain.Interfaces
         /// <param name="folderName">The desired path for the file (excluding the file name).</param>
         /// <param name="fileName"> file name you wanna deleted</param>
         /// <returns>true if file deleted</returns>
-        Task<bool> DeleteFileAsync(string folderName, string fileName, CancellationToken cancellationToken = default);
+        Task<bool> DeleteFileAsync(string fileName, CancellationToken cancellationToken = default);
         /// <summary>
         /// Return file url based on IFileAdapter for get process itself.
         /// </summary>
         /// <param name="folderName">The desired path for the file (excluding the file name).</param>
         /// <param name="fileName"> file name you wanna get</param>
         /// <returns></returns>
-        string? GetFileUrl(string folderName,string fileName); 
+        string? GetFileUrl(string fileName);
     }
 }
