@@ -16,7 +16,7 @@ namespace E_Commerce.Application.Features.User_Management.Queries.GetUserRoles
         public async Task<IEnumerable<string>> Handle(GetUserRolesQuery request, CancellationToken cancellationToken)
         {
             var user = await _userManager.FindByIdAsync(request.UserId)
-                ?? throw new NotFoundException($"User With ID: {request.UserId} Not Exist");
+                ?? throw new NotFoundException("User", request.UserId);
             var roles = await _userManager.GetRolesAsync(user);
             return roles;
         }

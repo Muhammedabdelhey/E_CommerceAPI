@@ -14,7 +14,7 @@ namespace E_Commerce.Application.Features.Coupons.Commands.UpdateCoupon
         public async Task<CouponDto> Handle(UpdateCouponCommand request, CancellationToken cancellationToken)
         {
             var coupon = await _couponRepository.GetByIdAsync(Guid.Parse(request.guid), cancellationToken)
-                ?? throw new NotFoundException($"Coupon with Guid {request.guid} not found.");
+                ?? throw new NotFoundException("Coupon", request.guid);
             coupon.StartDate = request.StartDate;
             coupon.EndDate = request.EndDate;
             coupon.DiscountType = request.DiscountType;

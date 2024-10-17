@@ -17,7 +17,7 @@ namespace E_Commerce.Application.Features.Categories.Commands.UpdateCategory
         public async Task<CategoryDto> Handle(UpdateCategoryCommand request, CancellationToken cancellationToken)
         {
             var category = await _categoryRepository.GetByIdAsync(Guid.Parse(request.guid), ["Parent"], cancellationToken)
-                ?? throw new NotFoundException($"Category with Guid {request.guid} not found");
+                ?? throw new NotFoundException("Category", request.guid);
 
             var image = category.Image;
 

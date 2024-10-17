@@ -12,8 +12,8 @@
 
         public async Task<AttributeDto> Handle(DeleteAttributeCommand request, CancellationToken cancellationToken)
         {
-            var attribute = await _attributeRepsoitory.GetByIdAsync(Guid.Parse(request.guid),cancellationToken)
-                ?? throw new NotFoundException($"Attribute with guid{request.guid} not found");
+            var attribute = await _attributeRepsoitory.GetByIdAsync(Guid.Parse(request.guid), cancellationToken)
+                ?? throw new NotFoundException("Attribute", request.guid);
             await _attributeRepsoitory.DeleteAsync(attribute, cancellationToken);
             return _mapper.Map<AttributeDto>(attribute);
         }

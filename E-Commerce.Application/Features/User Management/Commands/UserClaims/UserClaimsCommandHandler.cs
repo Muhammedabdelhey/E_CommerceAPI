@@ -19,7 +19,7 @@ namespace E_Commerce.Application.Features.User_Management.Commands.UserClaims
         public async Task<IEnumerable<PermissionsDto>> Handle(UserClaimsCommand request, CancellationToken cancellationToken)
         {
             var user = await _userManager.FindByIdAsync(request.UserId)
-                ?? throw new NotFoundException($"User With ID: {request.UserId} Not Exist");
+                ?? throw new NotFoundException("User", request.UserId);
 
             var existingClaims = await _userManager.GetClaimsAsync(user);
             var existingClaimValues = existingClaims.Select(c => c.Value).ToList();

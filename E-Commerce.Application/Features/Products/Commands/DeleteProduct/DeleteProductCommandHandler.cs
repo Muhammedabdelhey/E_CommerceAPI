@@ -13,7 +13,7 @@ namespace E_Commerce.Application.Features.Products.Commands.DeleteProduct
         public async Task<ProductDto> Handle(DeleteProductCommand request, CancellationToken cancellationToken)
         {
             var product = await _productRepository.GetByIdAsync(Guid.Parse(request.guid), cancellationToken)
-                ?? throw new NotFoundException($"Product with Guid {request.guid} not Found");
+                ?? throw new NotFoundException("Product", request.guid);
             await _productRepository.DeleteAsync(product, cancellationToken);
             return _mapper.Map<ProductDto>(product);
         }

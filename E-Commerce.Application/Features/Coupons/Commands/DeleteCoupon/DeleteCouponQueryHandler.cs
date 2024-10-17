@@ -14,7 +14,7 @@
         public async Task<CouponDto> Handle(DeleteCouponQuery request, CancellationToken cancellationToken)
         {
             var coupon = await _couponRepository.GetByIdAsync(Guid.Parse(request.guid), cancellationToken)
-                ?? throw new NotFoundException($"Coupon with Guid {request.guid} not found");
+                ?? throw new NotFoundException("Coupon", request.guid);
             coupon = await _couponRepository.DeleteAsync(coupon, cancellationToken);
             return _mapper.Map<CouponDto>(coupon);
         }

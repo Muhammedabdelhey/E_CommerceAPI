@@ -13,7 +13,7 @@ namespace E_Commerce.Application.Features.Products.Commands.UpdateProduct
         public async Task<ProductDto> Handle(UpdateProductCommand request, CancellationToken cancellationToken)
         {
             var product = await _productRepository.GetByIdAsync(Guid.Parse(request.guid), ["Category", "Brand"], cancellationToken)
-                ?? throw new NotFoundException($"Product with Guid {request.guid} not Found");
+                ?? throw new NotFoundException("Product", request.guid);
             product.Name = request.Name;
             product.Description = request.Description;
             product.CategoryId = Guid.Parse(request.CategoryId);

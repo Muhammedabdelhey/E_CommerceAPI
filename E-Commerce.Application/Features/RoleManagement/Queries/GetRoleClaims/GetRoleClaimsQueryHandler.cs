@@ -16,7 +16,7 @@ namespace E_Commerce.Application.Features.RoleManagement.Queries.GetRoleClaims
         public async Task<IEnumerable<PermissionsDto>> Handle(GetRoleClaimsQuery request, CancellationToken cancellationToken)
         {
             var role = await _roleManager.FindByIdAsync(request.roleId)
-                ?? throw new NotFoundException($"Role with guid {request.roleId} not found");
+                ?? throw new NotFoundException($"Role",request.roleId);
             var claims = await _roleManager.GetClaimsAsync(role);
 
             return _mapper.Map<IEnumerable<PermissionsDto>>(claims);

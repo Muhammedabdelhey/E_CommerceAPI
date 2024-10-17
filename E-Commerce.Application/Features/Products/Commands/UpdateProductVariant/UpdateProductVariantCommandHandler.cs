@@ -22,13 +22,15 @@ namespace E_Commerce.Application.Features.Products.Commands.UpdateProductVariant
         {
             var productVariant = await _productVariantRepository.GetByIdAsync(Guid.Parse(request.guid),
                 ["ProductVariantAttributes", "Product"], cancellationToken)
-                ?? throw new NotFoundException($"Product variant with Guid {request.guid} not Found");
+                ?? throw new NotFoundException("Product Variant", request.guid);
+
             var image = productVariant.Image;
             productVariant.Stock = request.Stock;
             productVariant.Price = request.Price;
             productVariant.ProductId = Guid.Parse(request.ProductId);
             productVariant.Image = await _fileService.UploadFileAsync(Constants.Products, request.Image, cancellationToken);
             productVariant.Sku = await GenerateSku(productVariant, cancellationToken);
+
             productVariant.ProductVariantAttributes = request.Attributes.Select(attribute =>
                 new ProductVariantAttributes
                 {
@@ -36,6 +38,7 @@ namespace E_Commerce.Application.Features.Products.Commands.UpdateProductVariant
                     Value = attribute.Value
                 }
             ).ToList();
+
             productVariant = await _productVariantRepository.UpdateAsync(productVariant, cancellationToken);
             if (image != null)
             {
@@ -43,6 +46,7 @@ namespace E_Commerce.Application.Features.Products.Commands.UpdateProductVariant
             }
             return _mapper.Map<ProductVariantDto>(productVariant);
         }
+
         private async Task<string> GenerateSku(ProductVariant productVariant, CancellationToken cancellationToken)
         {
             var product = await _productRepository.GetByIdAsync(productVariant.ProductId, cancellationToken);

@@ -13,7 +13,7 @@
         public async Task<AttributeDto> Handle(UpdateAttributeCommand request, CancellationToken cancellationToken)
         {
             var attribute = await _attributeRepository.GetByIdAsync(Guid.Parse(request.Guid), cancellationToken)
-                ?? throw new NotFoundException($"Attribute with ID {request.Guid} not found.");
+                ?? throw new NotFoundException("Attribute", request.Guid);
             attribute.Name = request.Name;
             await _attributeRepository.UpdateAsync(attribute, cancellationToken);
             return _mapper.Map<AttributeDto>(attribute);

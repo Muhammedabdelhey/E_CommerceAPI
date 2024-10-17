@@ -17,8 +17,10 @@
                 .GetByAsync(pv => pv.Id == Guid.Parse(request.productVariantId)
                 && pv.ProductId == Guid.Parse(request.productId),
                 cancellationToken);
+
             var productVariant = productVariants.FirstOrDefault()
-                ?? throw new NotFoundException($"Product variant with Guid {request.productVariantId} not Found");
+                ?? throw new NotFoundException("Product Variant", request.productVariantId);
+
             await _productVariantRepository.DeleteAsync(productVariant, cancellationToken);
             if (productVariant.Image != null)
             {

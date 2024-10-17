@@ -15,7 +15,7 @@
         public async Task<BrandDto> Handle(DeleteBrandCommand request, CancellationToken cancellationToken)
         {
             var brand = await _brandRepository.GetByIdAsync(Guid.Parse(request.guid), cancellationToken)
-                ?? throw new NotFoundException($"Brand with ID {request.guid} not found.");
+                ?? throw new NotFoundException("Brand", request.guid);
 
             await _brandRepository.DeleteAsync(brand, cancellationToken);
 

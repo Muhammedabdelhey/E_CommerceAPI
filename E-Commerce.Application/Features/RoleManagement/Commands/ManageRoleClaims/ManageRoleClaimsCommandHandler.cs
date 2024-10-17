@@ -18,7 +18,7 @@ namespace E_Commerce.Application.Features.RoleManagement.Commands.ManageRoleClai
         public async Task<IEnumerable<PermissionsDto>> Handle(ManageRoleClaimsCommand request, CancellationToken cancellationToken)
         {
             var role = await _roleManager.FindByIdAsync(request.RoleId)
-                ?? throw new NotFoundException($"Role with ID {request.RoleId} does not exist");
+                ?? throw new NotFoundException($"Role", request.RoleId);
 
             var existingClaims = await _roleManager.GetClaimsAsync(role);
             var existingClaimValues = existingClaims.Select(c => c.Value).ToList();

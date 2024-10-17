@@ -15,7 +15,7 @@
         {
         }
         public NotFoundException(string entityName, object key)
-        : base($"Entity \"{entityName}\" with ID {key} was not found.")
+        : base($"{entityName} with ID: {key} Was Not Found.")
         {
         }
     }

@@ -13,7 +13,7 @@ namespace E_Commerce.Application.Features.Products.Queries.GetProductById
         public async Task<ProductDto> Handle(GetProductByIdQuery request, CancellationToken cancellationToken)
         {
             var product = await _productRepository.GetByIdAsync(Guid.Parse(request.guid),["Category","Brand"], cancellationToken)
-                ?? throw new NotFoundException($"Product with Guid {request.guid} not Found");
+                ?? throw new NotFoundException($"Product", request.guid);
             return _mapper.Map<ProductDto>(product);
         }
     }
