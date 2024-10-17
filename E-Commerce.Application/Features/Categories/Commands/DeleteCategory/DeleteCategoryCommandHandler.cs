@@ -1,22 +1,20 @@
 ﻿
 namespace E_Commerce.Application.Features.Categories.Commands.DeleteCategory
 {
-    public class DeleteCategoryCommandHandler : IRequestHandler<DeleteCategoryCommand, CategoryDto>
+    public class DeleteCategoryCommandHandler : IRequestHandler<DeleteCategoryCommand, Unit>
     {
         private readonly IBaseRepository<Category> _categoryRepository;
         private readonly IFileService _fileService;
-        private readonly IMapper _mapper;
-        public DeleteCategoryCommandHandler(IBaseRepository<Category> categoryRepository, IFileService fileService, IMapper mapper)
+        public DeleteCategoryCommandHandler(IBaseRepository<Category> categoryRepository, IFileService fileService)
         {
             _categoryRepository = categoryRepository;
             _fileService = fileService;
-            _mapper = mapper;
         }
 
-        public async Task<CategoryDto> Handle(DeleteCategoryCommand request, CancellationToken cancellationToken)
+        public async Task<Unit> Handle(DeleteCategoryCommand request, CancellationToken cancellationToken)
         {
-            var category = await _categoryRepository.GetByIdAsync(Guid.Parse(request.guid), cancellationToken)
-                ?? throw new NotFoundException("Category", request.guid);
+            var category = await _categoryRepository.GetByIdAsync(Guid.Parse(request.Guid), cancellationToken)
+                ?? throw new NotFoundException("Category", request.Guid);
 
             await _categoryRepository.DeleteAsync(category, cancellationToken);
 
@@ -25,7 +23,7 @@ namespace E_Commerce.Application.Features.Categories.Commands.DeleteCategory
                 await _fileService.DeleteFileAsync(Constants.Category, category.Image,cancellationToken);
             }
 
-            return _mapper.Map<CategoryDto>(category);
+            return Unit.Value;
         }
     }
 }

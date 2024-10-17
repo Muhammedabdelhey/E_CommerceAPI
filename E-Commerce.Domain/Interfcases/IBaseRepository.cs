@@ -26,13 +26,13 @@ public interface IBaseRepository<T> where T : class
     /// </summary>
     /// <returns>The first entity that matches the specified predicate.</returns>
     /// 
-    Task<T?> GetByIdAsync(Guid guid, CancellationToken cancellationToken = default);
+    Task<T?> GetByIdAsync(Guid Guid, CancellationToken cancellationToken = default);
     /// <summary>
     /// Retrieves entity of type <typeparamref name="T"/> based on a specified Guid with related Entities you passed.
     /// </summary>
     /// <returns>The first entity that matches the specified predicate.</returns>
     /// 
-    Task<T?> GetByIdAsync(Guid guid, string[] includes, CancellationToken cancellationToken = default);
+    Task<T?> GetByIdAsync(Guid Guid, string[] includes, CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Retrieves entity of type <typeparamref name="T"/> based on a specified Guid.

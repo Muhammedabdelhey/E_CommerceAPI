@@ -2,7 +2,7 @@
 {
     public record UpdateCouponCommand : IRequest<CouponDto>
     {
-        public string guid { get; init; } = string.Empty;
+        public string Guid { get; init; } = string.Empty;
         public double DiscountValue { get; init; }
         public DiscountType DiscountType { get; init; }
         public DateTimeOffset StartDate { get; init; }

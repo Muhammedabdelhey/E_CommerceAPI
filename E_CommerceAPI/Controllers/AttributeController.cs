@@ -37,7 +37,7 @@ namespace E_Commerce.Presentation.Controllers
         public async Task<IActionResult> Create([FromForm] CreateAttributeCommand command, CancellationToken cancellationToken)
         {
             var attribute = await _mediator.Send(command, cancellationToken);
-            return Ok(attribute);
+            return StatusCode(StatusCodes.Status201Created, attribute);
         }
 
         [Authorize(Policy = nameof(Permissions.Attribute_Write))]
@@ -58,7 +58,7 @@ namespace E_Commerce.Presentation.Controllers
         public async Task<IActionResult> Delete(string attribute_id, CancellationToken cancellationToken)
         {
             await _mediator.Send(new DeleteAttributeCommand(attribute_id), cancellationToken);
-            return Ok("Attribute Deleted");
+            return NoContent();
         }
     }
 }

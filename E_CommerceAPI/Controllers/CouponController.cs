@@ -35,10 +35,10 @@ namespace E_Commerce.Presentation.Controllers
         }
 
         [Authorize(Policy = nameof(Permissions.Coupon_Read))]
-        [HttpGet("{guid}")]
-        public async Task<IActionResult> GetById(string guid, CancellationToken cancellationToken)
+        [HttpGet("{Guid}")]
+        public async Task<IActionResult> GetById(string Guid, CancellationToken cancellationToken)
         {
-            var coupon = await _mediator.Send(new GetCouponByIdQuery(guid), cancellationToken);
+            var coupon = await _mediator.Send(new GetCouponByIdQuery(Guid), cancellationToken);
             return Ok(coupon);
         }
 
@@ -47,16 +47,16 @@ namespace E_Commerce.Presentation.Controllers
         public async Task<IActionResult> Create([FromForm] CreateCouponCommand command, CancellationToken cancellationToken)
         {
             var coupon = await _mediator.Send(command, cancellationToken);
-            return Ok(coupon);
+            return StatusCode(StatusCodes.Status201Created, coupon);
         }
 
         [Authorize(Policy = nameof(Permissions.Coupon_Write))]
-        [HttpPut("{guid}")]
-        public async Task<IActionResult> Update(string guid,
+        [HttpPut("{Guid}")]
+        public async Task<IActionResult> Update(string Guid,
             [FromForm] UpdateCouponCommand command,
             CancellationToken cancellationToken)
         {
-            if (!guid.Equals(command.guid))
+            if (!Guid.Equals(command.Guid))
             {
                 return BadRequest("Guid you pass in route not equal to one passed on request");
             }
@@ -65,11 +65,11 @@ namespace E_Commerce.Presentation.Controllers
         }
 
         [Authorize(Policy = nameof(Permissions.Coupon_Delete))]
-        [HttpDelete("{guid}")]
-        public async Task<IActionResult> Delete(string guid, CancellationToken cancellationToken)
+        [HttpDelete("{Guid}")]
+        public async Task<IActionResult> Delete(string Guid, CancellationToken cancellationToken)
         {
-            var coupon = await _mediator.Send(new DeleteCouponQuery(guid), cancellationToken);
-            return Ok(coupon);
+            await _mediator.Send(new DeleteCouponCommand(Guid), cancellationToken);
+            return NoContent();
         }
     }
 }

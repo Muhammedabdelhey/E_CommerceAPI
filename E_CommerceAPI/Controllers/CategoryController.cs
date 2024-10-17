@@ -18,10 +18,10 @@ namespace E_Commerce.Presentation.Controllers
         }
 
         [Authorize(Policy = nameof(Permissions.Category_Read))]
-        [HttpGet("{guid}")]
-        public async Task<IActionResult> Get(string guid, CancellationToken cancellationToken)
+        [HttpGet("{Guid}")]
+        public async Task<IActionResult> Get(string Guid, CancellationToken cancellationToken)
         {
-            var category = await _mediatR.Send(new GetCategoryByIdQuery(guid), cancellationToken);
+            var category = await _mediatR.Send(new GetCategoryByIdQuery(Guid), cancellationToken);
             return Ok(category);
         }
 
@@ -38,17 +38,17 @@ namespace E_Commerce.Presentation.Controllers
         public async Task<IActionResult> Add([FromForm] CreateCategoryCommand command, CancellationToken cancellationToken)
         {
             var category = await _mediatR.Send(command, cancellationToken);
-            return Ok(category);
+            return StatusCode(StatusCodes.Status201Created, category);
         }
 
         [Authorize(Policy = nameof(Permissions.Category_Write))]
-        [HttpPut("{guid}")]
+        [HttpPut("{Guid}")]
         public async Task<IActionResult> Update(
-            string guid,
+            string Guid,
             [FromForm] UpdateCategoryCommand command,
             CancellationToken cancellationToken)
         {
-            if (!guid.Equals(command.guid))
+            if (!Guid.Equals(command.Guid))
             {
                 return BadRequest("Guid you pass in route not equal to one passed on request");
             }
@@ -57,11 +57,11 @@ namespace E_Commerce.Presentation.Controllers
         }
 
         [Authorize(Policy = nameof(Permissions.Category_Delete))]
-        [HttpDelete("{guid}")]
-        public async Task<IActionResult> Delete(string guid, CancellationToken cancellationToken)
+        [HttpDelete("{Guid}")]
+        public async Task<IActionResult> Delete(string Guid, CancellationToken cancellationToken)
         {
-            var category = await _mediatR.Send(new DeleteCategoryCommand(guid), cancellationToken);
-            return Ok($"Category with guid {category.Id} deleted ");
+            await _mediatR.Send(new DeleteCategoryCommand(Guid), cancellationToken);
+            return NoContent();
         }
     }
 }

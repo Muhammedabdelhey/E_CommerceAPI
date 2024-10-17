@@ -20,9 +20,9 @@ namespace E_Commerce.Application.Features.Products.Commands.UpdateProductVariant
 
         public async Task<ProductVariantDto> Handle(UpdateProductVariantCommand request, CancellationToken cancellationToken)
         {
-            var productVariant = await _productVariantRepository.GetByIdAsync(Guid.Parse(request.guid),
+            var productVariant = await _productVariantRepository.GetByIdAsync(Guid.Parse(request.Guid),
                 ["ProductVariantAttributes", "Product"], cancellationToken)
-                ?? throw new NotFoundException("Product Variant", request.guid);
+                ?? throw new NotFoundException("Product Variant", request.Guid);
 
             var image = productVariant.Image;
             productVariant.Stock = request.Stock;

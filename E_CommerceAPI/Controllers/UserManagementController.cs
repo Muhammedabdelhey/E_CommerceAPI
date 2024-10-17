@@ -21,13 +21,15 @@ namespace E_Commerce.Presentation.Controllers
         [HttpGet("Users")]
         public async Task<IActionResult> Get(CancellationToken cancellationToken)
         {
-            return Ok(await _mediator.Send(new GetUsersQuery(), cancellationToken));
+            var users = await _mediator.Send(new GetUsersQuery(), cancellationToken);
+            return Ok(users);
         }
 
         [HttpGet("Users/{user_id}/Claims")]
         public async Task<IActionResult> GetUserClaims(string user_id, CancellationToken cancellationToken)
         {
-            return Ok(await _mediator.Send(new GetUserClaimsQuery(user_id), cancellationToken));
+            var claims = await _mediator.Send(new GetUserClaimsQuery(user_id), cancellationToken);
+            return Ok(claims);
         }
 
         [HttpGet("Users/{user_id}/Roles")]
@@ -59,7 +61,7 @@ namespace E_Commerce.Presentation.Controllers
                 return BadRequest("Guid you pass in route not equal to one passed on request");
             }
             var claims = await _mediator.Send(command, cancellationToken);
-            return Ok(claims);
+            return StatusCode(StatusCodes.Status201Created, claims);
         }
     }
 }

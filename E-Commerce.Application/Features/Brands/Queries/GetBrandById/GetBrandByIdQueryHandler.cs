@@ -13,8 +13,8 @@
         }
         public async Task<BrandDto> Handle(GetBrandByIdQuery request, CancellationToken cancellationToken)
         {
-            var brand = await _brandRepository.GetByIdAsync(Guid.Parse(request.guid), cancellationToken)
-                ?? throw new NotFoundException("Brand", request.guid);
+            var brand = await _brandRepository.GetByIdAsync(Guid.Parse(request.Guid), cancellationToken)
+                ?? throw new NotFoundException("Brand", request.Guid);
             return _mapper.Map<BrandDto>(brand);
         }
     }

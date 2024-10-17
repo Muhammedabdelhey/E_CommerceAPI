@@ -2,5 +2,5 @@
 
 namespace E_Commerce.Application.Features.RoleManagement.Commands.DeleteRole
 {
-    public record DeleteRoleCommand(string Id) : IRequest<IdentityRole>;
+    public record DeleteRoleCommand(string Id) : IRequest<Unit>;
 }

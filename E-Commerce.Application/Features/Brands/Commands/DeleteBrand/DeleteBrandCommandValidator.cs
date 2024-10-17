@@ -4,12 +4,12 @@
     {
         public DeleteBrandCommandValidator(EntityExistenceValidator<Brand> brandExistenceValidator)
         {
-            RuleFor(v => v.guid)
+            RuleFor(v => v.Guid)
                 .NotEmpty()
                 .SetValidator(new GuidValidator())
                 .DependentRules(() =>
                 {
-                    RuleFor(v => v.guid)
+                    RuleFor(v => v.Guid)
                         .SetValidator(brandExistenceValidator);
                 });
         }

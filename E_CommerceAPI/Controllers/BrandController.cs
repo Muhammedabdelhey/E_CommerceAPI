@@ -18,10 +18,10 @@ namespace E_Commerce.Presentation.Controllers
         }
 
         [Authorize(Policy = nameof(Permissions.Brand_Read))]
-        [HttpGet("{guid}")]
-        public async Task<IActionResult> Get(string guid, CancellationToken cancellationToken)
+        [HttpGet("{Guid}")]
+        public async Task<IActionResult> Get(string Guid, CancellationToken cancellationToken)
         {
-            var brand = await _mediator.Send(new GetBrandByIdQuery(guid), cancellationToken);
+            var brand = await _mediator.Send(new GetBrandByIdQuery(Guid), cancellationToken);
             return Ok(brand);
         }
 
@@ -39,17 +39,17 @@ namespace E_Commerce.Presentation.Controllers
             , CancellationToken cancellationToken)
         {
             var brand = await _mediator.Send(command, cancellationToken);
-            return Ok(brand);
+            return StatusCode(StatusCodes.Status201Created,brand);
         }
 
         [Authorize(Policy = nameof(Permissions.Brand_Write))]
-        [HttpPut("{guid}")]
+        [HttpPut("{Guid}")]
         public async Task<IActionResult> Update(
-            string guid,
+            string Guid,
             [FromForm] UpdateBrandCommand command,
             CancellationToken cancellationToken)
         {
-            if (!guid.Equals(command.guid))
+            if (!Guid.Equals(command.Guid))
             {
                 return BadRequest("Guid you pass in route not equal to one passed on request");
             }
@@ -58,11 +58,11 @@ namespace E_Commerce.Presentation.Controllers
         }
 
         [Authorize(Policy = nameof(Permissions.Brand_Delete))]
-        [HttpDelete("{guid}")]
-        public async Task<IActionResult> Delete(string guid, CancellationToken cancellationToken)
+        [HttpDelete("{Guid}")]
+        public async Task<IActionResult> Delete(string Guid, CancellationToken cancellationToken)
         {
-            var brand = await _mediator.Send(new DeleteBrandCommand(guid), cancellationToken);
-            return Ok($"Brand with guid {brand.Id} deleted ");
+            await _mediator.Send(new DeleteBrandCommand(Guid), cancellationToken);
+            return NoContent();
         }
     }
 }

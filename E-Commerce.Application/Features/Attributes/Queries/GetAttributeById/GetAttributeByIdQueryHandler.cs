@@ -12,8 +12,8 @@
 
         public async Task<AttributeDto> Handle(GetAttributeByIdQuery request, CancellationToken cancellationToken)
         {
-            var attribute = await _attributeRepository.GetByIdAsync(Guid.Parse(request.guid), cancellationToken)
-                ?? throw new NotFoundException("Attribute", request.guid);
+            var attribute = await _attributeRepository.GetByIdAsync(Guid.Parse(request.Guid), cancellationToken)
+                ?? throw new NotFoundException("Attribute", request.Guid);
             return _mapper.Map<AttributeDto>(attribute);
 
         }

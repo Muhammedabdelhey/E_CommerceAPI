@@ -1,21 +1,21 @@
 ﻿namespace E_Commerce.Application.Features.Attributes.Commands.DeleteAttribute
 {
-    public class DeleteAttributeCommandHandelr : IRequestHandler<DeleteAttributeCommand, AttributeDto>
+    public class DeleteAttributeCommandHandler : IRequestHandler<DeleteAttributeCommand,Unit>
     {
-        private readonly IBaseRepository<Attribute> _attributeRepsoitory;
-        private readonly IMapper _mapper;
-        public DeleteAttributeCommandHandelr(IBaseRepository<Attribute> attributeRepsoitory, IMapper mapper)
+        private readonly IBaseRepository<Attribute> _attributeRepository;
+
+        public DeleteAttributeCommandHandler(IBaseRepository<Attribute> attributeRepository)
         {
-            _attributeRepsoitory = attributeRepsoitory;
-            _mapper = mapper;
+            _attributeRepository = attributeRepository;
         }
 
-        public async Task<AttributeDto> Handle(DeleteAttributeCommand request, CancellationToken cancellationToken)
+        public async Task<Unit> Handle(DeleteAttributeCommand request, CancellationToken cancellationToken)
         {
-            var attribute = await _attributeRepsoitory.GetByIdAsync(Guid.Parse(request.guid), cancellationToken)
-                ?? throw new NotFoundException("Attribute", request.guid);
-            await _attributeRepsoitory.DeleteAsync(attribute, cancellationToken);
-            return _mapper.Map<AttributeDto>(attribute);
+            var attribute = await _attributeRepository.GetByIdAsync(Guid.Parse(request.Guid), cancellationToken)
+                ?? throw new NotFoundException("Attribute", request.Guid);
+            await _attributeRepository.DeleteAsync(attribute, cancellationToken);
+
+            return Unit.Value;
         }
     }
 }

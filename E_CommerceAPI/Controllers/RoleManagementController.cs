@@ -41,32 +41,33 @@ namespace E_Commerce.Presentation.Controllers
         public async Task<IActionResult> CreateRole(CreateRoleCommand command, CancellationToken cancellationToken)
         {
             var role = await _mediator.Send(command, cancellationToken);
-            return Ok(role);
+            return StatusCode(StatusCodes.Status201Created,role);
         }
 
-        [HttpDelete("{guid}")]
-        public async Task<IActionResult> DeleteRole(string guid, CancellationToken cancellationToken)
+        [HttpDelete("{Guid}")]
+        public async Task<IActionResult> DeleteRole(string Guid, CancellationToken cancellationToken)
         {
-            var role = await _mediator.Send(new DeleteRoleCommand(guid), cancellationToken);
-            return Ok($"role {role.Name} was deleted");
+            await _mediator.Send(new DeleteRoleCommand(Guid), cancellationToken);
+            return NoContent();
         }
 
-        [HttpGet("{guid}/Claims")]
-        public async Task<IActionResult> GetRoleClaims(string guid, CancellationToken cancellationToken)
+        [HttpGet("{Guid}/Claims")]
+        public async Task<IActionResult> GetRoleClaims(string Guid, CancellationToken cancellationToken)
         {
-            return Ok(await _mediator.Send(new GetRoleClaimsQuery(guid), cancellationToken));
+            return Ok(await _mediator.Send(new GetRoleClaimsQuery(Guid), cancellationToken));
         }
 
-        [HttpPost("{guid}/Claims")]
-        public async Task<IActionResult> AddClaimsToRole(string guid,
+        [HttpPost("{Guid}/Claims")]
+        public async Task<IActionResult> AddClaimsToRole(string Guid,
              [FromForm] ManageRoleClaimsCommand command,
              CancellationToken cancellationToken)
         {
-            if (!guid.Equals(command.RoleId))
+            if (!Guid.Equals(command.RoleId))
             {
                 return BadRequest("Guid you pass in route not equal to one passed on request");
             }
-            return Ok(await _mediator.Send(command, cancellationToken));
+            var claims = await _mediator.Send(command, cancellationToken);
+            return StatusCode(StatusCodes.Status201Created,claims);
         }
     }
 }

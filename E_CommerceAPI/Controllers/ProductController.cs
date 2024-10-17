@@ -29,10 +29,10 @@ namespace E_Commerce.Presentation.Controllers
         }
 
         [Authorize(Policy = nameof(Permissions.Product_Read))]
-        [HttpGet("{guid}")]
-        public async Task<IActionResult> Get(string guid, CancellationToken cancellationToken)
+        [HttpGet("{Guid}")]
+        public async Task<IActionResult> Get(string Guid, CancellationToken cancellationToken)
         {
-            var prodcut = await _mediator.Send(new GetProductByIdQuery(guid), cancellationToken);
+            var prodcut = await _mediator.Send(new GetProductByIdQuery(Guid), cancellationToken);
             return Ok(prodcut);
         }
 
@@ -41,15 +41,15 @@ namespace E_Commerce.Presentation.Controllers
         public async Task<IActionResult> Create([FromForm] CreateProductCommand command, CancellationToken cancellationToken)
         {
             var product = await _mediator.Send(command, cancellationToken);
-            return Ok(product);
+            return StatusCode(StatusCodes.Status201Created, product);
         }
 
         [Authorize(Policy = nameof(Permissions.Product_Write))]
-        [HttpPut("{guid}")]
-        public async Task<IActionResult> Update(string guid, [FromForm] UpdateProductCommand command
+        [HttpPut("{Guid}")]
+        public async Task<IActionResult> Update(string Guid, [FromForm] UpdateProductCommand command
             , CancellationToken cancellationToken)
         {
-            if (!guid.Equals(command.guid))
+            if (!Guid.Equals(command.Guid))
             {
                 return BadRequest("Guid you pass in route not equal to one passed on request");
             }
@@ -58,11 +58,11 @@ namespace E_Commerce.Presentation.Controllers
         }
 
         [Authorize(Policy = nameof(Permissions.Product_Delete))]
-        [HttpDelete("{guid}")]
-        public async Task<IActionResult> Delete(string guid, CancellationToken cancellationToken)
+        [HttpDelete("{Guid}")]
+        public async Task<IActionResult> Delete(string Guid, CancellationToken cancellationToken)
         {
-            var product = await _mediator.Send(new DeleteProductCommand(guid), cancellationToken);
-            return Ok($"Product with guid {product.Id} Deleted ");
+            await _mediator.Send(new DeleteProductCommand(Guid), cancellationToken);
+            return NoContent();
         }
 
         [Authorize(Policy = nameof(Permissions.Product_Read))]
@@ -85,7 +85,7 @@ namespace E_Commerce.Presentation.Controllers
                 return BadRequest("Guid you pass in route not equal to one passed on request");
             }
             var productVariant = await _mediator.Send(command, cancellationToken);
-            return Ok(productVariant);
+            return StatusCode(StatusCodes.Status201Created, productVariant);
         }
 
         [Authorize(Policy = nameof(Permissions.Product_Write))]
@@ -95,7 +95,7 @@ namespace E_Commerce.Presentation.Controllers
             [FromForm] UpdateProductVariantCommand command,
             CancellationToken cancellationToken)
         {
-            if (!productId.Equals(command.ProductId) || !productVariantId.Equals(command.guid))
+            if (!productId.Equals(command.ProductId) || !productVariantId.Equals(command.Guid))
             {
                 return BadRequest("Guid you pass in route not equal to one passed on request");
             }
@@ -109,8 +109,8 @@ namespace E_Commerce.Presentation.Controllers
             string productId,
             CancellationToken cancellationToken)
         {
-            var productVariant = await _mediator.Send(new DeleteProductVariantCommand(productId, productVariantId), cancellationToken);
-            return Ok(productVariant);
+            await _mediator.Send(new DeleteProductVariantCommand(productId, productVariantId), cancellationToken);
+            return NoContent();
         }
     }
 }

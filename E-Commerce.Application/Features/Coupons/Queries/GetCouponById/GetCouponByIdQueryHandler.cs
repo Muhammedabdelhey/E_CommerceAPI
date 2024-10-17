@@ -13,8 +13,8 @@
 
         public async Task<CouponDto> Handle(GetCouponByIdQuery request, CancellationToken cancellationToken)
         {
-            var coupon = await _CouponRepository.GetByIdAsync(Guid.Parse(request.guid), cancellationToken)
-                ?? throw new NotFoundException("Coupon", request.guid);
+            var coupon = await _CouponRepository.GetByIdAsync(Guid.Parse(request.Guid), cancellationToken)
+                ?? throw new NotFoundException("Coupon", request.Guid);
             return _Mapper.Map<CouponDto>(coupon);
         }
     }
