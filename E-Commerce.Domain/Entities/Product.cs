@@ -1,6 +1,4 @@
-﻿using E_Commerce.Domain.Comman;
-
-namespace E_Commerce.Domain.Entities
+﻿namespace E_Commerce.Domain.Entities
 {
     public class Product : BaseAuditableEntity
     {
@@ -13,7 +11,7 @@ namespace E_Commerce.Domain.Entities
         public virtual Category Category { get; set; }
         public Guid BrandId { get; set; }
         [ForeignKey(nameof(BrandId))]
-        public virtual Brand Brand { get; set; } 
+        public virtual Brand Brand { get; set; }
 
         public virtual ICollection<ProductVariant> Variants { get; set; } = [];
     }

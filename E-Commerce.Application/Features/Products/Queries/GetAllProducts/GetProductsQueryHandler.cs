@@ -13,7 +13,6 @@ namespace E_Commerce.Application.Features.Products.Queries.GetAllProducts
         public async Task<IEnumerable<ProductDto>> Handle(GetProductsQuery request, CancellationToken cancellationToken)
         {
             var products = await _productRepository.GetAllAsync([
-                "Variants.ProductVariantAttributes.Attribute",
                 "Category",
                 "Brand"], cancellationToken);
             return _Mapper.Map<IEnumerable<ProductDto>>(products);

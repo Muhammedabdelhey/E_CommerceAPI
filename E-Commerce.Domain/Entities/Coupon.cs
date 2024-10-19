@@ -1,6 +1,4 @@
-﻿using E_Commerce.Domain.Comman;
-
-namespace E_Commerce.Domain.Entities
+﻿namespace E_Commerce.Domain.Entities
 {
     public class Coupon : BaseEntity
     {

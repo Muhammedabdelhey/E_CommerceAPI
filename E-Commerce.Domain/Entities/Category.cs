@@ -1,9 +1,6 @@
-﻿using E_Commerce.Domain.Comman;
-using E_Commerce.Domain.Interfcases;
-
-namespace E_Commerce.Domain.Entities
+﻿namespace E_Commerce.Domain.Entities
 {
-    public class Category : BaseEntity , IEntityHasImage
+    public class Category : BaseEntity, IEntityHasImage
     {
         [Required]
         [StringLength(50)]

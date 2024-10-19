@@ -1,7 +1,4 @@
-﻿using E_Commerce.Domain.Comman;
-using E_Commerce.Domain.Interfcases;
-using System.Text.Json.Serialization;
-namespace E_Commerce.Domain.Entities
+﻿namespace E_Commerce.Domain.Entities
 {
     public class ProductVariant : BaseEntity, IEntityHasImage
     {

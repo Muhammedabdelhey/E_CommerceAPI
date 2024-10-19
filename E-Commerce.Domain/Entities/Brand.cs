@@ -1,7 +1,4 @@
-﻿using E_Commerce.Domain.Comman;
-using E_Commerce.Domain.Interfcases;
-
-namespace E_Commerce.Domain.Entities
+﻿namespace E_Commerce.Domain.Entities
 {
     public class Brand : BaseEntity, IEntityHasImage
     {
