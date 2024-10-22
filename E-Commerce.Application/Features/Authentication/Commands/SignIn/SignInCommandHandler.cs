@@ -26,12 +26,13 @@ namespace E_Commerce.Application.Features.Authentication.Commands.SignIn
             if (!result.Succeeded)
                 throw new ValidationException("Email Or Password Not Correct");
 
-            var token = await _jwtService.GenerateTokenAsync(user);
+            var token = await _jwtService.GenerateTokenAsync(user.Id);
+            var accessToken = new JwtSecurityTokenHandler().WriteToken(token);
             return new TokenObj
             {
-                AccessToken = new JwtSecurityTokenHandler().WriteToken(token),
+                AccessToken = accessToken,
                 ExpireOn = token.ValidTo,
-                RefreshToken = ""
+                RefreshToken = await _jwtService.GenerateRefreshToken(user.Id, accessToken, cancellationToken)
             };
         }
     }

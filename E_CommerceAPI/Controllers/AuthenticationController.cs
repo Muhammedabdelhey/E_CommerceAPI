@@ -1,4 +1,5 @@
-﻿using E_Commerce.Application.Features.Authentication.Commands.SignIn;
+﻿using E_Commerce.Application.Features.Authentication.Commands.RefreshToken;
+using E_Commerce.Application.Features.Authentication.Commands.SignIn;
 using E_Commerce.Application.Features.Authentication.Commands.SignUp;
 
 namespace E_Commerce.Presentation.Controllers
@@ -23,6 +24,13 @@ namespace E_Commerce.Presentation.Controllers
 
         [HttpPost("SignIn")]
         public async Task<IActionResult> SignIn([FromForm] SignInCommand command, CancellationToken cancellationToken)
+        {
+            var token = await _mediator.Send(command, cancellationToken);
+            return Ok(token);
+        }
+
+        [HttpPost("RefreshToken")]
+        public async Task<IActionResult> RefreshToken([FromForm] RefreshTokenCommand command, CancellationToken cancellationToken)
         {
             var token = await _mediator.Send(command, cancellationToken);
             return Ok(token);

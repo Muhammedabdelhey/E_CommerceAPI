@@ -5,14 +5,28 @@ using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
+using System.Security.Cryptography;
 using System.Text;
 
 namespace E_Commerce.Application.Common.Services
 {
-    public class JwtService(IOptions<JwtOptions> _jwtOptions, UserManager<User> _userManager, RoleManager<IdentityRole> _roleManager)
+    public class JwtService
     {
-        public async Task<JwtSecurityToken> GenerateTokenAsync(User user)
+        private readonly IOptions<JwtOptions> _jwtOptions;
+        private readonly UserManager<User> _userManager;
+        private readonly RoleManager<IdentityRole> _roleManager;
+        private readonly IBaseRepository<UserRefreshToken> _refreshTokenRepository;
+        public JwtService(IOptions<JwtOptions> jwtOptions, UserManager<User> userManager, RoleManager<IdentityRole> roleManager, IBaseRepository<UserRefreshToken> refreshTokenRepository)
         {
+            _jwtOptions = jwtOptions;
+            _userManager = userManager;
+            _roleManager = roleManager;
+            _refreshTokenRepository = refreshTokenRepository;
+        }
+
+        public async Task<JwtSecurityToken> GenerateTokenAsync(string userId)
+        {
+            var user =await _userManager.FindByIdAsync(userId);
             var claims = await GetClaims(user);
             var tokenHandler = new JwtSecurityTokenHandler();
             var tokenDescriptor = new SecurityTokenDescriptor()
@@ -28,6 +42,23 @@ namespace E_Commerce.Application.Common.Services
             var token = tokenHandler.CreateToken(tokenDescriptor);
             var accessToken = (JwtSecurityToken)token;
             return accessToken;
+        }
+
+        public async Task<string> GenerateRefreshToken(string userId,string token,CancellationToken cancellationToken)
+        {
+            var randomNumber = new byte[32];
+            var generator = RandomNumberGenerator.Create();
+            generator.GetBytes(randomNumber);
+            var rtoken = Convert.ToBase64String(randomNumber);
+            UserRefreshToken refreshToken = new()
+            {
+                Token = token,
+                RefreshToken = rtoken,
+                UserId= userId,
+                CreatedAt = DateTime.UtcNow,
+            };
+            await _refreshTokenRepository.AddAsync(refreshToken,cancellationToken);
+            return rtoken;
         }
 
         public async Task<IEnumerable<Claim>> GetClaims(User user)

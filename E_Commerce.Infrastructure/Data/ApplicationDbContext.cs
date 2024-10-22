@@ -15,6 +15,8 @@ public class ApplicationDbContext : IdentityDbContext<User>
     internal DbSet<CouponUsage> CouponUsages { get; set; }
     internal DbSet<Product> Products { get; set; }
     internal DbSet<ProductVariant> ProductsVariants { get; set; }
+    internal DbSet<UserRefreshToken> RefreshToken { get; set; }
+
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
