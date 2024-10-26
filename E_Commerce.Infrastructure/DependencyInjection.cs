@@ -12,11 +12,13 @@ namespace E_Commerce.Infrastructure
             services.AddScoped<ISaveChangesInterceptor, AuditableEntityInterceptor>();
             services.AddScoped<ISaveChangesInterceptor, DispatchDomainEventsInterceptor>();
             services.AddScoped(typeof(IBaseRepository<>), typeof(BaseRepository<>));
-            services.AddSingleton(TimeProvider.System);
             services.AddScoped(typeof(IFileAdapter), typeof(LocalFileAdapter));
+            services.AddSingleton(TimeProvider.System);
+
             services.AddDbContext<ApplicationDbContext>((sp, options) =>
             {
                 options.UseSqlServer(connectionString)
+                       .UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking)
                        .AddInterceptors(sp.GetServices<ISaveChangesInterceptor>());
             });
 

@@ -4,8 +4,6 @@ using E_Commerce.Infrastructure;
 using E_Commerce.Presentation;
 using E_Commerce.Presentation.Extensions;
 using E_Commerce.Presentation.Services;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.DependencyInjection;
 using System.Text.Json.Serialization;
 var builder = WebApplication.CreateBuilder(args);
 
