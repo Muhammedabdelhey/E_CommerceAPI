@@ -1,22 +1,24 @@
 ﻿using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using System.ComponentModel;
 using System.IO;
+using System.Reflection.Metadata;
 
 namespace E_Commerce.Infrastructure.Adapters.Storage
 {
     public class LocalFileAdapter : IFileAdapter
     {
         private readonly IHttpContextAccessor _httpContextAccessor;
-
         private readonly string serverPath;
+        private bool disposed = false;
 
         public LocalFileAdapter(IWebHostEnvironment webHostEnvironment, IHttpContextAccessor httpContextAccessor)
         {
-            serverPath = Path.Combine(webHostEnvironment.WebRootPath,"Images");
+            serverPath = Path.Combine(webHostEnvironment.WebRootPath, "Images");
             _httpContextAccessor = httpContextAccessor;
         }
 
-        public async Task<string> UploadFileAsync( IFormFile file, CancellationToken cancellationToken = default)
+        public async Task<string> UploadFileAsync(IFormFile file, CancellationToken cancellationToken = default)
         {
             if (!Directory.Exists(serverPath))
             {
@@ -35,7 +37,7 @@ namespace E_Commerce.Infrastructure.Adapters.Storage
             return fileName;
         }
 
-        public async Task<bool> DeleteFileAsync( string fileName, CancellationToken cancellationToken = default)
+        public async Task<bool> DeleteFileAsync(string fileName, CancellationToken cancellationToken = default)
         {
             var fullPath = Path.Combine(serverPath, fileName);
             if (!File.Exists(fullPath))
@@ -46,7 +48,7 @@ namespace E_Commerce.Infrastructure.Adapters.Storage
             return true;
         }
 
-        public string? GetFileUrl( string fileName)
+        public string? GetFileUrl(string fileName)
         {
             var request = _httpContextAccessor.HttpContext?.Request;
             var fullPath = Path.Combine(serverPath, fileName);

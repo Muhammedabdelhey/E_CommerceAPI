@@ -1,5 +1,4 @@
 ﻿using E_Commerce.Application.Interfaces;
-using Microsoft.AspNetCore.Http;
 
 namespace E_Commerce.Application.Common.Services
 {

@@ -54,7 +54,7 @@ public class BaseRepository<T>(ApplicationDbContext context) : IBaseRepository<T
 
     public virtual async Task<T> AddAsync(T entity, CancellationToken cancellationToken = default)
     {
-        await _context.Set<T>().AddAsync(entity);
+        await _context.Set<T>().AddAsync(entity,cancellationToken);
         await _context.SaveChangesAsync(cancellationToken);
         return entity;
     }
