@@ -10,6 +10,7 @@ This project is an e-commerce management API built using **ASP.NET Core**. It ha
 - **Coupon Management**: Create and manage discount coupons and promotions.
 - **Product Management**: Create and manage products with multiple variants, each with its own category and attributes.
 - **Product Variants**: Products can have multiple variants (e.g., size, color), each associated with categories.
+- **JWT-Based Authentication**: Secure authentication using JWT tokens for user sign-in, sign-up, and token refresh operations.
 - **Role-Based Access Control (RBAC)**: Admins can create roles, assign permissions to roles, and dynamically manage user roles and permissions.
 
 ## Technologies and Architecture
@@ -30,6 +31,11 @@ Operations are divided into:
 - **Queries**: Read data.
 
 This enhances scalability and performance by optimizing write and read operations separately.
+
+### JWT Authentication and Authorization
+The API includes **JWT-based authentication** for secure access control, with features such as:
+- **JWT Token Service**: Handles user authentication, generating access and refresh tokens during sign-in and sign-up.
+- **Refresh Tokens**: Allows users to request new access tokens when the previous one expires.
 
 ### FluentValidation
 Validation logic is handled through **FluentValidation** for a clean and maintainable approach. Validators are centralized and used in the **Validation Behavior** to validate commands and queries before they are processed.
