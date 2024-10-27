@@ -37,14 +37,14 @@ The API includes **JWT-based authentication** for secure access control, with fe
 - **JWT Token Service**: Handles user authentication, generating access and refresh tokens during sign-in and sign-up.
 - **Refresh Tokens**: Allows users to request new access tokens when the previous one expires.
 
-### FluentValidation
-Validation logic is handled through **FluentValidation** for a clean and maintainable approach. Validators are centralized and used in the **Validation Behavior** to validate commands and queries before they are processed.
-
 ### Identity and Role-Based Access Control (RBAC)
 The API includes **ASP.NET Core Identity** for user authentication and authorization, with the following features:
 - **Dynamic Role and Permission Management**: Admins can create roles and define permissions for each role.
 - **Role Assignment**: Assign roles and permissions to users dynamically, allowing for flexible control over access to different areas of the system.
 - **Authorization Policies**: Define fine-grained authorization rules based on roles and permissions, ensuring secure access to the system's features.
+
+### FluentValidation
+Validation logic is handled through **FluentValidation** for a clean and maintainable approach. Validators are centralized and used in the **Validation Behavior** to validate commands and queries before they are processed.
 
 ### File Handling (Adapter Pattern)
 The **Adapter Pattern** is used for file uploads (e.g., product images). This allows for flexibility in storing files locally or using external storage services like AWS or Azure.
@@ -57,6 +57,9 @@ Entity Framework Core interceptors are used to automatically track changes in **
 
 ### Validation Behavior
 The **ValidationBehavior** ensures that requests are validated through **FluentValidation** before being passed to the business logic, ensuring only valid data reaches the core logic.
+
+### AutoMapper
+The **AutoMapper** library is used to streamline object-to-object mapping. This helps to convert complex models into Data Transfer Objects (DTOs) and vice versa, simplifying data handling between different layers of the application.
 
 ## Conclusion
 
