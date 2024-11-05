@@ -20,7 +20,9 @@ namespace E_Commerce.Presentation.Extensions
                 options.DefaultScheme =
                 options.DefaultSignInScheme =
                 options.DefaultSignOutScheme = JwtBearerDefaults.AuthenticationScheme;
-            }).AddJwtBearer(options =>
+            })
+
+            .AddJwtBearer(options =>
             {
                 options.SaveToken = true;
                 options.TokenValidationParameters = new TokenValidationParameters
